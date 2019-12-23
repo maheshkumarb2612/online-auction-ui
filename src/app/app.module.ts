@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { PagesModule } from './pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatLoaderModule} from './mat-loader.module';
 
 
 @NgModule({
@@ -18,8 +17,7 @@ import {MatLoaderModule} from './mat-loader.module';
     AppRoutingModule,
     LayoutModule,
     PagesModule,
-    BrowserAnimationsModule,
-    MatLoaderModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
