@@ -24,6 +24,13 @@ export class ProductListingComponent implements OnInit {
     {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
   ];
 
+  typesOfShoes: string[] = ['Books', 'Art', 'Painting', 'Electronics', 'Other'];
+
+  checked = false;
+  indeterminate = false;
+  labelPosition = 'after';
+  disabled = false;
+
   constructor() { }
 
   ngOnInit() {
