@@ -12,3 +12,26 @@
   
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mg-15px{
+  margin: 15px;
+}
+
+.mg-10px{
+  margin: 10px;
+}
+.mg-5px{
+  margin: 5px;
+}
+
+.pd-5px{
+  padding: 5px;
+}
+
+.pd-10px{
+  padding: 10px;
+}
+
+.pd-15px{
+  padding: 15px;
+}
