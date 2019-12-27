@@ -1,66 +1,90 @@
+<div class="container post-product-form">
+  <form class="product-content">
+    <div class="row">
+        <div class="col-md-4">
+            <div>Select Product : </div>
+        </div>
+        <div class="col-md-6">
+          <label class="image-upload-container btn btn-bwm">
+            <input #imageInput
+                   type="file"
+                   accept="image/*"
+                   (change)="processFile(imageInput)">
 
-  
-    <table height="40%">
-        <tr>      
-          <th width="60%">
-            Select Product :
-          </th>
-          <td>
-            <input type="file">
-          </td><br><hr>
-        </tr>
-    
-        <tr>
-          <th>
+          </label>
+        </div>
+    </div>
+    <hr color="blue">
+    <div class="row">
+          <div class="col-md-4">
             Give Your Item Title :
-          </th>
-          <td>
-            <input type="text">        </td>
-        </tr>
-    
-        <tr>
-          <th><small>
-            Upload pictures by clicking at right, <br>
-            or by dragging picture(s) from your computer to this form.<br>
-            Google Shopping has minimum image size requirements. <br>
-            Apparel images must be at least 250x250 pixels, and<br>
-            all other images must be at least 100x100 pixels.
-            </small>
-        </th>
-        </tr>
-    
-        <tr>
-            <th>
-                Select starting date and time for auction :
-            </th>
-            <td>
-              <input type="datetime-local">
-            </td>
-        </tr>
-
-        <tr>
-            <th>
-                Enter base price of the product :
-            </th>
-            <td>
-                <input type="text">
-            </td>
-        </tr>
-
-        <tr>
-            <th>
-                Select Ending date and time for auction :
-            </th>
-            <td>
-              <input type="datetime-local">
-            </td>
-        </tr>
-
-      </table>
-      <br>  
-      <button>Submit</button>
-
-
-      
-  
+          </div>
+          <div class="col-md-6">
+              <mat-form-field class="form-container">
+                  <input matInput placeholder="Product Name">
+                </mat-form-field>
+          </div>
+    </div>
+    <hr color="blue">
+    <div class="row">
+          <div class="col-md-4">
+              Which Category of product ?
+          </div>
+          <div class="col-md-6">
+            <mat-form-field class="form-container">
+              <mat-select placeholder="Category" >
+                <mat-option value="arts">Arts</mat-option>
+                <mat-option value="conies">Conies</mat-option>
+                <mat-option value="books">Books</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+    </div>
+    <hr color="blue">
+    <div class="row">
+          <div class="col-md-4">
+            Select starting date for auction :
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput [matDatepicker]="startDate" placeholder="Choose a date">
+              <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+              <mat-datepicker #startDate></mat-datepicker>
+            </mat-form-field>
+          </div>
+    </div>
+    <hr color="blue">
+    <div class="row">
+          <div class="col-md-4">
+            Select Ending date for auction :
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput [matDatepicker]="endDate" placeholder="Choose a date">
+              <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+              <mat-datepicker touchUi #endDate></mat-datepicker>
+            </mat-form-field>
+          </div>
+    </div>
+    <hr color="blue">
+    <div class="row">
+          <div class="col-md-4">
+            Enter base price of the product :
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+               <input matInput placeholder="Amount" type="number" class="example-right-align">
+               <span matPrefix>₹&nbsp;</span>
+               <span matSuffix>.00</span>
+            </mat-form-field>
+          </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-md-2">
+        <mat-button-toggle>Submit</mat-button-toggle>
+      </div>
+    </div>
+  </form>
+</div>
 

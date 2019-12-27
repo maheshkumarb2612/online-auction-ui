@@ -1,4 +1,22 @@
-table {
-    font-size: 20px;
+.post-product-form{
+  padding: 2%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  border-radius: 0.5rem;
+  background: #fff;
 }
 
+.product-content{
+  font-size: 16px;
+  color: black;
+  margin-top: 3%;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container > * {
+  width: 100%;
+}
