@@ -12,4 +12,7 @@ export class PostProductComponent implements OnInit {
   ngOnInit() {
   }
 
+  processFile(imageFile){
+
+  }
 }
