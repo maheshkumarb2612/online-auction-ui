@@ -8,6 +8,7 @@ import { ProfileComponent } from './secured/profile/profile/profile.component';
 import { PostProductComponent } from './secured/post-product/post-product.component';
 import {MatLoaderModule} from '../mat-loader.module';
 import { ProductDetailComponent } from './public/product-detail/product-detail.component';
+import { ProductListingComponent } from './public/product-listing/product-listing.component';
 
 
 const routes: Routes = [
@@ -16,12 +17,14 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'post-product', component: PostProductComponent },
-  { path: 'product-detail', component: ProductDetailComponent}
+  { path: 'product-detail', component: ProductDetailComponent},
+  { path: 'product-listing', component: ProductListingComponent },
 ]
 
 
 @NgModule({
-  declarations: [HomeComponent, LoginComponent, RegisterComponent, ProfileComponent, PostProductComponent, ProductDetailComponent],
+  declarations: [HomeComponent, LoginComponent, RegisterComponent, ProfileComponent,
+     PostProductComponent, ProductListingComponent, ProductDetailComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
