@@ -25,10 +25,13 @@
                 </mat-menu>
             </li>
             <li class="nav-item">
-              <button mat-button [matMenuTriggerFor]="Categories" class="header-font-color">Categories</button>
-                <mat-menu #Categories="matMenu">
+              <button mat-button [matMenuTriggerFor]="categories" class="header-font-color">Categories</button>
+                <mat-menu #categories="matMenu">
                   <button mat-menu-item [matMenuTriggerFor]="art">Art</button>
-                  <button mat-menu-item [matMenuTriggerFor]="Conies">Painting</button>
+                  <button mat-menu-item [matMenuTriggerFor]="conies">Conies</button>
+                  <button mat-menu-item [matMenuTriggerFor]="books">Books</button>
+                  <button mat-menu-item [matMenuTriggerFor]="paintings">Paintings</button>
+                  <button mat-menu-item [matMenuTriggerFor]="watches">Watches</button>
                 </mat-menu>
 
                 <mat-menu #art="matMenu">
@@ -39,7 +42,7 @@
                 <button mat-menu-item>Mammals</button>
                 </mat-menu>
 
-                <mat-menu #Conies="matMenu">
+                <mat-menu #conies="matMenu">
                 <button mat-menu-item>Insects</button>
                 <button mat-menu-item>Molluscs</button>
                 <button mat-menu-item>Crustaceans</button>

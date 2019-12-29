@@ -6,6 +6,10 @@
   background: #fff;
 }
 
+hr{
+  background-color:#222;
+}
+
 .product-content{
   font-size: 16px;
   color: black;
