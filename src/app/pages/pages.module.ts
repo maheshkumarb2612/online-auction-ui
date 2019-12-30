@@ -9,6 +9,7 @@ import { PostProductComponent } from './secured/post-product/post-product.compon
 import {MatLoaderModule} from '../mat-loader.module';
 import { ProductDetailComponent } from './public/product-detail/product-detail.component';
 import { ProductListingComponent } from './public/product-listing/product-listing.component';
+import { EditProfileComponent } from './secured/edit-profile/edit-profile.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [HomeComponent, LoginComponent, RegisterComponent, ProfileComponent,
-     PostProductComponent, ProductListingComponent, ProductDetailComponent],
+     PostProductComponent, ProductListingComponent, ProductDetailComponent, EditProfileComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

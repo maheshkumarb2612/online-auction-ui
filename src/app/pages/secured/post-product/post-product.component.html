@@ -9,7 +9,7 @@
             <input #imageInput
                    type="file"
                    accept="image/*"
-                   (change)="processFile(imageInput)">
+                   (change)="processFile(imageInput)" >
 
           </label>
         </div>
@@ -21,7 +21,7 @@
           </div>
           <div class="col-md-6">
               <mat-form-field class="form-container">
-                  <input matInput placeholder="Product Name">
+                  <input matInput placeholder="Product Name" required>
                 </mat-form-field>
           </div>
     </div>
@@ -32,7 +32,7 @@
           </div>
           <div class="col-md-6">
             <mat-form-field>
-              <mat-select placeholder="Category" >
+              <mat-select placeholder="Category" required>
                 <mat-option value="arts">Arts</mat-option>
                 <mat-option value="conies">Conies</mat-option>
                 <mat-option value="books">Books</mat-option>
@@ -47,7 +47,7 @@
           </div>
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput [matDatepicker]="startDate" placeholder="Choose a date">
+              <input matInput [matDatepicker]="startDate" placeholder="Choose a date" required>
               <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
               <mat-datepicker #startDate></mat-datepicker>
             </mat-form-field>
@@ -60,9 +60,9 @@
           </div>
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput [matDatepicker]="endDate" placeholder="Choose a date">
+              <input matInput [matDatepicker]="endDate" placeholder="Choose a date" required>
               <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
-              <mat-datepicker touchUi #endDate></mat-datepicker>
+              <mat-datepicker #endDate></mat-datepicker>
             </mat-form-field>
           </div>
     </div>
@@ -73,7 +73,7 @@
           </div>
           <div class="col-md-6">
             <mat-form-field>
-               <input matInput placeholder="Amount" type="number" class="example-right-align">
+               <input matInput placeholder="Amount" type="number" class="example-right-align" required >
                <span matPrefix>₹&nbsp;</span>
                <span matSuffix>.00</span>
             </mat-form-field>
@@ -87,4 +87,3 @@
     </div>
   </form>
 </div>
-

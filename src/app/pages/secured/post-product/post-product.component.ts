@@ -15,4 +15,5 @@ export class PostProductComponent implements OnInit {
   processFile(imageFile){
 
   }
+
 }
