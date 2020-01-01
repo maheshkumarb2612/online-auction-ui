@@ -1,32 +1,29 @@
 <div class="signup-form">
-    <form action="/examples/actions/confirmation.php" method="post">
+    <form action="" method="post">
 		<h2>Sign Up</h2>
 		<p>Please fill in this form to create an account!</p>
 		<hr>
         <div class="form-group">
 			<div class="input-group">
-				<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				<mat-icon>account_circle</mat-icon>&nbsp;
 				<input type="text" class="form-control" name="username" placeholder="Username" required="required">
 			</div>
         </div>
         <div class="form-group">
 			<div class="input-group">
-				<span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+        <mat-icon>email</mat-icon>&nbsp;
 				<input type="email" class="form-control" name="email" placeholder="Email Address" required="required">
 			</div>
         </div>
 		<div class="form-group">
 			<div class="input-group">
-				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+				<mat-icon>lock</mat-icon> &nbsp;
 				<input type="text" class="form-control" name="password" placeholder="Password" required="required">
 			</div>
         </div>
 		<div class="form-group">
 			<div class="input-group">
-				<span class="input-group-addon">
-					<i class="fa fa-lock"></i>
-					<i class="fa fa-check"></i>
-				</span>
+        <mat-icon>lock</mat-icon> &nbsp;
 				<input type="text" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
 			</div>
         </div>
@@ -34,7 +31,7 @@
 			<label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
 		</div>
 		<div class="form-group">
-            <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+            <button type="submit" class="btn btn-drak btn-lg">Sign Up</button>
         </div>
     </form>
 	<div class="text-center">Already have an account? <a href="#" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login here</a></div>

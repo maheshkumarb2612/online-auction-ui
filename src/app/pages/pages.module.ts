@@ -10,6 +10,9 @@ import {MatLoaderModule} from '../mat-loader.module';
 import { ProductDetailComponent } from './public/product-detail/product-detail.component';
 import { ProductListingComponent } from './public/product-listing/product-listing.component';
 import { EditProfileComponent } from './secured/edit-profile/edit-profile.component';
+import { ForgotPasswordComponent } from './public/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './public/reset-password/reset-password.component';
+import { ChangePasswordComponent } from './secured/change-password/change-password.component';
 
 
 const routes: Routes = [
@@ -20,12 +23,15 @@ const routes: Routes = [
   { path: 'post-product', component: PostProductComponent },
   { path: 'product-detail', component: ProductDetailComponent},
   { path: 'product-listing', component: ProductListingComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'forgot-password/reset-password', component: ResetPasswordComponent }
 ]
 
 
 @NgModule({
-  declarations: [HomeComponent, LoginComponent, RegisterComponent, ProfileComponent,
-     PostProductComponent, ProductListingComponent, ProductDetailComponent, EditProfileComponent],
+  declarations: [HomeComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, ProfileComponent,
+     PostProductComponent, ProductListingComponent, ProductDetailComponent, EditProfileComponent, ResetPasswordComponent,
+      ChangePasswordComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

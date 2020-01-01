@@ -11,5 +11,8 @@ export class EditProfileComponent implements OnInit {
 
   ngOnInit() {
   }
+  changeProfile(){
+
+  }
 
 }

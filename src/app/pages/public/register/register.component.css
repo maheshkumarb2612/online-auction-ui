@@ -1,7 +1,7 @@
 .form-control, .form-control:focus, .input-group-addon {
     border-color: #e1e1e1;
 }
-.form-control, .btn {        
+.form-control, .btn {
     border-radius: 3px;
 }
 .signup-form {
@@ -35,27 +35,28 @@
 .signup-form .form-control {
     min-height: 38px;
     box-shadow: none !important;
-}	
+}
 .signup-form .input-group-addon {
     max-width: 42px;
     text-align: center;
 }
 .signup-form input[type="checkbox"] {
     margin-top: 2px;
-}   
-.signup-form .btn{        
+}
+.signup-form .btn{
     font-size: 16px;
     font-weight: bold;
-    background: #19aa8d;
+    background:#222;
+    color: white;
     border: none;
     min-width: 140px;
 }
 .signup-form .btn:hover, .signup-form .btn:focus {
-    background: #179b81;
+    background:black;
     outline: none;
 }
 .signup-form a {
-    color: #fff;	
+    color: #fff;
     text-decoration: underline;
 }
 .signup-form a:hover {
@@ -64,7 +65,7 @@
 .signup-form form a {
     color: #19aa8d;
     text-decoration: none;
-}	
+}
 .signup-form form a:hover {
     text-decoration: underline;
 }
@@ -80,4 +81,17 @@
     top: 18px;
     font-size: 7px;
     position: absolute;
+}
+
+.span{
+  color:black;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
 }
