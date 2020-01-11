@@ -1,5 +1,5 @@
-<nav class="navbar navbar-light header-color">
-    <a class="navbar-brand" href="#"><h1><b>Online Auction</b></h1></a>
+<nav class="navbar navbar-light header-color ">
+    <a class="navbar-brand" href="#"><h1>Online Auction</h1></a>
     <form class="form-inline">
       <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
       <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
@@ -7,21 +7,19 @@
   </nav>
 
 
- <nav class="navbar navbar-expand-sm navbar-dark header-color">
-    <a class="navbar-brand" href="#">Navbar</a>
+ <nav class="navbar-expand-sm navbar-dark header-color">
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
-              <button mat-button class="header-font-color" href="#">
-                  <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
-                Home <span class="sr-only">(current)</span></button>
+              <a href="#"><button mat-button class="header-font-color">
+                  <mat-icon>home</mat-icon> Home <span class="sr-only">(current)</span></button></a>
         </li>
             <li class="nav-item">
               <button mat-button [matMenuTriggerFor]="auction" class="header-font-color">Auctions</button>
-                <mat-menu #auction="matMenu">
-                  <button mat-menu-item class="sub-menu-font-size bg-dark ">Live Auction</button>
-                  <button mat-menu-item class="sub-menu-font-size bg-dark">Upcoming Auction</button>
-                  <button mat-menu-item class="sub-menu-font-size bg-dark">Past Auction</button>
+                <mat-menu #auction="matMenu" class="color">
+                  <button mat-menu-item class="sub-menu-font-size">Live Auction</button>
+                  <button mat-menu-item class="sub-menu-font-size">Upcoming Auction</button>
+                  <button mat-menu-item class="sub-menu-font-size">Past Auction</button>
                 </mat-menu>
             </li>
             <li class="nav-item">
@@ -76,6 +74,10 @@
                 </mat-menu>
               </li>
 
+
+            <li class="nav-item">
+                <a><button mat-button class="header-font-color"><mat-icon> help</mat-icon> Help</button></a>
+            </li>
 
 
             <li class="nav-item">

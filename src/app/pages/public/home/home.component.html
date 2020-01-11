@@ -1,29 +1,37 @@
-
-    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+<div class="carousel-padding">
+    <div id="carouselExampleCaptions" class="carousel slide " data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
           <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="../../../../assets/1.jpg" class="d-block w-100" alt="...">
+            <img src="../../../../assets/Home images/Arts.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h5>Pay Base Price</h5>
               <p>First you have pay the price, After you can bidding now.</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="../../../../assets/2.jpg" class="d-block w-100" alt="...">
+            <img src="../../../../assets/Home images/images.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h5>Second slide label</h5>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="../../../../assets/3.jpg" class="d-block w-100" alt="...">
+            <img src="../../../../assets/Home images/books.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h5>Third slide label</h5>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="../../../../assets/Home images/conies.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Last slide label</h5>
               <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
             </div>
           </div>
@@ -37,25 +45,191 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
+</div>
 
+            <div class="cycle center">
+              <div class="row center">
+                <h1>HOW IT WORKS</h1>
+              </div><hr heigth="12" color="red" width="10%">
+            </div>
+            <div class="steps-background center">
+                <div class="row center">
+                    <div class="col-sm-2">
+                      <button mat-mini-fab class="step-layout" value="01">01</button>
+                      <br><br><h4>REGISTER</h4>
+                      <hr size="10" color="red" width="30%">
+                      <div class="text-mute">To start using our auction, you’ll need to register. It’s completely free!</div>
+                    </div>
+                    <div class="col-sm-2">
+                      <button mat-mini-fab class="step-layout" value="02">02</button>
+                      <br><br><h4>PAY BASE PRICE</h4>
+                      <hr size="4" color="red" width="30%">
+                      <div class="text-mute">First pay the base price of product after that you will be able to bid on product.</div>
+                    </div>
+                    <div class="col-sm-2"><br>
+                      <button mat-mini-fab class="step-layout" value="03">03</button>
+                      <br><br><h4>BID</h4>
+                      <hr size="4" color="red" width="30%">
+                      <div class="text-mute">You can instantly buy or place a bid on a desired product right after registration.</div>
+                    </div>
+                    <div class="col-sm-2">
+                      <button mat-mini-fab class="step-layout" value="04">04</button>
+                      <br><br><h4>SUBMIT A BID</h4>
+                      <hr size="4" color="red" width="30%">
+                      <div class="text-mute">Submitting a bid is fast and easy. The process takes approximately 5 minutes.</div>
+                    </div>
+                    <div class="col-sm-2">
+                      <button mat-mini-fab class="step-layout" value="05">05</button>
+                      <br><br><h4>WIN</h4>
+                      <hr size="4" color="red" width="30%">
+                      <div class="text-mute">Easily win at our auction and enjoy owning the product you dream of.</div>
+                    </div>
+              </div>
+            </div>
 
-
- <div class="home-background">
-   <div class="row">
-    <div class="col-md-5">
-      <h1 class="card-title"><br>
-        Auction Management <br>
-        & Bidding Website<br>
-        that Keeps it Simple <br>
-      </h1>
-      <h4 class="card-text">Used by Large and small companies worldwide, our products are designed to do the heavy lifting for you
-        <b>while saving you money and time</b></h4>
-    </div>
-    <div class="col-md-6">
-      <img src="../../../../assets/pngguru.com.png" height="90%" width="62%">
+<!-- Current Auction -->
+<div class="live-auction center">
+    <h2>===> CURRENT AUCTIONS <===</h2><hr heigth="12" color="red" width="10%">
+  <div class="row">
+    <hr color="#222" size="15" widht="10%"/>
+  </div>
+  <div class="row mg-bottom-10px">
+    <div class="col-sm-3 pd-5px" *ngFor="let tile of tiles">
+        <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Shiba Inu</mat-card-title>
+              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+                Description Description Description
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <div class="example-button-row">
+              <button class="bg-grey" mat-raised-button [routerLink]="['/bid-product']"
+               routerLinkActive="router-link-active" >Bid Now</button>
+              <button class="bg-grey" mat-raised-button [routerLink]="['/view-product']"
+               routerLinkActive="router-link-active" >View Product Details</button>
+            </div>
+            </mat-card-actions>
+          </mat-card>
     </div>
   </div>
 </div>
-<app-product-listing></app-product-listing>
-<h1>
-<h5>
+
+<!-- UpComing Auction -->
+<div class="live-auction center">
+  <h2>===> UPCOMING AUCTIONS <===</h2><hr heigth="12" size="10" color="red" width="10%">
+<div class="row">
+  <hr color="#222" size="15" widht="10%"/>
+</div>
+<div class="row mg-bottom-15px">
+  <div class="col-sm-3 pd-10px" *ngFor="let tile of tiles">
+      <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>
+              Description Description Description
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <div class="example-button-row">
+            <button class="bg-grey bid-btn" mat-raised-button [routerLink]="['/bid-product']"
+             routerLinkActive="router-link-active" >Bid Now</button>
+            <button class="bg-grey bid-btn" mat-raised-button [routerLink]="['/view-product']"
+             routerLinkActive="router-link-active" >View Product Details</button>
+          </div>
+          </mat-card-actions>
+        </mat-card>
+  </div>
+</div>
+</div>
+
+
+<!-- Past Auction -->
+<div class="live-auction center">
+  <h2>===> PAST AUCTIONS <===</h2><hr heigth="12" size="10" color="red" width="10%">
+<div class="row">
+  <hr color="#222" size="15" widht="10%"/>
+</div>
+<div class="row mg-bottom-15px">
+  <div class="col-sm-3 pd-5px" *ngFor="let tile of tiles">
+      <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>
+              Description Description Description
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <div class="example-button-row">
+            <button class="bg-grey" mat-raised-button [routerLink]="['/bid-product']"
+             routerLinkActive="router-link-active" >Bid Now</button>
+            <button class="bg-grey" mat-raised-button [routerLink]="['/view-product']"
+             routerLinkActive="router-link-active" >View Product Details</button>
+          </div>
+          </mat-card-actions>
+        </mat-card>
+  </div>
+</div>
+</div>
+
+  <div class="home-background">
+    <div class="row">
+     <div class="col-md-6">
+       <h1 class="card-title"><br>
+         Auction Management <br>
+         & Bidding Website<br>
+         that Keeps it Simple <br>
+       </h1>
+       <h4 class="card-text">Used by Large and small companies worldwide, our products are designed to do the heavy lifting for you
+         <b>while saving you money and time</b></h4>
+     </div>
+     <div class="col-md-6">
+       <img src="../../../../assets/4.png" height="90%" width="62%">
+     </div>
+   </div>
+  </div>
+
+
+
+
+<div class="row">
+  <div class="col-sm-6 mg-bottom-0px">
+    <img src="../../../../assets/fast-track-your-sales-with-mobile-learning.jpg" class="home-img-right" width="80%" height="60%">
+  </div>
+  <div class="col-sm-6 mg-bottom-0px">
+    <img src="../../../../assets/bidding.jpg" class="home-img-left" width="80%" height="60%">
+  </div>
+</div>
+
+<div class="website-details row">
+  <div class="rules-font col-sm-6">
+      <h3>Online Auction Rules</h3>
+    <mat-list>
+      <mat-icon>label_important</mat-icon> User Account Per Person / IP Address / House is allowed<br>
+      <mat-icon>label_important</mat-icon> Group Bidding is strictly not allowed<br>
+      <mat-icon>label_important</mat-icon> Do not use any 3rd party bidding softwares of bots for bidding<br>
+      <mat-icon>label_important</mat-icon> Misleading USER IDs are not allowed - Please don't try your tricks<br>
+      <mat-icon>label_important</mat-icon> Violation of rules will result in Suspension of your account<br>
+    </mat-list>
+  </div>
+    <mat-vertical-stepper></mat-vertical-stepper>
+  <div class="rules-font col-sm-6 vertical-line">
+    <h3>Post Product & Bidding Rules</h3>
+    <span>nnefenfn</span>
+  </div>
+</div>

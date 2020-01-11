@@ -13,6 +13,8 @@ import { EditProfileComponent } from './secured/edit-profile/edit-profile.compon
 import { ForgotPasswordComponent } from './public/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './public/reset-password/reset-password.component';
 import { ChangePasswordComponent } from './secured/change-password/change-password.component';
+import { FeedbackComponent } from './public/feedback/feedback.component';
+
 
 
 const routes: Routes = [
@@ -22,6 +24,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'post-product', component: PostProductComponent },
   { path: 'product-detail', component: ProductDetailComponent},
+  { path: 'profile/edit-profile', component: EditProfileComponent},
+  { path: 'profile/edit-profile/change-password', component: ChangePasswordComponent },
   { path: 'product-listing', component: ProductListingComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'forgot-password/reset-password', component: ResetPasswordComponent }
@@ -31,7 +35,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [HomeComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, ProfileComponent,
      PostProductComponent, ProductListingComponent, ProductDetailComponent, EditProfileComponent, ResetPasswordComponent,
-      ChangePasswordComponent],
+      ChangePasswordComponent,
+      FeedbackComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

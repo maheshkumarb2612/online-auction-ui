@@ -1,13 +1,19 @@
 .header-color{
   background-color:#222;
-  padding-top: 1%;
+  padding-top: 18px;
+  padding-bottom: 0%;
+  padding-left: 3%;
+  padding-right: 3%;
 }
 
-h1 { font-family: Amaranth;
-    font-size: 40px;
+h1 { font-family: Arial, sans-serif, Amaranth;
+    font-size: 50px;
     font-weight: 700;
     line-height: 26.4px;
-    color: bisque;
+    color: rgb(255, 215, 155);
+}
+.color{
+  background-color: rgb(46, 40, 83);
 }
 
 h3 { font-family: Amaranth;
@@ -43,11 +49,11 @@ h3 { font-family: Amaranth;
          line-height: 18.5714px;
         }
 .header-font-color{
-  color: antiquewhite;
+  color: rgb(255, 255, 255);
   font-size: larger;
 }
 
 .sub-menu-font-size{
-  color: antiquewhite;
+  color: black;
   font-size: medium;
 }
