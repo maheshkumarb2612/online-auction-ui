@@ -14,6 +14,7 @@ import { ForgotPasswordComponent } from './public/forgot-password/forgot-passwor
 import { ResetPasswordComponent } from './public/reset-password/reset-password.component';
 import { ChangePasswordComponent } from './secured/change-password/change-password.component';
 import { FeedbackComponent } from './public/feedback/feedback.component';
+import { ImageUploadComponent } from './secured/image-upload/image-upload.component';
 
 
 
@@ -28,7 +29,8 @@ const routes: Routes = [
   { path: 'profile/edit-profile/change-password', component: ChangePasswordComponent },
   { path: 'product-listing', component: ProductListingComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'forgot-password/reset-password', component: ResetPasswordComponent }
+  { path: 'forgot-password/reset-password', component: ResetPasswordComponent },
+  { path: 'image-upload', component: ImageUploadComponent }
 ]
 
 
@@ -36,7 +38,8 @@ const routes: Routes = [
   declarations: [HomeComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, ProfileComponent,
      PostProductComponent, ProductListingComponent, ProductDetailComponent, EditProfileComponent, ResetPasswordComponent,
       ChangePasswordComponent,
-      FeedbackComponent],
+      FeedbackComponent,
+      ImageUploadComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

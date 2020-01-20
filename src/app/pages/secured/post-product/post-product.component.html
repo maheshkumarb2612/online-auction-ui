@@ -6,13 +6,19 @@
         </div>
         <div class="col-md-6">
           <label class="image-upload-container btn btn-bwm">
+
+
             <input #imageInput
                    type="file"
-                   accept="image/*"
-                   (change)="processFile(imageInput)" required="required">
+                   accept="image/*,.jpg,.png,.jpg,.jpeg"
+                   (change)="processFile(imageInput)" required="required" multiple="multiple">
 
           </label>
         </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div *ngFor="let image of imageInput.lenth">
+      <img src="" value="image">
     </div>
     <hr>
     <div class="row">

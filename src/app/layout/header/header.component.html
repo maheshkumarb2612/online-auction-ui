@@ -1,5 +1,5 @@
 <nav class="navbar navbar-light header-color ">
-    <a class="navbar-brand" href="#"><h1>Online Auction</h1></a>
+    <a class="navbar-brand" href="#"><h1>Online-Auction</h1></a>
     <form class="form-inline">
       <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
       <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
@@ -15,68 +15,61 @@
                   <mat-icon>home</mat-icon> Home <span class="sr-only">(current)</span></button></a>
         </li>
             <li class="nav-item">
-              <button mat-button [matMenuTriggerFor]="auction" class="header-font-color">Auctions</button>
+              <button mat-button [matMenuTriggerFor]="auction" class="header-font-color"> Auctions </button>
                 <mat-menu #auction="matMenu" class="color">
-                  <button mat-menu-item class="sub-menu-font-size">Live Auction</button>
+                  <a href="#live-auction"><button mat-menu-item class="sub-menu-font-size">Live Auction</button></a>
                   <button mat-menu-item class="sub-menu-font-size">Upcoming Auction</button>
                   <button mat-menu-item class="sub-menu-font-size">Past Auction</button>
                 </mat-menu>
             </li>
             <li class="nav-item">
-              <button mat-button [matMenuTriggerFor]="categories" class="header-font-color">Categories</button>
+              <a [routerLink]="['/post-product']" routerLinkActive="router-link-active">
+                <button mat-button class="header-font-color"> Post Product </button></a>
+            </li>
+            <li class="nav-item">
+              <button mat-button [matMenuTriggerFor]="categories" class="header-font-color"> Categories </button>
                 <mat-menu #categories="matMenu">
                   <button mat-menu-item [matMenuTriggerFor]="art">Art</button>
-                  <button mat-menu-item [matMenuTriggerFor]="conies">Conies</button>
-                  <button mat-menu-item>Books</button>
-                  <button mat-menu-item>Paintings</button>
-                  <button mat-menu-item>Watches</button>
+                  <button mat-menu-item [matMenuTriggerFor]="coins">Coins</button>
+                  <button mat-menu-item [matMenuTriggerFor]="books">Books</button>
+                  <button mat-menu-item>Antic</button>
+                  <button mat-menu-item>Others</button>
                 </mat-menu>
 
                 <mat-menu #art="matMenu">
-                <button mat-menu-item [matMenuTriggerFor]="painting">Painting</button>
-                <button mat-menu-item [matMenuTriggerFor]="amphibians">Amphibians</button>
-                <button mat-menu-item [matMenuTriggerFor]="reptiles">Reptiles</button>
-                <button mat-menu-item>Birds</button>
-                <button mat-menu-item>Mammals</button>
+                <button mat-menu-item>Architecture</button>
+                <button mat-menu-item>Ceramics</button>
+                <button mat-menu-item>Conceptual art</button>
+                <button mat-menu-item>Drawing</button>
+                <button mat-menu-item>Painting</button>
+                <button mat-menu-item>Photography</button>
+                <button mat-menu-item>Sculpture</button>
                 </mat-menu>
 
-                <mat-menu #conies="matMenu">
-                <button mat-menu-item>Insects</button>
-                <button mat-menu-item>Molluscs</button>
-                <button mat-menu-item>Crustaceans</button>
-                <button mat-menu-item>Corals</button>
-                <button mat-menu-item>Arachnids</button>
-                <button mat-menu-item>Velvet worms</button>
-                <button mat-menu-item>Horseshoe crabs</button>
+                <mat-menu #coins="matMenu">
+                <button mat-menu-item>Indian Conis</button>
+                <button mat-menu-item>US conis</button>
                 </mat-menu>
 
-                <mat-menu #painting="matMenu">
-                <button mat-menu-item>Baikal oilfish</button>
-                <button mat-menu-item>Bala shark</button>
-                <button mat-menu-item>Ballan wrasse</button>
-                <button mat-menu-item>Bamboo shark</button>
-                <button mat-menu-item>Banded killifish</button>
+                <mat-menu #books="matMenu">
+                <button mat-menu-item [matMenuTriggerFor]="antiquity">Antiquity</button>
+                <button mat-menu-item>Printing Books</button>
                 </mat-menu>
 
-                <mat-menu #amphibians="matMenu">
-                <button mat-menu-item>Sonoran desert toad</button>
-                <button mat-menu-item>Western toad</button>
-                <button mat-menu-item>Arroyo toad</button>
-                <button mat-menu-item>Yosemite toad</button>
-                </mat-menu>
-
-                <mat-menu #reptiles="matMenu">
-                <button mat-menu-item>Banded Day Gecko</button>
-                <button mat-menu-item>Banded Gila Monster</button>
-                <button mat-menu-item>Black Tree Monitor</button>
-                <button mat-menu-item>Blue Spiny Lizard</button>
-                <button mat-menu-item disabled>Velociraptor</button>
+                <mat-menu #antiquity="matMenu">
+                <button mat-menu-item>Tablet</button>
+                <button mat-menu-item>Scroll</button>
+                <button mat-menu-item>Codex</button>
+                <button mat-menu-item>Manuscripts</button>
                 </mat-menu>
               </li>
 
 
             <li class="nav-item">
                 <a><button mat-button class="header-font-color"><mat-icon> help</mat-icon> Help</button></a>
+            </li>
+            <li class="nav-item">
+              <a><button mat-button class="header-font-color"> About Us </button></a>
             </li>
 
 
@@ -88,9 +81,6 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/profile']" routerLinkActive="router-link-active"  >Profile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/post-product']" routerLinkActive="router-link-active" >Post Product</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" [routerLink]="['/product-listing']" routerLinkActive="router-link-active" >Product Listing</a>
