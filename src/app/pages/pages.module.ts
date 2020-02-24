@@ -6,7 +6,7 @@ import { LoginComponent } from './public/login/login.component';
 import { RegisterComponent } from './public/register/register.component';
 import { ProfileComponent } from './secured/profile/profile/profile.component';
 import { PostProductComponent } from './secured/post-product/post-product.component';
-import {MatLoaderModule} from '../mat-loader.module';
+import { MatLoaderModule } from '../mat-loader.module';
 import { ProductDetailComponent } from './public/product-detail/product-detail.component';
 import { ProductListingComponent } from './public/product-listing/product-listing.component';
 import { EditProfileComponent } from './secured/edit-profile/edit-profile.component';
@@ -15,6 +15,7 @@ import { ResetPasswordComponent } from './public/reset-password/reset-password.c
 import { ChangePasswordComponent } from './secured/change-password/change-password.component';
 import { FeedbackComponent } from './public/feedback/feedback.component';
 import { ImageUploadComponent } from './secured/image-upload/image-upload.component';
+import { BidComponent } from './secured/bid/bid.component';
 
 
 
@@ -24,14 +25,15 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'post-product', component: PostProductComponent },
-  { path: 'product-detail', component: ProductDetailComponent},
+  { path: 'product-listing/product-detail', component: ProductDetailComponent},
   { path: 'profile/edit-profile', component: EditProfileComponent},
   { path: 'profile/edit-profile/change-password', component: ChangePasswordComponent },
   { path: 'product-listing', component: ProductListingComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'forgot-password/reset-password', component: ResetPasswordComponent },
-  { path: 'image-upload', component: ImageUploadComponent }
-]
+  { path: 'image-upload', component: ImageUploadComponent } ,
+  { path: 'product-listing/product-detail/bid', component: BidComponent}
+];
 
 
 @NgModule({
@@ -39,7 +41,8 @@ const routes: Routes = [
      PostProductComponent, ProductListingComponent, ProductDetailComponent, EditProfileComponent, ResetPasswordComponent,
       ChangePasswordComponent,
       FeedbackComponent,
-      ImageUploadComponent],
+      ImageUploadComponent,
+      BidComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

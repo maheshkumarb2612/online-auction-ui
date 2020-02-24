@@ -14,4 +14,5 @@ export class ImageUploadComponent implements OnInit {
   }
   isChange = false;
 
+
 }

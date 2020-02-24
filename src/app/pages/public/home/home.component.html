@@ -89,7 +89,7 @@
 
 <!-- Current Auction -->
 <div class="live-auction center" id="live-auction">
-    <h2>===> CURRENT AUCTIONS <===</h2><hr heigth="12" color="red" width="10%">
+    <h2>--- CURRENT AUCTIONS ---</h2><hr heigth="12" color="red" width="10%">
   <div class="row">
     <hr color="#222" size="15" widht="10%"/>
   </div>
@@ -109,9 +109,10 @@
             </mat-card-content>
             <mat-card-actions>
               <div class="example-button-row">
-              <button class="bg-grey" mat-raised-button [routerLink]="['/bid-product']"
+              <!-- Button trigger modal -->
+              <button type="button" class="bg-grey" data-toggle="modal" data-target="#modelId" mat-raised-button [routerLink]="['/product-listing/product-detail/bid']"
                routerLinkActive="router-link-active" >Bid Now</button>
-              <button class="bg-grey" mat-raised-button [routerLink]="['/view-product']"
+               <button class="bg-grey" mat-raised-button [routerLink]="['/product-listing/product-detail']"
                routerLinkActive="router-link-active" >View Product Details</button>
             </div>
             </mat-card-actions>
@@ -142,9 +143,10 @@
           </mat-card-content>
           <mat-card-actions>
             <div class="example-button-row">
-            <button class="bg-grey bid-btn" mat-raised-button [routerLink]="['/bid-product']"
-             routerLinkActive="router-link-active" >Bid Now</button>
-            <button class="bg-grey bid-btn" mat-raised-button [routerLink]="['/view-product']"
+            <!-- Button trigger modal -->
+            <button type="button" class="bg-grey" data-toggle="modal" data-target="#modelId" mat-raised-button [routerLink]="['/product-listing/product-detail/bid']"
+            routerLinkActive="router-link-active" >Bid Now</button>
+            <button class="bg-grey bid-btn" mat-raised-button [routerLink]="['/product-listing/product-detail']"
              routerLinkActive="router-link-active" >View Product Details</button>
           </div>
           </mat-card-actions>
@@ -176,9 +178,10 @@
           </mat-card-content>
           <mat-card-actions>
             <div class="example-button-row">
-            <button class="bg-grey" mat-raised-button [routerLink]="['/bid-product']"
-             routerLinkActive="router-link-active" >Bid Now</button>
-            <button class="bg-grey" mat-raised-button [routerLink]="['/view-product']"
+            <!-- Button trigger modal -->
+            <button type="button" class="bg-grey" data-toggle="modal" data-target="#modelId" mat-raised-button [routerLink]="['/product-listing/product-detail/bid']"
+            routerLinkActive="router-link-active" >Bid Now</button>
+            <button class="bg-grey" mat-raised-button [routerLink]="['/product-listing/product-detail']"
              routerLinkActive="router-link-active" >View Product Details</button>
           </div>
           </mat-card-actions>

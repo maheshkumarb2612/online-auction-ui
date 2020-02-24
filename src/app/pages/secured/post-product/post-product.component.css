@@ -24,3 +24,12 @@ hr{
 .form-container > * {
   width: 100%;
 }
+
+.img-center{
+  text-align: center;
+  align-content: center;
+  align-items: center;
+}
+.img-con-padding{
+  padding-left: 10%;
+}

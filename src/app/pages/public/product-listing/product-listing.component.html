@@ -19,9 +19,9 @@
               <button class="bg-grey" mat-raised-button>Reset</button>
             </mat-card-actions>
           </mat-card>
-          
+
       </div>
-  
+
       <div class="col-9 bg-light">
        <!-- <div class="card-deck">
           <div class="card">
@@ -53,10 +53,10 @@
             </div>
           </div>
         </div>-->
-  
+
        <!-- <mat-grid-list cols="3">
             <mat-grid-tile class="bg-light"
-                *ngFor="let tile of tiles" 
+                *ngFor="let tile of tiles"
                 >
               <mat-card class="example-card">
                   <mat-card-header>
@@ -93,7 +93,7 @@
                         <mat-checkbox class="example-margin" >Past Auction</mat-checkbox>
                       </section>
                 </div>
-                  <div class="col-sm-6 pd-5px">                    
+                  <div class="col-sm-6 pd-5px">
                           <mat-paginator class="bg-light"
                           [length]="100"
                           [pageSize]="10"
@@ -117,16 +117,16 @@
                         </mat-card-content>
                         <mat-card-actions>
                           <div class="example-button-row">
-                          <button class="bg-grey" mat-raised-button [routerLink]="['/bid-product']"
-                           routerLinkActive="router-link-active" >Bid Now</button>
-                          <button class="bg-grey" mat-raised-button [routerLink]="['/view-product']"
-                           routerLinkActive="router-link-active" >View Product Details</button>
+                            <button type="button" class="bg-grey" data-toggle="modal" data-target="#modelId" mat-raised-button [routerLink]="['/product-listing/product-detail/bid']"
+                            routerLinkActive="router-link-active" >Bid Now</button>
+                            <button class="bg-grey" mat-raised-button [routerLink]="['/product-listing/product-detail']"
+                             routerLinkActive="router-link-active" >View Product Details</button>
                         </div>
                         </mat-card-actions>
                       </mat-card>
               </div>
           </div>
       </div>
-      
+
     </div>
   </div>

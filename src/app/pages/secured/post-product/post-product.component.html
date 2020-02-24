@@ -1,3 +1,4 @@
+
 <div class="container post-product-form">
   <form class="product-content">
     <div class="row">
@@ -5,21 +6,18 @@
             <div>Select Product : </div>
         </div>
         <div class="col-md-6">
-          <label class="image-upload-container btn btn-bwm">
-
-
-            <input #imageInput
-                   type="file"
-                   accept="image/*,.jpg,.png,.jpg,.jpeg"
-                   (change)="processFile(imageInput)" required="required" multiple="multiple">
-
-          </label>
+            <input style="display: none"
+                type="file" (change)="onFileChanged($event)"
+                #fileInput multiple="multiple">
+              <button mat-button (click)="fileInput.click()">Select File</button>
         </div>
     </div>
-    <mat-divider></mat-divider>
-    <div *ngFor="let image of imageInput.lenth">
-      <img src="" value="image">
-    </div>
+    <br>
+        <div class="row">
+          <label *ngFor="let url of urls" class="img-center"><img [src]="url" height="125" width="200">&nbsp;&nbsp;&nbsp;</label>
+          <div class="row img-con-padding"><h6>You are {{noOfImg}} images selected</h6></div>
+        </div>
+        <br>
     <hr>
     <div class="row">
           <div class="col-md-4">
@@ -56,6 +54,7 @@
               <input matInput [matDatepicker]="startDate" placeholder="Choose a date" required="required">
               <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
               <mat-datepicker #startDate></mat-datepicker>
+              <time type="date-time"></time>
             </mat-form-field>
           </div>
     </div>
@@ -76,6 +75,19 @@
     <div class="row">
           <div class="col-md-4">
             Enter base price of the product :
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+               <input matInput placeholder="Amount" type="number" class="example-right-align" required="required">
+               <span matPrefix>₹&nbsp;</span>
+               <span matSuffix>.00</span>
+            </mat-form-field>
+          </div>
+    </div>
+    <hr>
+    <div class="row">
+          <div class="col-md-4">
+            Enter Starting auction product price :
           </div>
           <div class="col-md-6">
             <mat-form-field>
