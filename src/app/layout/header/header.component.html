@@ -14,13 +14,14 @@
               <a href="#"><button mat-button class="header-font-color">
                   <mat-icon>home</mat-icon> Home <span class="sr-only">(current)</span></button></a>
         </li>
+
+        <li class="nav-item">
+          <a [routerLink]="['/profile']" routerLinkActive="router-link-active">
+            <button mat-button class="header-font-color">Profile</button></a>
+      </li>
             <li class="nav-item">
-              <button mat-button [matMenuTriggerFor]="auction" class="header-font-color"> Auctions </button>
-                <mat-menu #auction="matMenu" class="color">
-                  <a href="#live-auction"><button mat-menu-item class="sub-menu-font-size">Live Auction</button></a>
-                  <button mat-menu-item class="sub-menu-font-size">Upcoming Auction</button>
-                  <button mat-menu-item class="sub-menu-font-size">Past Auction</button>
-                </mat-menu>
+              <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active">
+                <button mat-button class="header-font-color"> Auctions </button></a>
             </li>
             <li class="nav-item">
               <a [routerLink]="['/post-product']" routerLinkActive="router-link-active">
@@ -28,64 +29,32 @@
             </li>
             <li class="nav-item">
               <button mat-button [matMenuTriggerFor]="categories" class="header-font-color"> Categories </button>
-                <mat-menu #categories="matMenu">
-                  <button mat-menu-item [matMenuTriggerFor]="art">Art</button>
-                  <button mat-menu-item [matMenuTriggerFor]="coins">Coins</button>
-                  <button mat-menu-item [matMenuTriggerFor]="books">Books</button>
-                  <button mat-menu-item>Antic</button>
-                  <button mat-menu-item>Others</button>
+              <mat-menu #categories="matMenu">
+                  <button mat-menu-item><a [routerLink]="['/product-listing']" routerLinkActive="router-link-active">Antique</a></button>
+                  <button mat-menu-item><a [routerLink]="['/product-listing']" routerLinkActive="router-link-active">Art</a></button>
+                  <button mat-menu-item><a [routerLink]="['/product-listing']" routerLinkActive="router-link-active">Books</a></button>
+                  <button mat-menu-item><a [routerLink]="['/product-listing']" routerLinkActive="router-link-active">Coins</a></button>
+                  <button mat-menu-item><a [routerLink]="['/product-listing']" routerLinkActive="router-link-active">Electronics</a></button>
+                  <button mat-menu-item><a [routerLink]="['/product-listing']" routerLinkActive="router-link-active">Painting</a></button>
+                  <button mat-menu-item><a [routerLink]="['/product-listing']" routerLinkActive="router-link-active">Other</a></button>
                 </mat-menu>
-
-                <mat-menu #art="matMenu">
-                <button mat-menu-item>Architecture</button>
-                <button mat-menu-item>Ceramics</button>
-                <button mat-menu-item>Conceptual art</button>
-                <button mat-menu-item>Drawing</button>
-                <button mat-menu-item>Painting</button>
-                <button mat-menu-item>Photography</button>
-                <button mat-menu-item>Sculpture</button>
-                </mat-menu>
-
-                <mat-menu #coins="matMenu">
-                <button mat-menu-item>Indian Conis</button>
-                <button mat-menu-item>US conis</button>
-                </mat-menu>
-
-                <mat-menu #books="matMenu">
-                <button mat-menu-item [matMenuTriggerFor]="antiquity">Antiquity</button>
-                <button mat-menu-item>Printing Books</button>
-                </mat-menu>
-
-                <mat-menu #antiquity="matMenu">
-                <button mat-menu-item>Tablet</button>
-                <button mat-menu-item>Scroll</button>
-                <button mat-menu-item>Codex</button>
-                <button mat-menu-item>Manuscripts</button>
-                </mat-menu>
-              </li>
-
-
-            <li class="nav-item">
-                <a><button mat-button class="header-font-color"><mat-icon> help</mat-icon> Help</button></a>
             </li>
             <li class="nav-item">
-              <a><button mat-button class="header-font-color"> About Us </button></a>
-            </li>
-
-
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a>
+              <a [routerLink]="['/login']" routerLinkActive="router-link-active">
+                <button mat-button class="header-font-color"> Login </button></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</a>
+              <a [routerLink]="['/register']" routerLinkActive="router-link-active">
+                <button mat-button class="header-font-color">Register</button></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/profile']" routerLinkActive="router-link-active"  >Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/product-listing']" routerLinkActive="router-link-active" >Product Listing</a>
+          <li class="nav-item">
+              <a><button mat-button class="header-font-color"><mat-icon> help</mat-icon> Help</button></a>
           </li>
 
+          <li class="nav-item">
+            <a [routerLink]="['/about-us']" routerLinkActive="router-link-active">
+              <button mat-button class="header-font-color">About Us</button></a>
+          </li>
         </ul>
         <!--<form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search">

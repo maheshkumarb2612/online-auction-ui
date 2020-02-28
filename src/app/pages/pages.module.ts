@@ -16,6 +16,7 @@ import { ChangePasswordComponent } from './secured/change-password/change-passwo
 import { FeedbackComponent } from './public/feedback/feedback.component';
 import { ImageUploadComponent } from './secured/image-upload/image-upload.component';
 import { BidComponent } from './secured/bid/bid.component';
+import { AboutUsComponent } from './public/about-us/about-us.component';
 
 
 
@@ -32,7 +33,9 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'forgot-password/reset-password', component: ResetPasswordComponent },
   { path: 'image-upload', component: ImageUploadComponent } ,
-  { path: 'product-listing/product-detail/bid', component: BidComponent}
+  { path: 'product-listing/product-detail/bid', component: BidComponent} ,
+  { path: 'feedback', component: FeedbackComponent} ,
+  { path: 'about-us', component: AboutUsComponent}
 ];
 
 
@@ -42,7 +45,8 @@ const routes: Routes = [
       ChangePasswordComponent,
       FeedbackComponent,
       ImageUploadComponent,
-      BidComponent],
+      BidComponent,
+      AboutUsComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

@@ -2,27 +2,32 @@
 <div class="container post-product-form">
   <form class="product-content">
     <div class="row">
-        <div class="col-md-4">
-            <div>Select Product : </div>
+        <div class="col-md-5">
+            <h5>Select Product : </h5>
         </div>
         <div class="col-md-6">
             <input style="display: none"
                 type="file" (change)="onFileChanged($event)"
                 #fileInput multiple="multiple">
-              <button mat-button (click)="fileInput.click()">Select File</button>
+              <button mat-button-toggle (click)="fileInput.click()"><h6>Select Images</h6></button>
+              &nbsp;You can select up to 10 images
         </div>
     </div>
     <br>
-        <div class="row">
+    <div class="row">
+      <div class="col-md-12 img-center" style="align-content: center;">
           <label *ngFor="let url of urls" class="img-center"><img [src]="url" height="125" width="200">&nbsp;&nbsp;&nbsp;</label>
-          <div class="row img-con-padding"><h6>You are {{noOfImg}} images selected</h6></div>
         </div>
-        <br>
+    </div>
+    <br>
+    <div class="row ">
+      <div class="img-center col-md-12 img-center" style="align-content: center;"><h6>You are {{noOfImg}} images selected</h6></div>
+    </div>
     <hr>
     <div class="row">
-          <div class="col-md-4">
+          <h5 class="col-md-5">
             Give Your Item Title :
-          </div>
+          </h5>
           <div class="col-md-6">
               <mat-form-field class="form-container">
                   <input matInput placeholder="Product Name" required="required">
@@ -31,64 +36,56 @@
     </div>
     <hr>
     <div class="row">
-          <div class="col-md-4">
+          <h5 class="col-md-5">
               Which Category of product ?
-          </div>
+          </h5>
           <div class="col-md-6">
             <mat-form-field>
-              <mat-select placeholder="Category" required="required">
-                <mat-option value="arts">Arts</mat-option>
-                <mat-option value="conies">Conies</mat-option>
+              <mat-select placeholder="Categories" required="required">
+                <mat-option value="antic">Antic</mat-option>
+                <mat-option value="art">Art</mat-option>
                 <mat-option value="books">Books</mat-option>
+                <mat-option value="conies">Conies</mat-option>
+                <mat-option value="electronics">Electronics</mat-option>
+                <mat-option value="painting">Painting</mat-option>
+                <mat-option value="others">Others</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
     </div>
     <hr>
     <div class="row">
-          <div class="col-md-4">
-            Select starting date for auction :
-          </div>
+          <h5 class="col-md-5">
+            Select starting date & time for auction :
+          </h5>
           <div class="col-md-6">
             <mat-form-field>
               <input matInput [matDatepicker]="startDate" placeholder="Choose a date" required="required">
               <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
               <mat-datepicker #startDate></mat-datepicker>
-              <time type="date-time"></time>
-            </mat-form-field>
+            </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="time" id="startTime" name="startTime" required>
           </div>
     </div>
     <hr>
     <div class="row">
-          <div class="col-md-4">
-            Select Ending date for auction :
-          </div>
+          <h5 class="col-md-5">
+            Select Ending date & time for auction :
+          </h5>
           <div class="col-md-6">
             <mat-form-field>
               <input matInput [matDatepicker]="endDate" placeholder="Choose a date" required="required">
               <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
               <mat-datepicker #endDate></mat-datepicker>
-            </mat-form-field>
+            </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="time" id="endTime" name="endTime" required>
           </div>
     </div>
     <hr>
     <div class="row">
-          <div class="col-md-4">
+          <h5 class="col-md-5">
             Enter base price of the product :
-          </div>
-          <div class="col-md-6">
-            <mat-form-field>
-               <input matInput placeholder="Amount" type="number" class="example-right-align" required="required">
-               <span matPrefix>₹&nbsp;</span>
-               <span matSuffix>.00</span>
-            </mat-form-field>
-          </div>
-    </div>
-    <hr>
-    <div class="row">
-          <div class="col-md-4">
-            Enter Starting auction product price :
-          </div>
+          </h5>
           <div class="col-md-6">
             <mat-form-field>
                <input matInput placeholder="Amount" type="number" class="example-right-align" required="required">
@@ -100,7 +97,7 @@
     <div class="row">
       <div class="col-md-8"></div>
       <div class="col-md-2">
-        <mat-button-toggle>Submit</mat-button-toggle>
+        <input mat-button-toggle type="submit" value="Submit">
       </div>
     </div>
   </form>

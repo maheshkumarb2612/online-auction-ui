@@ -57,3 +57,10 @@ h3 { font-family: Amaranth;
   color: black;
   font-size: medium;
 }
+.haeder-fix{
+  position: fixed;
+  height:auto;
+  top: 0;
+  width: 100%;
+  z-index: 100
+}

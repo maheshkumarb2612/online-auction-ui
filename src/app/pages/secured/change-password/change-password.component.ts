@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ChangePasswordComponent implements OnInit {
 
   hide = true;
+  oldhide = true;
+  newhide = true;
   constructor() { }
 
   ngOnInit() {

@@ -24,7 +24,7 @@ export class ProductListingComponent implements OnInit {
     {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
   ];
 
-  typesOfShoes: string[] = ['Books', 'Art', 'Painting', 'Electronics', 'Other'];
+  typesOfShoes: string[] = ['Antique', 'Art', 'Books', 'Coins', 'Electronics', 'Painting', 'Other'];
 
   checked = false;
   indeterminate = false;
