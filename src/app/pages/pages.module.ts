@@ -17,6 +17,7 @@ import { FeedbackComponent } from './public/feedback/feedback.component';
 import { ImageUploadComponent } from './secured/image-upload/image-upload.component';
 import { BidComponent } from './secured/bid/bid.component';
 import { AboutUsComponent } from './public/about-us/about-us.component';
+import { HelpComponent } from './public/help/help.component';
 
 
 
@@ -35,7 +36,8 @@ const routes: Routes = [
   { path: 'image-upload', component: ImageUploadComponent } ,
   { path: 'product-listing/product-detail/bid', component: BidComponent} ,
   { path: 'feedback', component: FeedbackComponent} ,
-  { path: 'about-us', component: AboutUsComponent}
+  { path: 'about-us', component: AboutUsComponent} ,
+  { path: 'help', component: HelpComponent}
 ];
 
 
@@ -46,7 +48,8 @@ const routes: Routes = [
       FeedbackComponent,
       ImageUploadComponent,
       BidComponent,
-      AboutUsComponent],
+      AboutUsComponent,
+      HelpComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

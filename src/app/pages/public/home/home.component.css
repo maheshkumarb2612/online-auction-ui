@@ -60,8 +60,16 @@
   max-width: 400px;
 }
 
-.example-header-image {
+.example-header-image-c {
   background-image: url('../../../../assets/old_piece_1.jpg');
+  background-size: cover;
+}
+.example-header-image-up {
+  background-image: url('../../../../assets/Alea-Pinar-Du-Pre-celia-2-Ransom-Art-Gallery.jpg');
+  background-size: cover;
+}
+.example-header-image-p {
+  background-image: url('../../../../assets/highest_appraised_antique_items_in_world_breguet_sympathique_1280px_90a26d8db8164d87af6c3ac30a69c630.jpeg');
   background-size: cover;
 }
 .home-img-right{
@@ -111,4 +119,46 @@ h2{
 }
 .bid-btn::shadow{
   background-color: rgb(150, 68, 13);
+}
+
+
+
+
+
+
+
+
+.amount{
+  padding-bottom: 5%;
+  margin-bottom: 5%;
+}
+.full-width{
+  width: 100%;
+}
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+.card{
+  padding: 2%;
+}
+.mat-divider{
+  color:black;
+}
+.center-align{
+  align-content: center;
+  text-align: center;
+  align-items: center;
 }

@@ -30,13 +30,13 @@
             <li class="nav-item">
               <button mat-button [matMenuTriggerFor]="categories" class="header-font-color"> Categories </button>
               <mat-menu #categories="matMenu">
-                  <button mat-menu-item><a [routerLink]="['/product-listing']" routerLinkActive="router-link-active">Antique</a></button>
-                  <button mat-menu-item><a [routerLink]="['/product-listing']" routerLinkActive="router-link-active">Art</a></button>
-                  <button mat-menu-item><a [routerLink]="['/product-listing']" routerLinkActive="router-link-active">Books</a></button>
-                  <button mat-menu-item><a [routerLink]="['/product-listing']" routerLinkActive="router-link-active">Coins</a></button>
-                  <button mat-menu-item><a [routerLink]="['/product-listing']" routerLinkActive="router-link-active">Electronics</a></button>
-                  <button mat-menu-item><a [routerLink]="['/product-listing']" routerLinkActive="router-link-active">Painting</a></button>
-                  <button mat-menu-item><a [routerLink]="['/product-listing']" routerLinkActive="router-link-active">Other</a></button>
+                <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button mat-menu-item>Antique</button></a>
+                <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button mat-menu-item>Art</button></a>
+                <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button mat-menu-item>Books</button></a>
+                <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button mat-menu-item>Coins</button></a>
+                <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button mat-menu-item>Electronics</button></a>
+                <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button mat-menu-item>Painting</button></a>
+                <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button mat-menu-item>Other</button></a>
                 </mat-menu>
             </li>
             <li class="nav-item">
@@ -48,8 +48,9 @@
                 <button mat-button class="header-font-color">Register</button></a>
             </li>
           <li class="nav-item">
-              <a><button mat-button class="header-font-color"><mat-icon> help</mat-icon> Help</button></a>
-          </li>
+            <a [routerLink]="['/help']" routerLinkActive="router-link-active">
+              <button mat-button class="header-font-color"><mat-icon> help</mat-icon> Help</button></a>
+         </li>
 
           <li class="nav-item">
             <a [routerLink]="['/about-us']" routerLinkActive="router-link-active">
