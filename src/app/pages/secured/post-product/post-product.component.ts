@@ -24,10 +24,11 @@ export class PostProductComponent implements OnInit {
     if (this.noOfImg <= 10) {
       for (let i = 0; i < this.noOfImg; i++) {
         if (event.target.files && event.target.files[i]) {
-              const reader = new FileReader();
-              reader.readAsDataURL(event.target.files[i]); // read file as data url
-              reader.onload = (event) => { // called once readAsDataURL is completed
-              this.urls[i] = event.target.result; }
+          const reader = new FileReader();
+          reader.readAsDataURL(event.target.files[i]); // read file as data url
+          reader.onload = (event) => { // called once readAsDataURL is completed
+            this.urls[i] = (event.target as FileReader).result;
+          };
         }
       }
     }
