@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { PagesModule } from './pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { BasicAuthHtppInterceptorService } from './common/interceptor/http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -17,9 +18,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     LayoutModule,
     PagesModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: BasicAuthHtppInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

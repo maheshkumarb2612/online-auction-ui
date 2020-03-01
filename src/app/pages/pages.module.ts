@@ -18,7 +18,7 @@ import { ImageUploadComponent } from './secured/image-upload/image-upload.compon
 import { BidComponent } from './secured/bid/bid.component';
 import { AboutUsComponent } from './public/about-us/about-us.component';
 import { HelpComponent } from './public/help/help.component';
-
+import { FormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -49,11 +49,13 @@ const routes: Routes = [
       ImageUploadComponent,
       BidComponent,
       AboutUsComponent,
-      HelpComponent],
+      HelpComponent
+      ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    MatLoaderModule
+    MatLoaderModule,
+    FormsModule
   ]
 })
 export class PagesModule { }
