@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   applicationName: "online-auction-ui",
   domain: 'localhost',
-  baseUrl: 'http://localhost:8000'
+  baseUrl: 'http://localhost:8080'
 };
 
 /*

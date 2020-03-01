@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../../common/auth/auth.service';
+import { ResponseModel } from 'src/app/common/model/response.model';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
   username : string;
   password : string;
 
-  response : Response;
+  response : ResponseModel;
 
   constructor(private authService:AuthenticationService) { }
 
@@ -21,11 +22,14 @@ export class LoginComponent implements OnInit {
 
   login(){
     this.authService.authenticate(this.username, this.password)
-    .subscribe((data: Response) => this.response = {
+    .subscribe((data: ResponseModel) => this.response = {
        ...data
       
     });
     console.log(this.response);
+    if(sessionStorage.getItem('token')){
+        this.authService.redirectToHome();
+    }
   }
 
 }
