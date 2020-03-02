@@ -1,3 +1,4 @@
+<div class="top-padding">
 <div class="container emp-profile">
   <form method="post">
       <div class="row">
@@ -10,10 +11,10 @@
           <div class="col-md-6">
               <div class="profile-head">
                           <h5>
-                              Maheshkumar Savita
+                              {{firstname}} {{lastname}}
                           </h5>
                           <h6>
-                              Seller or Buyer
+                              {{role}}
                           </h6>
                           <p class="proile-rating">RANKINGS : <span>8/10</span></p>
                   <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -54,84 +55,90 @@
               <div class="tab-content profile-tab" id="myTabContent">
                   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                               <div class="row">
-                                  <div class="col-md-6">
-                                      <label>User Id</label>
+                                  <div class="col-md-5">
+                                      <label>Username</label>
                                   </div>
-                                  <div class="col-md-6">
-                                      <p>123</p>
+                                  <div class="col-md-7">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Username</mat-label>
+                                        <input matInput value={{username}}>
+                                      </mat-form-field>
                                   </div>
                               </div>
                               <div class="row">
-                                  <div class="col-md-6">
+                                  <div class="col-md-5">
                                       <label>Name</label>
                                   </div>
-                                  <div class="col-md-6">
-                                      <p>FirstName LastName</p>
+                                  <div class="col-md-7">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Username</mat-label>
+                                        <input matInput name="fullname" [(ngModel)]="tenp">
+                                      </mat-form-field>
                                   </div>
                               </div>
                               <div class="row">
-                                  <div class="col-md-6">
+                                  <div class="col-md-5">
                                       <label>Email</label>
                                   </div>
-                                  <div class="col-md-6">
-                                      <p>maheshkumarb2612@gmail.com</p>
+                                  <div class="col-md-7">
+                                      <p>{{email}}</p>
                                   </div>
                               </div>
                               <div class="row">
-                                  <div class="col-md-6">
-                                      <label>Phone</label>
+                                  <div class="col-md-5">
+                                      <label>Phone No.</label>
                                   </div>
-                                  <div class="col-md-6">
-                                      <p>972 446 4236</p>
+                                  <div class="col-md-7">
+                                      <p>{{phoneno}}</p>
                                   </div>
                               </div>
                               <div class="row">
-                                  <div class="col-md-6">
+                                  <div class="col-md-5">
                                       <label>Gender</label>
                                   </div>
-                                  <div class="col-md-6">
-                                      <p>Male</p>
+                                  <div class="col-md-7">
+                                      <p>{{gender}}</p>
                                   </div>
                               </div>
                               <div class="row">
-                                  <div class="col-md-6">
+                                  <div class="col-md-5">
                                       <label>Address</label>
                                   </div>
-                                  <div class="col-md-6">
-                                      <p>Full Address</p>
+                                  <div class="col-md-7">
+                                      <p> {{address}}</p>
                                   </div>
                               </div>
                   </div>
                   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                               <div class="row">
-                                  <div class="col-md-6">
+                                  <div class="col-md-5">
                                       <label>Date of your account</label>
                                   </div>
-                                  <div class="col-md-6">
-                                      <p>12/02/2019</p>
+                                  <div class="col-md-7">
+                                      <p>{{createdate}}</p>
                                   </div>
                               </div>
                               <div class="row">
-                                  <div class="col-md-6">
+                                  <div class="col-md-5">
                                       <label>My Post product</label>
                                   </div>
-                                  <div class="col-md-6">
-                                      <p>13</p>
+                                  <div class="col-md-7">
+                                      <p>{{postproduct}}</p>
                                   </div>
                               </div>
                               <div class="row">
-                                  <div class="col-md-6">
+                                  <div class="col-md-5">
                                       <label>Buying product</label>
                                   </div>
-                                  <div class="col-md-6">
-                                      <p>5</p>
+                                  <div class="col-md-7">
+                                      <p>{{buyingproduct}}</p>
                                   </div>
                               </div>
                               <ul class="nav-tabs" role="tablist"></ul>
                       <div class="row">
                           <div class="col-md-12">
                               <label>Your Bio</label><br/>
-                              <p>Your detail description</p>
+                              <p>{{bio}}</p>
                           </div>
                       </div>
                   </div>
@@ -140,4 +147,4 @@
       </div>
   </form>
 </div>
-
+</div>

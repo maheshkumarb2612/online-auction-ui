@@ -95,3 +95,7 @@
 .example-container > * {
   width: 100%;
 }
+
+.top-padding{
+  padding-top: 115px;
+}

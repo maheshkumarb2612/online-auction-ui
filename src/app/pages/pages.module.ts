@@ -19,6 +19,8 @@ import { BidComponent } from './secured/bid/bid.component';
 import { AboutUsComponent } from './public/about-us/about-us.component';
 import { HelpComponent } from './public/help/help.component';
 import { FormsModule } from '@angular/forms';
+import { ManageProductComponent } from './secured/manage-product/manage-product.component';
+import { CartComponent } from './secured/cart/cart.component';
 
 
 const routes: Routes = [
@@ -37,7 +39,8 @@ const routes: Routes = [
   { path: 'product-listing/product-detail/bid', component: BidComponent} ,
   { path: 'feedback', component: FeedbackComponent} ,
   { path: 'about-us', component: AboutUsComponent} ,
-  { path: 'help', component: HelpComponent}
+  { path: 'help', component: HelpComponent} ,
+  { path: 'cart', component: CartComponent}
 ];
 
 
@@ -49,7 +52,9 @@ const routes: Routes = [
       ImageUploadComponent,
       BidComponent,
       AboutUsComponent,
-      HelpComponent
+      HelpComponent,
+      ManageProductComponent,
+      CartComponent
       ],
   imports: [
     CommonModule,
