@@ -109,6 +109,12 @@ h2{
   border-left-color: rgb(34, 34, 70);
   border-left-style: double;
 }
+.horizontal-line{
+  border-bottom-left-radius: 0;
+  border-top-width: 10px;
+  border-top-color: rgb(126, 9, 9);
+  border-top-style: double;
+}
 .bid-btn{
   color: rgb(255, 255, 176);
 }

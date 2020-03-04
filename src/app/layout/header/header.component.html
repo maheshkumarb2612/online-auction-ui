@@ -5,14 +5,12 @@
       <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
     </form>
 
-
-
  <nav class="navbar-expand-sm navbar-dark header-color">
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
               <a href="#"><button mat-button class="header-font-color">
-                  <mat-icon>home</mat-icon> Home <span class="sr-only">(current)</span></button></a>
+                  <mat-icon matPrefix>home</mat-icon> Home <span class="sr-only">(current)</span></button></a>
         </li>
 
         <li class="nav-item">
@@ -49,7 +47,7 @@
             </li>
           <li class="nav-item">
             <a [routerLink]="['/help']" routerLinkActive="router-link-active">
-              <button mat-button class="header-font-color"><mat-icon> help</mat-icon> Help</button></a>
+              <button mat-button class="header-font-color"><mat-icon matPrefix> help</mat-icon> Help</button></a>
          </li>
 
           <li class="nav-item">
@@ -60,7 +58,7 @@
           <li class="nav-item">
             <a [routerLink]="['/cart']" routerLinkActive="router-link-active">
               <button mat-button class="header-font-color">Cart</button></a>
-              <mat-icon matPrefix>cart</mat-icon>
+              <mat-icon matPrefix>shopping-cart</mat-icon>
           </li>
 
         </ul>

@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  fullname = "Maheshkumar Savita";
+  is_edit = true;
+
   role = "Seller or Bidder";
   username = "mahesh";
   firstname ="abc";
@@ -18,10 +19,10 @@ export class ProfileComponent implements OnInit {
   address ="Address";
   createdate = "12-06-2019";
   postproduct = 5;
-  buyingproduct = 9;
+  buyedproduct = 9;
   bio = "Bio";
 
-  tenp = this.firstname + this.lastname;
+  fullname = this.firstname + " " + this.lastname;
 
   constructor() { }
 

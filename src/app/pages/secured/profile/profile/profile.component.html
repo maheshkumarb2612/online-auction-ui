@@ -1,4 +1,4 @@
-<div class="top-padding">
+<!-- <div class="top-padding">
 <div class="container emp-profile">
   <form method="post">
       <div class="row">
@@ -38,18 +38,8 @@
       </div>
       <div class="row">
           <div class="col-md-4">
-              <!-- <div class="profile-work">
-                  <p>WORK LINK</p>
-                  <a href="">Website Link</a><br/>
-                  <a href="">Bootsnipp Profile</a><br/>
-                  <a href="">Bootply Profile</a>
-                  <p>SKILLS</p>
-                  <a href="">Web Designer</a><br/>
-                  <a href="">Web Developer</a><br/>
-                  <a href="">WordPress</a><br/>
-                  <a href="">WooCommerce</a><br/>
-                  <a href="">PHP, .Net</a><br/>
-              </div> -->
+               <div class="profile-work">
+                 </div>
           </div>
           <div class="col-md-8">
               <div class="tab-content profile-tab" id="myTabContent">
@@ -59,9 +49,9 @@
                                       <label>Username</label>
                                   </div>
                                   <div class="col-md-7">
-                                    <mat-form-field appearance="outline">
+                                    <mat-form-field appearance="fill">
                                         <mat-label>Username</mat-label>
-                                        <input matInput value={{username}}>
+                                        <input matInput name="username" [(ngModel)]="username"  [disabled]="is_edit=='false' ? true : null">
                                       </mat-form-field>
                                   </div>
                               </div>
@@ -71,8 +61,8 @@
                                   </div>
                                   <div class="col-md-7">
                                     <mat-form-field appearance="outline">
-                                        <mat-label>Username</mat-label>
-                                        <input matInput name="fullname" [(ngModel)]="tenp">
+                                        <mat-label>Name</mat-label>
+                                        <input matInput name="fullname" [(ngModel)]="fullname">
                                       </mat-form-field>
                                   </div>
                               </div>
@@ -81,7 +71,10 @@
                                       <label>Email</label>
                                   </div>
                                   <div class="col-md-7">
-                                      <p>{{email}}</p>
+                                    <mat-form-field appearance="outline">
+                                      <mat-label>Email</mat-label>
+                                      <input matInput name="email" [(ngModel)]="email">
+                                    </mat-form-field>
                                   </div>
                               </div>
                               <div class="row">
@@ -89,7 +82,10 @@
                                       <label>Phone No.</label>
                                   </div>
                                   <div class="col-md-7">
-                                      <p>{{phoneno}}</p>
+                                    <mat-form-field appearance="outline">
+                                      <mat-label>Phone number</mat-label>
+                                      <input matInput name="phoneno" [(ngModel)]="phoneno">
+                                    </mat-form-field>
                                   </div>
                               </div>
                               <div class="row">
@@ -97,7 +93,10 @@
                                       <label>Gender</label>
                                   </div>
                                   <div class="col-md-7">
-                                      <p>{{gender}}</p>
+                                    <mat-form-field appearance="outline">
+                                      <mat-label>Gender</mat-label>
+                                      <input matInput name="gender" [(ngModel)]="gender">
+                                    </mat-form-field>
                                   </div>
                               </div>
                               <div class="row">
@@ -105,9 +104,21 @@
                                       <label>Address</label>
                                   </div>
                                   <div class="col-md-7">
-                                      <p> {{address}}</p>
+                                    <mat-form-field appearance="outline">
+                                      <mat-label>Address</mat-label>
+                                      <input matInput name="address" [(ngModel)]="address">
+                                    </mat-form-field>
                                   </div>
                               </div>
+                              <div class="row">
+                                <ul class="nav-tabs" role="tablist"></ul>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                      <label>Your Bio</label><br/>
+                                      <p>{{bio}}</p>
+                                    </div>
+                                </div>
+                            </div>
                   </div>
                   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                               <div class="row">
@@ -115,7 +126,10 @@
                                       <label>Date of your account</label>
                                   </div>
                                   <div class="col-md-7">
-                                      <p>{{createdate}}</p>
+                                    <mat-form-field appearance="fill">
+                                      <mat-label>Date</mat-label>
+                                      <input matInput name="createdate" [(ngModel)]="createdate" [disabled]="true">
+                                    </mat-form-field>
                                   </div>
                               </div>
                               <div class="row">
@@ -123,28 +137,172 @@
                                       <label>My Post product</label>
                                   </div>
                                   <div class="col-md-7">
-                                      <p>{{postproduct}}</p>
+                                    <mat-form-field appearance="fill">
+                                      <mat-label>Post product</mat-label>
+                                      <input matInput name="postproduct" [(ngModel)]="postproduct" [disabled]="true">
+                                    </mat-form-field>
                                   </div>
                               </div>
                               <div class="row">
                                   <div class="col-md-5">
-                                      <label>Buying product</label>
+                                      <label>Buyed product</label>
                                   </div>
                                   <div class="col-md-7">
-                                      <p>{{buyingproduct}}</p>
+                                    <mat-form-field appearance="fill">
+                                      <mat-label>Buyed product</mat-label>
+                                      <input matInput name="buyedproduct" [(ngModel)]="buyedproduct" [disabled]="true">
+                                    </mat-form-field>
                                   </div>
                               </div>
-                              <ul class="nav-tabs" role="tablist"></ul>
-                      <div class="row">
-                          <div class="col-md-12">
-                              <label>Your Bio</label><br/>
-                              <p>{{bio}}</p>
-                          </div>
-                      </div>
+
                   </div>
               </div>
           </div>
       </div>
   </form>
 </div>
+</div> -->
+
+
+
+
+
+<div class="top-padding">
+<div class="container emp-profile">
+  <form method="post">
+      <div class="row">
+          <div class="col-md-4">
+              <div class="profile-img">
+                  <img class="rounded mx-auto d-block" src="../../../../../assets/u1.png" alt=""/>
+                  </div>
+          </div>
+          <div class="col-md-6">
+              <div class="profile-head">
+                          <h5>
+                              {{firstname}} {{lastname}}
+                          </h5>
+                          <h6>
+                              {{role}}
+                          </h6>
+                          <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                  <ul class="nav nav-tabs" id="myTab" role="tablist">
+                      <li class="nav-item">
+                          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Performance</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <div class="col-md-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;<button mat-button color="primary" (click)="is_edit = !is_edit">Edit Profile</button>
+              <a href="#" [routerLink]="['/profile/edit-profile/change-password']" routerLinkActive="router-link-active" >
+              <button mat-button color="primary" class="">Change Password</button>
+            </a>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-4">
+               <div class="profile-work">
+                 </div>
+          </div>
+          <div class="col-md-8">
+              <div class="tab-content profile-tab" id="myTabContent">
+                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                                    <label>Username</label><br>
+                                    <mat-form-field appearance="fill" class="width-full">
+                                        <mat-label>Username</mat-label>
+                                        <input matInput name="username" [(ngModel)]="username"  [disabled]="is_edit ? 'true' : 'false'">
+                                    </mat-form-field>
+
+                                    <br>
+                                      <label>Name</label><br>
+                                    <mat-form-field appearance="fill" class="width-full">
+                                        <mat-label>Name</mat-label>
+                                        <input matInput name="fullname" [(ngModel)]="fullname" [disabled]="is_edit ? 'true' : 'false'">
+                                      </mat-form-field>
+
+                                      <br>
+                                      <label>Email</label>
+                                    <mat-form-field appearance="fill" class="width-full">
+                                      <mat-label>Email</mat-label>
+                                      <input matInput name="email" [(ngModel)]="email" [disabled]="is_edit ? 'true' : 'false'">
+                                    </mat-form-field>
+
+                                    <br>
+                                    <label>Phone No.</label>
+                                    <mat-form-field appearance="fill" class="width-full">
+                                      <mat-label>Phone number</mat-label>
+                                      <input matInput name="phoneno" [(ngModel)]="phoneno" [disabled]="is_edit ? 'true' : 'false'">
+                                    </mat-form-field>
+
+                                    <br>
+                                      <label>Gender</label>
+                                      <mat-form-field appearance="fill" class="width-full">
+                                      <mat-label>Gender</mat-label>
+                                      <input matInput name="gender" [(ngModel)]="gender" [disabled]="is_edit ? 'true' : 'false'">
+                                    </mat-form-field>
+
+                                    <br>
+                                    <label>Address</label>
+                                    <mat-form-field appearance="fill" class="width-full">
+                                      <mat-label>Address</mat-label>
+                                      <input matInput name="address" [(ngModel)]="address" [disabled]="is_edit ? 'true' : 'false'">
+                                    </mat-form-field>
+
+                                    <br>
+                                  </div>
+                  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                              <div class="row">
+                                  <div class="col-md-5">
+                                      <label>Date of your account</label>
+                                  </div>
+                                  <div class="col-md-7">
+                                    <mat-form-field appearance="fill">
+                                      <mat-label>Date</mat-label>
+                                      <input matInput name="createdate" [(ngModel)]="createdate" [disabled]="true">
+                                    </mat-form-field>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-5">
+                                      <label>My Post product</label>
+                                  </div>
+                                  <div class="col-md-7">
+                                    <mat-form-field appearance="fill">
+                                      <mat-label>Post product</mat-label>
+                                      <input matInput name="postproduct" [(ngModel)]="postproduct" [disabled]="true">
+                                    </mat-form-field>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-5">
+                                      <label>Buyed product</label>
+                                  </div>
+                                  <div class="col-md-7">
+                                    <mat-form-field appearance="fill">
+                                      <mat-label>Buyed product</mat-label>
+                                      <input matInput name="buyedproduct" [(ngModel)]="buyedproduct" [disabled]="true">
+                                    </mat-form-field>
+                                  </div>
+                              </div>
+
+                  </div>
+              </div>
+          </div>
+
 </div>
+</form>
+
+<ul class="nav-tabs width-full" role="tablist"></ul>
+<div class="row">
+    <div class="col-md-12">
+      <label>Your Bio</label><br/>
+      <p>{{bio}}</p>
+    </div>
+</div>
+</div>
+</div>
+
