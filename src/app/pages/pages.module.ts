@@ -21,6 +21,7 @@ import { HelpComponent } from './public/help/help.component';
 import { FormsModule } from '@angular/forms';
 import { ManageProductComponent } from './secured/manage-product/manage-product.component';
 import { CartComponent } from './secured/cart/cart.component';
+import { BuyNowComponent } from './secured/buy-now/buy-now.component';
 
 
 const routes: Routes = [
@@ -54,7 +55,8 @@ const routes: Routes = [
       AboutUsComponent,
       HelpComponent,
       ManageProductComponent,
-      CartComponent
+      CartComponent,
+      BuyNowComponent
       ],
   imports: [
     CommonModule,

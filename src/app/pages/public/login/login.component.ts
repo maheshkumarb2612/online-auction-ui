@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   response : ResponseModel;
 
-  constructor(private authService:AuthenticationService) { }
+  constructor(private authService: AuthenticationService) { }
 
   ngOnInit() {
     this.username = sessionStorage.getItem('username');
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this.authService.authenticate(this.username, this.password)
     .subscribe((data: ResponseModel) => this.response = {
        ...data
-      
+
     });
     console.log(this.response);
     if(sessionStorage.getItem('token')){
