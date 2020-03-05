@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from '../../../common/auth/auth.service';
+import { AuthenticationService } from '../../../common/auth/auth.service';
 import { ResponseModel } from 'src/app/common/model/response.model';
 
 
@@ -13,29 +13,25 @@ export class RegisterComponent implements OnInit {
   hide = true;
   chide = true;
 
-  username : string;
-  email : string;
-  password : string;
-  confirm_password : string;
+  username: string = null;
+  email: string = null;
+  password: string = null;
+  confirmPassword: string = null;
 
-  response : ResponseModel;
+  response: ResponseModel;
 
-  constructor(private authRegService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService) { }
 
   ngOnInit() {
-    this.username = sessionStorage.getItem('username');
   }
 
   register() {
-    this.authRegService.registerAuthenticate(this.username, this.email, this.password, this.confirm_password)
+    this.authService.register(this.username, this.email, this.password, this.confirmPassword)
       .subscribe((data: ResponseModel) => this.response = {
         ...data
-
       });
     console.log(this.response);
-    if (sessionStorage.getItem('token')) {
-      this.authRegService.redirectToHome();
-    }
+    this.authService.redirectToLogin();
   }
 
 }

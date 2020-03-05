@@ -1,6 +1,6 @@
 <div class="top-padding">
 <div class="login-form">
-    <form (submit)="login()">
+    <form  ngNativeValidate (submit)="login()">
         <h2 class="text-center">Log in</h2>
         <div class="form-group">
             <input type="text" name="username" [(ngModel)]="username" class="form-control" placeholder="Username" required="required">
