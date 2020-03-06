@@ -18,7 +18,8 @@ export class RegisterComponent implements OnInit {
   password: string = null;
   confirmPassword: string = null;
 
-  response: ResponseModel;
+  responseModel: ResponseModel;
+  errorArray: string[];
 
   constructor(private authService: AuthenticationService) { }
 
@@ -27,11 +28,24 @@ export class RegisterComponent implements OnInit {
 
   register() {
     this.authService.register(this.username, this.email, this.password, this.confirmPassword)
-      .subscribe((data: ResponseModel) => this.response = {
-        ...data
+      .subscribe((res: ResponseModel) => {
+        this.responseModel = res;
+        // console.log(this.responseModel);
+        if (res.success && res.success) {
+            this.authService.redirectToLogin();
+        } else if (res.success && !res.success) {
+          this.errorArray = res.message.split('|');
+        }
+      }, error => {
+        console.log(error);
+        this.errorArray = [];
+        if (error.error) {
+          this.errorArray = error.error.message.split('|');
+        } else {
+          this.errorArray.push(error.message);
+        }
       });
-    console.log(this.response);
-    this.authService.redirectToLogin();
+
   }
 
 }

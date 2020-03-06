@@ -47,6 +47,7 @@
       <div class="form-group">
         <button type="submit" class="btn btn-drak btn-lg">Sign Up</button>
       </div>
+      <li class="alert alert-danger" *ngFor="let err of errorArray"> {{err}} </li>
     </form>
     <div class="text-center">Already have an account? <a href="#" [routerLink]="['/login']"
         routerLinkActive="router-link-active">Login here</a></div>

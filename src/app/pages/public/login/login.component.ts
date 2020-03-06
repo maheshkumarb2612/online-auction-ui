@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from '../../../common/auth/auth.service';
+import { AuthenticationService } from '../../../common/auth/auth.service';
 import { ResponseModel } from 'src/app/common/model/response.model';
 
 @Component({
@@ -9,10 +9,11 @@ import { ResponseModel } from 'src/app/common/model/response.model';
 })
 export class LoginComponent implements OnInit {
 
-  username : string;
-  password : string;
+  username: string;
+  password: string;
 
-  response : ResponseModel;
+  responseModel: ResponseModel;
+  errorArray: string[];
 
   constructor(private authService: AuthenticationService) { }
 
@@ -20,16 +21,26 @@ export class LoginComponent implements OnInit {
     this.username = sessionStorage.getItem('username');
   }
 
-  login(){
+  login() {
     this.authService.authenticate(this.username, this.password)
-    .subscribe((data: ResponseModel) => this.response = {
-       ...data
-
-    });
-    console.log(this.response);
-    if(sessionStorage.getItem('token')){
-        this.authService.redirectToHome();
-    }
+      .subscribe((res: ResponseModel) => {
+        this.responseModel = res;
+        // console.log(this.responseModel);
+        if (res.success && res.success) {
+          if (sessionStorage.getItem('token')) {
+            this.authService.redirectToHome();
+          }
+        } else if (res.success && !res.success) {
+          this.errorArray = res.message.split('|');
+        }
+      }, error => {
+        this.errorArray = [];
+        if (error.error) {
+          this.errorArray = error.error.message.split('|');
+        } else {
+          this.errorArray.push(error.message);
+        }
+      });
   }
 
 }
