@@ -24,7 +24,7 @@ export class AuthenticationService {
 
   authenticate(username, password) {
     sessionStorage.setItem('username', username);
-    return this.httpClient.post<ResponseModel>(APP_URL.LOGIN, { username, password })
+    return this.httpClient.post<ResponseModel>(APP_URL.BACKEND_LOGIN, { username, password })
       .pipe(
         map(
           userData => {
@@ -43,20 +43,21 @@ export class AuthenticationService {
   }
 
   logOut() {
-    sessionStorage.removeItem('username')
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('token');
   }
 
   redirectToHome() {
-    this.router.navigate([APP_URL.HOME]);
+    this.router.navigateByUrl(APP_URL.HOME);
   }
 
   redirectToLogin() {
-    this.router.navigate([APP_URL.LOGIN]);
+    this.router.navigateByUrl(APP_URL.LOGIN);
   }
 
   register(username, email, password, confirmPassword) {
 
-    return this.httpClient.post<ResponseModel>(APP_URL.REGISTER, { username, email, password, confirmPassword })
+    return this.httpClient.post<ResponseModel>(APP_URL.BACKEND_REGISTER, { username, email, password, confirmPassword })
       .pipe(
         map(
           userData => {

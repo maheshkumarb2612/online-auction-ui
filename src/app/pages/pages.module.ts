@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './public/home/home.component';
-import { RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './public/login/login.component';
 import { RegisterComponent } from './public/register/register.component';
 import { ProfileComponent } from './secured/profile/profile/profile.component';
@@ -22,6 +22,7 @@ import { FormsModule } from '@angular/forms';
 import { ManageProductComponent } from './secured/manage-product/manage-product.component';
 import { CartComponent } from './secured/cart/cart.component';
 import { BuyNowComponent } from './secured/buy-now/buy-now.component';
+import { LogoutComponent } from './secured/logout/logout.component';
 
 
 const routes: Routes = [
@@ -30,34 +31,36 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'post-product', component: PostProductComponent },
-  { path: 'product-listing/product-detail', component: ProductDetailComponent},
-  { path: 'profile/edit-profile', component: EditProfileComponent},
+  { path: 'product-listing/product-detail', component: ProductDetailComponent },
+  { path: 'profile/edit-profile', component: EditProfileComponent },
   { path: 'profile/edit-profile/change-password', component: ChangePasswordComponent },
   { path: 'product-listing', component: ProductListingComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'forgot-password/reset-password', component: ResetPasswordComponent },
-  { path: 'image-upload', component: ImageUploadComponent } ,
-  { path: 'product-listing/product-detail/bid', component: BidComponent} ,
-  { path: 'feedback', component: FeedbackComponent} ,
-  { path: 'about-us', component: AboutUsComponent} ,
-  { path: 'help', component: HelpComponent} ,
-  { path: 'cart', component: CartComponent}
+  { path: 'image-upload', component: ImageUploadComponent },
+  { path: 'product-listing/product-detail/bid', component: BidComponent },
+  { path: 'feedback', component: FeedbackComponent },
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'help', component: HelpComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'logout', component: LogoutComponent }
 ];
 
 
 @NgModule({
   declarations: [HomeComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, ProfileComponent,
-     PostProductComponent, ProductListingComponent, ProductDetailComponent, EditProfileComponent, ResetPasswordComponent,
-      ChangePasswordComponent,
-      FeedbackComponent,
-      ImageUploadComponent,
-      BidComponent,
-      AboutUsComponent,
-      HelpComponent,
-      ManageProductComponent,
-      CartComponent,
-      BuyNowComponent
-      ],
+    PostProductComponent, ProductListingComponent, ProductDetailComponent, EditProfileComponent, ResetPasswordComponent,
+    ChangePasswordComponent,
+    FeedbackComponent,
+    ImageUploadComponent,
+    BidComponent,
+    AboutUsComponent,
+    HelpComponent,
+    ManageProductComponent,
+    CartComponent,
+    BuyNowComponent,
+    LogoutComponent
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

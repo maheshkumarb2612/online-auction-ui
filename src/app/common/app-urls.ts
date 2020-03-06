@@ -5,7 +5,9 @@ const serverUrl = environment.baseUrl;
 export const APP_URL = {
 
     HOME: '/home',
-    LOGIN: serverUrl + '/login',
-    LOGOUT: serverUrl + '/logout',
-    REGISTER: serverUrl + '/register'
+    LOGIN: '/login',
+    LOGOUT: '/logout',
+    BACKEND_LOGIN: serverUrl + '/login',
+    BACKEND_LOGOUT: serverUrl + '/logout',
+    BACKEND_REGISTER: serverUrl + '/register'
 };

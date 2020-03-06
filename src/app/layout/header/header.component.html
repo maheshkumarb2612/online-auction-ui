@@ -1,73 +1,89 @@
 <nav class="navbar navbar-light header-color haeder-fix">
-    <a class="navbar-brand" href="#"><h1 class="left-padding"> Online-Auction</h1></a>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
-      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
-    </form>
+  <a class="navbar-brand" href="#">
+    <h1 class="left-padding"> Online-Auction</h1>
+  </a>
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+    <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+  </form>
 
- <nav class="navbar-expand-sm navbar-dark header-color">
+  <nav class="navbar-expand-sm navbar-dark header-color">
     <div class="collapse navbar-collapse" id="collapsibleNavId">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
-              <a href="#"><button mat-button class="header-font-color">
-                  <mat-icon matPrefix>home</mat-icon> Home <span class="sr-only">(current)</span></button></a>
+          <a href="#"><button mat-button class="header-font-color">
+              <mat-icon matPrefix>home</mat-icon> Home <span class="sr-only">(current)</span>
+            </button></a>
+        </li>
+
+        <li class="nav-item" *ngIf="isUserLoggedIn && isUserLoggedIn === true">
+          <a [routerLink]="['/profile']" routerLinkActive="router-link-active">
+            <button mat-button class="header-font-color">Profile</button></a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active">
+            <button mat-button class="header-font-color"> Auctions </button></a>
+        </li>
+        <li class="nav-item" *ngIf="isUserLoggedIn && isUserLoggedIn === true">
+          <a [routerLink]="['/post-product']" routerLinkActive="router-link-active">
+            <button mat-button class="header-font-color"> Post Product </button></a>
+        </li>
+        <li class="nav-item">
+          <button mat-button [matMenuTriggerFor]="categories" class="header-font-color"> Categories </button>
+          <mat-menu #categories="matMenu">
+            <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button
+                mat-menu-item>Antique</button></a>
+            <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button
+                mat-menu-item>Art</button></a>
+            <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button
+                mat-menu-item>Books</button></a>
+            <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button
+                mat-menu-item>Coins</button></a>
+            <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button
+                mat-menu-item>Electronics</button></a>
+            <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button
+                mat-menu-item>Painting</button></a>
+            <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button
+                mat-menu-item>Other</button></a>
+          </mat-menu>
+        </li>
+        <li class="nav-item" *ngIf="isUserLoggedIn || !isUserLoggedIn">
+          <a [routerLink]="['/login']" routerLinkActive="router-link-active">
+            <button mat-button class="header-font-color"> Login </button></a>
+        </li>
+        <li class="nav-item" *ngIf="isUserLoggedIn || !isUserLoggedIn">
+          <a [routerLink]="['/register']" routerLinkActive="router-link-active">
+            <button mat-button class="header-font-color">Register</button></a>
+        </li>
+        <li class="nav-item" *ngIf="isUserLoggedIn && isUserLoggedIn === true">
+          <a [routerLink]="['/logout']" routerLinkActive="router-link-active">
+            <button mat-button class="header-font-color"> Logout </button></a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/help']" routerLinkActive="router-link-active">
+            <button mat-button class="header-font-color">
+              <mat-icon matPrefix> help</mat-icon> Help
+            </button></a>
         </li>
 
         <li class="nav-item">
-          <a [routerLink]="['/profile']" routerLinkActive="router-link-active">
-            <button mat-button class="header-font-color">Profile</button></a>
-      </li>
-            <li class="nav-item">
-              <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active">
-                <button mat-button class="header-font-color"> Auctions </button></a>
-            </li>
-            <li class="nav-item">
-              <a [routerLink]="['/post-product']" routerLinkActive="router-link-active">
-                <button mat-button class="header-font-color"> Post Product </button></a>
-            </li>
-            <li class="nav-item">
-              <button mat-button [matMenuTriggerFor]="categories" class="header-font-color"> Categories </button>
-              <mat-menu #categories="matMenu">
-                <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button mat-menu-item>Antique</button></a>
-                <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button mat-menu-item>Art</button></a>
-                <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button mat-menu-item>Books</button></a>
-                <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button mat-menu-item>Coins</button></a>
-                <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button mat-menu-item>Electronics</button></a>
-                <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button mat-menu-item>Painting</button></a>
-                <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button mat-menu-item>Other</button></a>
-                </mat-menu>
-            </li>
-            <li class="nav-item">
-              <a [routerLink]="['/login']" routerLinkActive="router-link-active">
-                <button mat-button class="header-font-color"> Login </button></a>
-            </li>
-            <li class="nav-item">
-              <a [routerLink]="['/register']" routerLinkActive="router-link-active">
-                <button mat-button class="header-font-color">Register</button></a>
-            </li>
-          <li class="nav-item">
-            <a [routerLink]="['/help']" routerLinkActive="router-link-active">
-              <button mat-button class="header-font-color"><mat-icon matPrefix> help</mat-icon> Help</button></a>
-         </li>
+          <a [routerLink]="['/about-us']" routerLinkActive="router-link-active">
+            <button mat-button class="header-font-color">About Us</button></a>
+        </li>
 
-          <li class="nav-item">
-            <a [routerLink]="['/about-us']" routerLinkActive="router-link-active">
-              <button mat-button class="header-font-color">About Us</button></a>
-          </li>
+        <li class="nav-item" *ngIf="isUserLoggedIn && isUserLoggedIn == true">
+          <a [routerLink]="['/cart']" routerLinkActive="router-link-active">
+            <button mat-button class="header-font-color">Cart</button></a>
+          <mat-icon matPrefix>shopping-cart</mat-icon>
+        </li>
 
-          <li class="nav-item">
-            <a [routerLink]="['/cart']" routerLinkActive="router-link-active">
-              <button mat-button class="header-font-color">Cart</button></a>
-              <mat-icon matPrefix>shopping-cart</mat-icon>
-          </li>
-
-        </ul>
-        <!-- <form class="form-inline my-2 my-lg-0">
+      </ul>
+      <!-- <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form> -->
     </div>
-</nav>
+  </nav>
 </nav>
 
 <!--
