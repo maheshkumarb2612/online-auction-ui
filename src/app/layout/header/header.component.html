@@ -16,10 +16,6 @@
             </button></a>
         </li>
 
-        <li class="nav-item" *ngIf="isUserLoggedIn">
-          <a [routerLink]="['/profile']" routerLinkActive="router-link-active">
-            <button mat-button class="header-font-color">Profile</button></a>
-        </li>
         <li class="nav-item">
           <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active">
             <button mat-button class="header-font-color"> Auctions </button></a>
@@ -47,23 +43,30 @@
                 mat-menu-item>Other</button></a>
           </mat-menu>
         </li>
+
+        <li class="nav-item" *ngIf="isUserLoggedIn">
+          <a [routerLink]="['/profile']" routerLinkActive="router-link-active">
+            <button mat-button class="header-font-color">Profile</button></a>
+        </li>
+
+        <li class="nav-item" *ngIf="isUserLoggedIn">
+          <a [routerLink]="['/cart']" routerLinkActive="router-link-active">
+            <button mat-button class="header-font-color">Cart</button></a>
+        </li>
+
         <li class="nav-item" *ngIf="!isUserLoggedIn">
           <a [routerLink]="['/login']" routerLinkActive="router-link-active">
             <button mat-button class="header-font-color"> Login </button></a>
         </li>
+
         <li class="nav-item" *ngIf="!isUserLoggedIn">
           <a [routerLink]="['/register']" routerLinkActive="router-link-active">
             <button mat-button class="header-font-color">Register</button></a>
         </li>
+
         <li class="nav-item" *ngIf="isUserLoggedIn">
           <a [routerLink]="['/logout']" routerLinkActive="router-link-active">
             <button mat-button class="header-font-color"> Logout </button></a>
-        </li>
-        <li class="nav-item">
-          <a [routerLink]="['/help']" routerLinkActive="router-link-active">
-            <button mat-button class="header-font-color">
-              <mat-icon matPrefix> help</mat-icon> Help
-            </button></a>
         </li>
 
         <li class="nav-item">
@@ -71,10 +74,11 @@
             <button mat-button class="header-font-color">About Us</button></a>
         </li>
 
-        <li class="nav-item" *ngIf="isUserLoggedIn">
-          <a [routerLink]="['/cart']" routerLinkActive="router-link-active">
-            <button mat-button class="header-font-color">Cart</button></a>
-          <mat-icon matPrefix>shopping-cart</mat-icon>
+        <li class="nav-item">
+          <a [routerLink]="['/help']" routerLinkActive="router-link-active">
+            <button mat-button class="header-font-color">
+              <mat-icon matPrefix> help</mat-icon> Help
+            </button></a>
         </li>
 
       </ul>

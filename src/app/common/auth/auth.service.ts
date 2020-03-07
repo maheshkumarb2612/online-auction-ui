@@ -21,7 +21,7 @@ export class JwtResponse {
 })
 export class AuthenticationService {
 
-  public isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private httpClient: HttpClient, private router: Router) {
   }
@@ -43,13 +43,17 @@ export class AuthenticationService {
   }
   isUserLoggedIn() {
     const user = sessionStorage.getItem('username');
-    // console.log(!(user === null))
-    return !(user === null);
+    if (user && user != null) {
+      // console.log(!(user === null))
+      this.isLoggedIn.next(true);
+    }
+    return this.isLoggedIn;
   }
 
   logOut() {
     sessionStorage.removeItem('username');
     sessionStorage.removeItem('token');
+    this.isLoggedIn.next(false);
   }
 
   redirectToHome() {
