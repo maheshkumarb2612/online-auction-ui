@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
 
   responseModel: ResponseModel;
   errorArray: string[];
+  successMessage: string;
 
   constructor(private authService: AuthenticationService) { }
 
@@ -32,8 +33,15 @@ export class RegisterComponent implements OnInit {
         this.responseModel = res;
         // console.log(this.responseModel);
         if (res.success && res.success) {
-            this.authService.redirectToLogin();
+            // this.authService.redirectToLogin();
+            this.successMessage = res.message;
+            this.errorArray = null;
+            this.username = null;
+            this.email = null;
+            this.password = null;
+            this.confirmPassword = null;
         } else if (res.success && !res.success) {
+          this.successMessage = null;
           this.errorArray = res.message.split('|');
         }
       }, error => {
