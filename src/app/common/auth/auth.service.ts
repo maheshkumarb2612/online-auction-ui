@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { APP_URL } from '../app-urls';
 import { ResponseModel } from '../model/response.model';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 
 export class User {
@@ -19,6 +20,9 @@ export class JwtResponse {
   providedIn: 'root'
 })
 export class AuthenticationService {
+
+  public isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   constructor(private httpClient: HttpClient, private router: Router) {
   }
 
@@ -31,6 +35,7 @@ export class AuthenticationService {
             sessionStorage.setItem('username', username);
             let tokenStr = 'Bearer ' + userData.data.token;
             sessionStorage.setItem('token', tokenStr);
+            this.isLoggedIn.next(true);
             return userData;
           }
         )
@@ -49,6 +54,10 @@ export class AuthenticationService {
 
   redirectToHome() {
     this.router.navigateByUrl(APP_URL.HOME);
+  }
+
+  redirectToHost() {
+    this.router.navigateByUrl(APP_URL.HOST);
   }
 
   redirectToLogin() {

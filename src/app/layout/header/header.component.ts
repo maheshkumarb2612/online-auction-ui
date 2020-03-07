@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { AuthenticationService } from 'src/app/common/auth/auth.service';
 
 @Component({
@@ -13,16 +13,19 @@ export class HeaderComponent implements OnInit {
   user: any;
 
   constructor(private authService: AuthenticationService) {
-    if (sessionStorage.getItem('token')) {
-      this.isUserLoggedIn = true;
-      this.user = this.authService.isUserLoggedIn();
+    /*if (sessionStorage.getItem('token')) {
+      this.isUserLoggedIn = this.authService.isUserLoggedIn();
+      this.user = sessionStorage.getItem('username');
     } else {
       this.isUserLoggedIn = false;
-    }
+    }*/
+    this.authService.isLoggedIn.subscribe( value => {
+      this.isUserLoggedIn = value;
+  });
+
   }
 
   ngOnInit() {
-
   }
 
 }

@@ -16,7 +16,7 @@
             </button></a>
         </li>
 
-        <li class="nav-item" *ngIf="isUserLoggedIn && isUserLoggedIn === true">
+        <li class="nav-item" *ngIf="isUserLoggedIn">
           <a [routerLink]="['/profile']" routerLinkActive="router-link-active">
             <button mat-button class="header-font-color">Profile</button></a>
         </li>
@@ -24,7 +24,7 @@
           <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active">
             <button mat-button class="header-font-color"> Auctions </button></a>
         </li>
-        <li class="nav-item" *ngIf="isUserLoggedIn && isUserLoggedIn === true">
+        <li class="nav-item" *ngIf="isUserLoggedIn">
           <a [routerLink]="['/post-product']" routerLinkActive="router-link-active">
             <button mat-button class="header-font-color"> Post Product </button></a>
         </li>
@@ -47,15 +47,15 @@
                 mat-menu-item>Other</button></a>
           </mat-menu>
         </li>
-        <li class="nav-item" *ngIf="isUserLoggedIn || !isUserLoggedIn">
+        <li class="nav-item" *ngIf="!isUserLoggedIn">
           <a [routerLink]="['/login']" routerLinkActive="router-link-active">
             <button mat-button class="header-font-color"> Login </button></a>
         </li>
-        <li class="nav-item" *ngIf="isUserLoggedIn || !isUserLoggedIn">
+        <li class="nav-item" *ngIf="!isUserLoggedIn">
           <a [routerLink]="['/register']" routerLinkActive="router-link-active">
             <button mat-button class="header-font-color">Register</button></a>
         </li>
-        <li class="nav-item" *ngIf="isUserLoggedIn && isUserLoggedIn === true">
+        <li class="nav-item" *ngIf="isUserLoggedIn">
           <a [routerLink]="['/logout']" routerLinkActive="router-link-active">
             <button mat-button class="header-font-color"> Logout </button></a>
         </li>
@@ -71,7 +71,7 @@
             <button mat-button class="header-font-color">About Us</button></a>
         </li>
 
-        <li class="nav-item" *ngIf="isUserLoggedIn && isUserLoggedIn == true">
+        <li class="nav-item" *ngIf="isUserLoggedIn">
           <a [routerLink]="['/cart']" routerLinkActive="router-link-active">
             <button mat-button class="header-font-color">Cart</button></a>
           <mat-icon matPrefix>shopping-cart</mat-icon>

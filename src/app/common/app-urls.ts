@@ -4,6 +4,7 @@ const serverUrl = environment.baseUrl;
 
 export const APP_URL = {
 
+    HOST: '/',
     HOME: '/home',
     LOGIN: '/login',
     LOGOUT: '/logout',
