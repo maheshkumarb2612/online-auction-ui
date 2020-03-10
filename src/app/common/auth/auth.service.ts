@@ -42,8 +42,8 @@ export class AuthenticationService {
       );
   }
   isUserLoggedIn() {
-    const user = sessionStorage.getItem('username');
-    if (user && user != null) {
+    const token = sessionStorage.getItem('token');
+    if (token && token != null) {
       // console.log(!(user === null))
       this.isLoggedIn.next(true);
     }
