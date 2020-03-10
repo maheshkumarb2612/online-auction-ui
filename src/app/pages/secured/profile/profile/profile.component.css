@@ -74,7 +74,7 @@
     margin-top: -15%;
 }
 .profile-work p{
-    font-size: 12px;
+    font-size: 17px;
     color: #818182;
     font-weight: 600;
     margin-top: 10%;
@@ -83,10 +83,12 @@
     text-decoration: none;
     color: #495057;
     font-weight: 600;
-    font-size: 14px;
+    margin-left: 5%;
+    font-size: 15px;
 }
-.profile-work ul{
-    list-style: none;
+.work{
+  margin-top: 4%;
+  margin-bottom: 4%;
 }
 .profile-tab label{
     font-weight: 600;
@@ -99,4 +101,13 @@
   display: flex;
   flex-direction: column;
   width: 100% auto;
+}
+.btn-align-right{
+  text-align: right;
+  font-size: 18px;
+  margin-top: 7%;
+}
+.btn-color{
+  background-color: rgb(80, 88, 155);
+  color: rgb(255, 255, 255);
 }

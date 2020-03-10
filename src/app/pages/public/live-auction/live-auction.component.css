@@ -1,0 +1,17 @@
+.example-container {
+  height: 400px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.live-card{
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 20%;
+  margin-top: 20%;
+}
+
+

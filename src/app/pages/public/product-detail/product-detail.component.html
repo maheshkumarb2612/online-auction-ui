@@ -62,10 +62,13 @@
 							<span class="color blue"></span>
 						</h5>
 						<div class="action">
-							<button mat-raised-button class="btn btn-default cart" type="button"> Bid </button>
+							<button mat-raised-button class="btn btn-default cart" type="button"> Cart </button>
 							<button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
-                <mat-icon>favorite</mat-icon>
-              </button>
+                			<a [routerLink]="['/bid-details']" routerLinkActive="router-link-active">
+                  			<button mat-button class="header-font-color">Bid Details</button></a>
+
+							<mat-icon>favorite</mat-icon>
+						</button>
 						</div>
 					</div>
 				</div>

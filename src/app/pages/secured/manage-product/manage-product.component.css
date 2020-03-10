@@ -1,0 +1,16 @@
+.container-fluid{
+	padding-bottom: 6px;
+}
+.page-header-left
+{
+	color: purple;
+}
+.col-form-label
+{
+color: red;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+	margin-left: 16px;
+  }
+

@@ -1,177 +1,8 @@
-<!-- <div class="top-padding">
-<div class="container emp-profile">
-  <form method="post">
-      <div class="row">
-          <div class="col-md-4">
-              <div class="profile-img">
-                  <img class="rounded mx-auto d-block" src="../../../../../assets/u1.png" alt=""/>
-                  </div>
-
-          </div>
-          <div class="col-md-6">
-              <div class="profile-head">
-                          <h5>
-                              {{firstname}} {{lastname}}
-                          </h5>
-                          <h6>
-                              {{role}}
-                          </h6>
-                          <p class="proile-rating">RANKINGS : <span>8/10</span></p>
-                  <ul class="nav nav-tabs" id="myTab" role="tablist">
-                      <li class="nav-item">
-                          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Performance</a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-          <div class="col-md-2">
-            <a href="#" [routerLink]="['/profile/edit-profile']" routerLinkActive="router-link-active" >
-              <input type="submit" class="profile-edit-btn" value="Edit Profile">
-            </a>
-            <a href="#" [routerLink]="['/profile/edit-profile/change-password']" routerLinkActive="router-link-active" >
-              <input type="submit" class="profile-edit-btn" value="Change Password">
-            </a>
-          </div>
-      </div>
-      <div class="row">
-          <div class="col-md-4">
-               <div class="profile-work">
-                 </div>
-          </div>
-          <div class="col-md-8">
-              <div class="tab-content profile-tab" id="myTabContent">
-                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                              <div class="row">
-                                  <div class="col-md-5">
-                                      <label>Username</label>
-                                  </div>
-                                  <div class="col-md-7">
-                                    <mat-form-field appearance="fill">
-                                        <mat-label>Username</mat-label>
-                                        <input matInput name="username" [(ngModel)]="username"  [disabled]="is_edit=='false' ? true : null">
-                                      </mat-form-field>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-5">
-                                      <label>Name</label>
-                                  </div>
-                                  <div class="col-md-7">
-                                    <mat-form-field appearance="outline">
-                                        <mat-label>Name</mat-label>
-                                        <input matInput name="fullname" [(ngModel)]="fullname">
-                                      </mat-form-field>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-5">
-                                      <label>Email</label>
-                                  </div>
-                                  <div class="col-md-7">
-                                    <mat-form-field appearance="outline">
-                                      <mat-label>Email</mat-label>
-                                      <input matInput name="email" [(ngModel)]="email">
-                                    </mat-form-field>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-5">
-                                      <label>Phone No.</label>
-                                  </div>
-                                  <div class="col-md-7">
-                                    <mat-form-field appearance="outline">
-                                      <mat-label>Phone number</mat-label>
-                                      <input matInput name="phoneno" [(ngModel)]="phoneno">
-                                    </mat-form-field>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-5">
-                                      <label>Gender</label>
-                                  </div>
-                                  <div class="col-md-7">
-                                    <mat-form-field appearance="outline">
-                                      <mat-label>Gender</mat-label>
-                                      <input matInput name="gender" [(ngModel)]="gender">
-                                    </mat-form-field>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-5">
-                                      <label>Address</label>
-                                  </div>
-                                  <div class="col-md-7">
-                                    <mat-form-field appearance="outline">
-                                      <mat-label>Address</mat-label>
-                                      <input matInput name="address" [(ngModel)]="address">
-                                    </mat-form-field>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                <ul class="nav-tabs" role="tablist"></ul>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                      <label>Your Bio</label><br/>
-                                      <p>{{bio}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                  </div>
-                  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                              <div class="row">
-                                  <div class="col-md-5">
-                                      <label>Date of your account</label>
-                                  </div>
-                                  <div class="col-md-7">
-                                    <mat-form-field appearance="fill">
-                                      <mat-label>Date</mat-label>
-                                      <input matInput name="createdate" [(ngModel)]="createdate" [disabled]="true">
-                                    </mat-form-field>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-5">
-                                      <label>My Post product</label>
-                                  </div>
-                                  <div class="col-md-7">
-                                    <mat-form-field appearance="fill">
-                                      <mat-label>Post product</mat-label>
-                                      <input matInput name="postproduct" [(ngModel)]="postproduct" [disabled]="true">
-                                    </mat-form-field>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-5">
-                                      <label>Buyed product</label>
-                                  </div>
-                                  <div class="col-md-7">
-                                    <mat-form-field appearance="fill">
-                                      <mat-label>Buyed product</mat-label>
-                                      <input matInput name="buyedproduct" [(ngModel)]="buyedproduct" [disabled]="true">
-                                    </mat-form-field>
-                                  </div>
-                              </div>
-
-                  </div>
-              </div>
-          </div>
-      </div>
-  </form>
-</div>
-</div> -->
-
-
-
-
-
 <div class="top-padding">
 <div class="container emp-profile">
   <form method="post">
       <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-3">
               <div class="profile-img">
                   <img class="rounded mx-auto d-block" src="../../../../../assets/u1.png" alt=""/>
                   </div>
@@ -181,10 +12,11 @@
                           <h5>
                               {{firstname}} {{lastname}}
                           </h5>
+                          <br>
                           <h6>
                               {{role}}
-                          </h6>
-                          <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                          </h6><br>
+
                   <ul class="nav nav-tabs" id="myTab" role="tablist">
                       <li class="nav-item">
                           <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
@@ -196,65 +28,89 @@
               </div>
           </div>
           <div class="col-md-2">
-            &nbsp;&nbsp;&nbsp;&nbsp;<button mat-button color="primary" (click)="is_edit = !is_edit">Edit Profile</button>
+            &nbsp;<button mat-button color="primary" (click)="is_edit = !is_edit" (click)="show = !show"><mat-icon matPrefix>settings</mat-icon> Edit Profile</button>
               <a href="#" [routerLink]="['/profile/edit-profile/change-password']" routerLinkActive="router-link-active" >
               <button mat-button color="primary" class="">Change Password</button>
             </a>
           </div>
       </div>
+      <br>
       <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-3">
                <div class="profile-work">
-                 </div>
+                 <hr><p>Works</p><hr>
+                  <div class="work">
+                      <a href="#">My Bid</a><br>
+                  </div>
+                  <div class="work">
+                      <a href="#">My posted product</a>
+                  </div>
+                  <hr>
+               </div>
           </div>
           <div class="col-md-8">
               <div class="tab-content profile-tab" id="myTabContent">
                   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-                                    <label>Username</label><br>
+                                    <h5><mat-icon matPrefix>account_box</mat-icon>&nbsp; Username</h5>
                                     <mat-form-field appearance="fill" class="width-full">
                                         <mat-label>Username</mat-label>
                                         <input matInput name="username" [(ngModel)]="username"  [disabled]="is_edit ? 'true' : 'false'">
                                     </mat-form-field>
 
                                     <br>
-                                      <label>Name</label><br>
+                                      <h5><mat-icon matPrefix>perm_identity</mat-icon>&nbsp; Name</h5>
                                     <mat-form-field appearance="fill" class="width-full">
                                         <mat-label>Name</mat-label>
                                         <input matInput name="fullname" [(ngModel)]="fullname" [disabled]="is_edit ? 'true' : 'false'">
                                       </mat-form-field>
 
                                       <br>
-                                      <label>Email</label>
+                                      <h5><mat-icon matPrefix>email</mat-icon>&nbsp; Email</h5>
                                     <mat-form-field appearance="fill" class="width-full">
                                       <mat-label>Email</mat-label>
                                       <input matInput name="email" [(ngModel)]="email" [disabled]="is_edit ? 'true' : 'false'">
                                     </mat-form-field>
 
                                     <br>
-                                    <label>Phone No.</label>
+                                    <h5><mat-icon matPrefix>call</mat-icon>&nbsp; Phone No.</h5>
                                     <mat-form-field appearance="fill" class="width-full">
                                       <mat-label>Phone number</mat-label>
                                       <input matInput name="phoneno" [(ngModel)]="phoneno" [disabled]="is_edit ? 'true' : 'false'">
                                     </mat-form-field>
 
                                     <br>
-                                      <label>Gender</label>
+                                      <h5><i class="fa fa-venus-mars" style="font-size:36px;"></i>&nbsp; Gender</h5>
                                       <mat-form-field appearance="fill" class="width-full">
                                       <mat-label>Gender</mat-label>
                                       <input matInput name="gender" [(ngModel)]="gender" [disabled]="is_edit ? 'true' : 'false'">
                                     </mat-form-field>
 
                                     <br>
-                                    <label>Address</label>
+
+                                    <h5><mat-icon matPrefix>location_on</mat-icon>&nbsp; Address</h5>
                                     <mat-form-field appearance="fill" class="width-full">
                                       <mat-label>Address</mat-label>
                                       <input matInput name="address" [(ngModel)]="address" [disabled]="is_edit ? 'true' : 'false'">
                                     </mat-form-field>
 
                                     <br>
-                                  </div>
-                  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <h5><mat-icon matPrefix>info</mat-icon>&nbsp; Bio Data</h5>
+                                    <mat-form-field appearance="fill" class="width-full">
+                                      <mat-label>Bio</mat-label>
+                                      <input matInput name="bio" [(ngModel)]="bio" [disabled]="is_edit ? 'true' : 'false'">
+                                    </mat-form-field>
+
+                                    <div class="btn-align-right" *ngIf="show">
+                                        <mat-button-toggle class="btn-color">Save</mat-button-toggle>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <mat-button-toggle class="btn-color">Cencel</mat-button-toggle>
+                                    </div>
+                          </div>
+
+
+
+                          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                               <div class="row">
                                   <div class="col-md-5">
                                       <label>Date of your account</label>
@@ -268,26 +124,27 @@
                               </div>
                               <div class="row">
                                   <div class="col-md-5">
-                                      <label>My Post product</label>
+                                      <label>My Posted Product</label>
                                   </div>
                                   <div class="col-md-7">
                                     <mat-form-field appearance="fill">
-                                      <mat-label>Post product</mat-label>
+                                      <mat-label>Posted Product</mat-label>
                                       <input matInput name="postproduct" [(ngModel)]="postproduct" [disabled]="true">
                                     </mat-form-field>
                                   </div>
                               </div>
                               <div class="row">
-                                  <div class="col-md-5">
-                                      <label>Buyed product</label>
-                                  </div>
-                                  <div class="col-md-7">
-                                    <mat-form-field appearance="fill">
-                                      <mat-label>Buyed product</mat-label>
-                                      <input matInput name="buyedproduct" [(ngModel)]="buyedproduct" [disabled]="true">
-                                    </mat-form-field>
-                                  </div>
-                              </div>
+                                <div class="col-md-5">
+                                    <label>Purchased Product</label>
+                                </div>
+                                <div class="col-md-7">
+                                  <mat-form-field appearance="fill">
+                                    <mat-label>Purchased Product</mat-label>
+                                    <input matInput name="PurchasedProduct" [(ngModel)]="PurchasedProduct" [disabled]="true">
+                                  </mat-form-field>
+                                </div>
+                            </div>
+
 
                   </div>
               </div>
@@ -295,14 +152,6 @@
 
 </div>
 </form>
-
-<ul class="nav-tabs width-full" role="tablist"></ul>
-<div class="row">
-    <div class="col-md-12">
-      <label>Your Bio</label><br/>
-      <p>{{bio}}</p>
-    </div>
-</div>
 </div>
 </div>
 

@@ -23,6 +23,8 @@ import { ManageProductComponent } from './secured/manage-product/manage-product.
 import { CartComponent } from './secured/cart/cart.component';
 import { BuyNowComponent } from './secured/buy-now/buy-now.component';
 import { LogoutComponent } from './secured/logout/logout.component';
+import { LiveAuctionComponent } from './public/live-auction/live-auction.component';
+import { BillingComponent } from './secured/billing/billing.component';
 
 
 const routes: Routes = [
@@ -43,6 +45,7 @@ const routes: Routes = [
   { path: 'about-us', component: AboutUsComponent },
   { path: 'help', component: HelpComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'bid-details', component: LiveAuctionComponent },
   { path: 'logout', component: LogoutComponent }
 ];
 
@@ -59,7 +62,9 @@ const routes: Routes = [
     ManageProductComponent,
     CartComponent,
     BuyNowComponent,
-    LogoutComponent
+    LogoutComponent,
+    LiveAuctionComponent,
+    BillingComponent
   ],
   imports: [
     CommonModule,
