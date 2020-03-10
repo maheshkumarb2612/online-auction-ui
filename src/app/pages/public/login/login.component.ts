@@ -16,10 +16,17 @@ export class LoginComponent implements OnInit {
   responseModel: ResponseModel;
   errorArray: string[];
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService) {
+
+    this.username = sessionStorage.getItem('username');
+    this.authService.isUserLoggedIn().subscribe(value => {
+      if (value) {
+        this.authService.redirectToHome();
+      }
+    });
+  }
 
   ngOnInit() {
-    this.username = sessionStorage.getItem('username');
   }
 
   login() {
