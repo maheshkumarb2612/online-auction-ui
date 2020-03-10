@@ -7,15 +7,6 @@ import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
 
-export class User {
-  constructor(public status: string) { }
-}
-
-export class JwtResponse {
-  constructor(public jwttoken: string) { }
-}
-
-
 @Injectable({
   providedIn: 'root'
 })
