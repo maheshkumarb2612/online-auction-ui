@@ -24,4 +24,8 @@ export class UserService {
         )
       );
   }
+
+  updateProfile() {
+
+  }
 }

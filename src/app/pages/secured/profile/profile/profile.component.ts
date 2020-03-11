@@ -11,28 +11,28 @@ export class ProfileComponent implements OnInit {
   is_edit = true;
   show = false;
 
-  role: string;
-  username: string;
-  firstname: string;
-  lastname: string;
-  email: string;
-  phoneno: number;
-  gender: string;
-  address: string;
-  createdate: string;
-  postproduct: number;
-  purchasedProduct: number;
-  bio: string;
-  fullname: string;
-  totalBids: number;
+  role = '';
+  username = '';
+  firstName = '';
+  lastName = '';
+  email = '';
+  phoneno = '';
+  gender = '';
+  address = '';
+  createdate = '';
+  postedProduct = 0;
+  purchasedProduct = 0;
+  bio = '';
+  fullname = '';
+  totalBids = 0;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.role = "Seller or Bidder";
+    /*this.role = "Seller or Bidder";
     this.username = "mahesh";
-    this.firstname = "Maheshkumar";
-    this.lastname = "Savita";
+    this.firstName = "Maheshkumar";
+    this.lastName = "Savita";
     this.email = "maheshkumarb2612@gmail.com";
     this.phoneno = 9724462436;
     this.gender = "Male";
@@ -41,22 +41,55 @@ export class ProfileComponent implements OnInit {
     this.postproduct = 5;
     this.purchasedProduct = 9;
     this.bio = "TYBCA Project";
-
-    this.fullname = this.firstname + " " + this.lastname;
+    this.fullname = this.firstname + " " + this.lastname;*/
 
     this.userService.getProfile().subscribe(apiResponse => {
-      this.firstname = apiResponse.data.firstname;
-      this.lastname = apiResponse.data.lastname;
-      this.gender = apiResponse.data.gender;
-      this.email = apiResponse.data.email;
-      this.username = apiResponse.data.username;
-      this.address = apiResponse.data.address;
-      this.createdate = apiResponse.data.
-      this.createdate = apiResponse.data.accountCreatedOn;
-      this.purchasedProduct = apiResponse.data.totalPurchasedProducts;
-      this.bio = apiResponse.data.bio;
-      this.totalBids = apiResponse.data.totalBids;
+
+      if (apiResponse.data.firstName && apiResponse.data.firstName != null) {
+        this.firstName = apiResponse.data.firstName;
+      }
+      if (apiResponse.data.lastName && apiResponse.data.lastName != null) {
+        this.lastName = apiResponse.data.lastName;
+      }
+      if (apiResponse.data.gender && apiResponse.data.gender != null) {
+        this.gender = apiResponse.data.gender;
+      }
+      if (apiResponse.data.email && apiResponse.data.email != null) {
+        this.email = apiResponse.data.email;
+      }
+      if (apiResponse.data.username && apiResponse.data.username != null) {
+        this.username = apiResponse.data.username;
+      }
+      if (apiResponse.data.address && apiResponse.data.address != null) {
+        this.address = apiResponse.data.address;
+      }
+      if (apiResponse.data.accountCreatedOn && apiResponse.data.accountCreatedOn != null) {
+        this.createdate = apiResponse.data.accountCreatedOn;
+      }
+      if (apiResponse.data.totalPurchasedProducts && apiResponse.data.totalPurchasedProducts != null) {
+        this.purchasedProduct = apiResponse.data.totalPurchasedProducts;
+      }
+      if (apiResponse.data.totalPostedProducts && apiResponse.data.totalPostedProducts != null) {
+        this.postedProduct = apiResponse.data.totalPostedProducts;
+      }
+      if (apiResponse.data.bio && apiResponse.data.bio != null) {
+        this.bio = apiResponse.data.bio;
+      }
+      if (apiResponse.data.totalBids && apiResponse.data.totalBids != null) {
+        this.totalBids = apiResponse.data.totalBids;
+      }
+      if (apiResponse.data.contact && apiResponse.data.contact != null) {
+        this.phoneno = apiResponse.data.contact;
+      }
+      this.fullname = this.firstName + ' ' + this.lastName;
+
     });
 
   }
+
+  updateProfile() {
+
+
+  }
+
 }

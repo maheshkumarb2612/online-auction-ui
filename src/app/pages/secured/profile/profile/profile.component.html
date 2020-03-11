@@ -55,21 +55,27 @@
                                     <h5><mat-icon matPrefix>account_box</mat-icon>&nbsp; Username</h5>
                                     <mat-form-field appearance="fill" class="width-full">
                                         <mat-label>Username</mat-label>
-                                        <input matInput name="username" [(ngModel)]="username"  [disabled]="is_edit ? 'true' : 'false'">
+                                        <input matInput name="username" [(ngModel)]="username"  [disabled]=true>
                                     </mat-form-field>
 
                                     <br>
-                                      <h5><mat-icon matPrefix>perm_identity</mat-icon>&nbsp; Name</h5>
+                                      <h5><mat-icon matPrefix>perm_identity</mat-icon>&nbsp;First Name</h5>
                                     <mat-form-field appearance="fill" class="width-full">
-                                        <mat-label>Name</mat-label>
-                                        <input matInput name="fullname" [(ngModel)]="fullname" [disabled]="is_edit ? 'true' : 'false'">
+                                        <mat-label>First Name</mat-label>
+                                        <input matInput name="firstName" [(ngModel)]="firstName" [disabled]="is_edit ? 'true' : 'false'">
+                                      </mat-form-field>
+
+                                      <h5><mat-icon matPrefix>perm_identity</mat-icon>&nbsp;Last Name</h5>
+                                    <mat-form-field appearance="fill" class="width-full">
+                                        <mat-label>Last Name</mat-label>
+                                        <input matInput name="lastName" [(ngModel)]="lastName" [disabled]="is_edit ? 'true' : 'false'">
                                       </mat-form-field>
 
                                       <br>
                                       <h5><mat-icon matPrefix>email</mat-icon>&nbsp; Email</h5>
                                     <mat-form-field appearance="fill" class="width-full">
                                       <mat-label>Email</mat-label>
-                                      <input matInput name="email" [(ngModel)]="email" [disabled]="is_edit ? 'true' : 'false'">
+                                      <input matInput name="email" [(ngModel)]="email" [disabled]=true>
                                     </mat-form-field>
 
                                     <br>
@@ -113,11 +119,11 @@
                           <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                               <div class="row">
                                   <div class="col-md-5">
-                                      <label>Date of your account</label>
+                                      <label>Account created on</label>
                                   </div>
                                   <div class="col-md-7">
                                     <mat-form-field appearance="fill">
-                                      <mat-label>Date</mat-label>
+                                      <mat-label>Date and Time</mat-label>
                                       <input matInput name="createdate" [(ngModel)]="createdate" [disabled]="true">
                                     </mat-form-field>
                                   </div>
@@ -129,7 +135,7 @@
                                   <div class="col-md-7">
                                     <mat-form-field appearance="fill">
                                       <mat-label>Posted Product</mat-label>
-                                      <input matInput name="postproduct" [(ngModel)]="postproduct" [disabled]="true">
+                                      <input matInput name="postproduct" [(ngModel)]="postedProduct" [disabled]="true">
                                     </mat-form-field>
                                   </div>
                               </div>
@@ -140,7 +146,7 @@
                                 <div class="col-md-7">
                                   <mat-form-field appearance="fill">
                                     <mat-label>Purchased Product</mat-label>
-                                    <input matInput name="PurchasedProduct" [(ngModel)]="PurchasedProduct" [disabled]="true">
+                                    <input matInput name="PurchasedProduct" [(ngModel)]="purchasedProduct" [disabled]="true">
                                   </mat-form-field>
                                 </div>
                             </div>
