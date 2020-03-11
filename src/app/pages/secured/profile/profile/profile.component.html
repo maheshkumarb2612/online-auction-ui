@@ -1,6 +1,6 @@
 <div class="top-padding">
 <div class="container emp-profile">
-  <form method="post">
+  <form ngNativeValidate method="post">
       <div class="row">
           <div class="col-md-3">
               <div class="profile-img">
@@ -10,7 +10,7 @@
           <div class="col-md-6">
               <div class="profile-head">
                           <h5>
-                              {{firstname}} {{lastname}}
+                              {{firstName}} {{lastName}}
                           </h5>
                           <br>
                           <h6>
@@ -82,7 +82,7 @@
                                     <h5><mat-icon matPrefix>call</mat-icon>&nbsp; Phone No.</h5>
                                     <mat-form-field appearance="fill" class="width-full">
                                       <mat-label>Phone number</mat-label>
-                                      <input matInput name="phoneno" [(ngModel)]="phoneno" [disabled]="is_edit ? 'true' : 'false'">
+                                      <input matInput name="phoneno" [(ngModel)]="phoneno" [disabled]="is_edit ? 'true' : 'false'" maxlength=13>
                                     </mat-form-field>
 
                                     <br>
@@ -108,7 +108,7 @@
                                     </mat-form-field>
 
                                     <div class="btn-align-right" *ngIf="show">
-                                        <mat-button-toggle class="btn-color">Save</mat-button-toggle>
+                                        <mat-button-toggle class="btn-color" (click)='updateProfile()'>Save</mat-button-toggle>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <mat-button-toggle class="btn-color">Cencel</mat-button-toggle>
                                     </div>

@@ -25,7 +25,7 @@ export class UserService {
       );
   }
 
-  updateProfile() {
-
+  updateProfile(firstName: any, lastName: any, contact: any, gender: any, address: any, bio: any): any {
+    return this.httpClient.put<ResponseModel>(APP_URL.BACKEND_PROFILE, { firstName, lastName, contact, gender, address, bio });
   }
 }

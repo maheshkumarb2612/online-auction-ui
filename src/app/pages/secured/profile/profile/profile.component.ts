@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
   postedProduct = 0;
   purchasedProduct = 0;
   bio = '';
-  fullname = '';
+  // fullname = '';
   totalBids = 0;
 
   constructor(private userService: UserService) { }
@@ -81,15 +81,17 @@ export class ProfileComponent implements OnInit {
       if (apiResponse.data.contact && apiResponse.data.contact != null) {
         this.phoneno = apiResponse.data.contact;
       }
-      this.fullname = this.firstName + ' ' + this.lastName;
+      // this.fullname = this.firstName + ' ' + this.lastName;
 
     });
 
   }
 
   updateProfile() {
-
-
+    this.userService.updateProfile(this.firstName, this.lastName, this.phoneno, this.gender, this.address, this.bio)
+      .subscribe(apiResponse => {
+        console.log(apiResponse);
+      });
   }
 
 }
