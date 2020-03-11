@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthenticationService) {
 
-    this.username = sessionStorage.getItem('username');
+    this.username = localStorage.getItem('username');
     this.authService.isUserLoggedIn().subscribe(value => {
       if (value) {
         this.authService.redirectToHome();
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         this.responseModel = res;
         // console.log(this.responseModel);
         if (res.success && res.success) {
-          if (sessionStorage.getItem('token')) {
+          if (localStorage.getItem('token')) {
             this.authService.redirectToHome();
           }
         } else if (res.success && !res.success) {

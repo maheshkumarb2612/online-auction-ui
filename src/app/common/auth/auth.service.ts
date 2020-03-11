@@ -18,14 +18,14 @@ export class AuthenticationService {
   }
 
   authenticate(username, password) {
-    sessionStorage.setItem('username', username);
+    localStorage.setItem('username', username);
     return this.httpClient.post<ResponseModel>(APP_URL.BACKEND_LOGIN, { username, password })
       .pipe(
         map(
           userData => {
-            sessionStorage.setItem('username', username);
+            localStorage.setItem('username', username);
             let tokenStr = 'Bearer ' + userData.data.token;
-            sessionStorage.setItem('token', tokenStr);
+            localStorage.setItem('token', tokenStr);
             this.isLoggedIn.next(true);
             return userData;
           }
@@ -33,7 +33,7 @@ export class AuthenticationService {
       );
   }
   isUserLoggedIn() {
-    const token = sessionStorage.getItem('token');
+    const token = localStorage.getItem('token');
     if (token && token != null) {
       // console.log(!(user === null))
       this.isLoggedIn.next(true);
@@ -42,8 +42,8 @@ export class AuthenticationService {
   }
 
   logOut() {
-    sessionStorage.removeItem('username');
-    sessionStorage.removeItem('token');
+    localStorage.removeItem('username');
+    localStorage.removeItem('token');
     this.isLoggedIn.next(false);
   }
 

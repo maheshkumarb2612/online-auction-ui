@@ -13,9 +13,9 @@ export class HeaderComponent implements OnInit {
   user: any;
 
   constructor(private authService: AuthenticationService) {
-    /*if (sessionStorage.getItem('token')) {
+    /*if (localStorage.getItem('token')) {
       this.isUserLoggedIn = this.authService.isUserLoggedIn();
-      this.user = sessionStorage.getItem('username');
+      this.user = localStorage.getItem('username');
     } else {
       this.isUserLoggedIn = false;
     }*/
