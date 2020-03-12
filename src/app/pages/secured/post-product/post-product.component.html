@@ -45,7 +45,7 @@
         <div class="col-md-6">
           <mat-form-field>
             <mat-select placeholder="Categories" [(ngModel)]="selectedCategory" name="categories" required>
-              <mat-option *ngFor="let category of categories" (click)="selectCategory(category)"
+              <mat-option *ngFor="let category of categories" (onSelectionChange)="selectCategory(category)"
                 value="{{category.id}}">{{category.name}}</mat-option>
               <!--<mat-option  value="antique">Antique</mat-option>
                 <mat-option value="art">Art</mat-option>

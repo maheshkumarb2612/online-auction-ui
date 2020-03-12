@@ -31,4 +31,9 @@ export class ProductService {
       );
   }
 
+  postProduct(images: any, productName: any, productDesc: any, category: any,
+    startDate: any, startTime: any, endDate: any, endTime: any, price: any) {
+
+  }
+
 }

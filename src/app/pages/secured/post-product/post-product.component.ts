@@ -23,7 +23,7 @@ export class PostProductComponent implements OnInit {
   endDate = '';
   startTime = '';
   endTime = '';
-  price = 1;
+  price: any;
 
   categories: any = [];
 
@@ -67,7 +67,11 @@ export class PostProductComponent implements OnInit {
   endDateChange(event: MatDatepickerInputEvent<Date>) {
     this.endDate = event.value.toLocaleDateString();
   }
+
+  getPrice(event: any) {
+    this.price = event.value;
+  }
   postProduct() {
-    debugger;
+
   }
 }
