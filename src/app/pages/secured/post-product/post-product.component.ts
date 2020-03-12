@@ -10,7 +10,12 @@ export class PostProductComponent implements OnInit {
 
   urls = [];
   noOfImg: any = 0;
-  maxImg: any = 0;
+  maxImg: any = 10;
+
+  productName = '';
+  categories = '';
+  startDate = '12/3/2020';
+
 
   constructor() { }
 
@@ -21,7 +26,7 @@ export class PostProductComponent implements OnInit {
     this.urls = [];
     this.noOfImg = event.target.files.length;
 
-    if (this.noOfImg <= 10) {
+    if (this.noOfImg <= this.maxImg) {
       for (let i = 0; i < this.noOfImg; i++) {
         if (event.target.files && event.target.files[i]) {
           const reader = new FileReader();

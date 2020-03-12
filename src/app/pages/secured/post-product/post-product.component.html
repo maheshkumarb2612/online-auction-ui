@@ -30,7 +30,7 @@
           </h5>
           <div class="col-md-6">
               <mat-form-field class="form-container">
-                  <input matInput placeholder="Product Name" required="required">
+                  <input matInput placeholder="Product Name" [(ngModel)]="productName" name="productName" required="required">
                 </mat-form-field>
           </div>
     </div>
@@ -41,7 +41,7 @@
           </h5>
           <div class="col-md-6">
             <mat-form-field>
-              <mat-select placeholder="Categories" required="required">
+              <mat-select placeholder="Categories" required="required" [(ngModel)]="categories" name="categories">
                 <mat-option value="antique">Antique</mat-option>
                 <mat-option value="art">Art</mat-option>
                 <mat-option value="books">Books</mat-option>
