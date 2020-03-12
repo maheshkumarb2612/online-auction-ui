@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ProductService } from 'src/app/common/product/product.service';
+import { Category } from 'src/app/common/model/category.model';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 
 @Component({
@@ -13,11 +16,20 @@ export class PostProductComponent implements OnInit {
   maxImg: any = 10;
 
   productName = '';
-  categories = '';
-  startDate = '12/3/2020';
 
+  selectedCategory: any;
 
-  constructor() { }
+  startDate = '';
+  endDate = '';
+  startTime = '';
+  endTime = '';
+  price = 1;
+
+  categories: any = [];
+
+  constructor(private produstService: ProductService) {
+    this.getCategories();
+  }
 
   ngOnInit() {
   }
@@ -37,5 +49,25 @@ export class PostProductComponent implements OnInit {
         }
       }
     }
+  }
+
+  getCategories() {
+    this.produstService.getCategories().subscribe(data => this.categories = data);
+    //  this.categories.push({ id: 1, name: 'hhhd', description: 'dgdfdfdf' });
+  }
+
+  selectCategory(category: any) {
+    this.selectedCategory = category;
+  }
+
+  startDateChange(event: MatDatepickerInputEvent<Date>) {
+    this.startDate = event.value.toLocaleDateString();
+  }
+
+  endDateChange(event: MatDatepickerInputEvent<Date>) {
+    this.endDate = event.value.toLocaleDateString();
+  }
+  postProduct() {
+    debugger;
   }
 }

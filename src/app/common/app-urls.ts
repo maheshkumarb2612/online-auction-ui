@@ -11,5 +11,6 @@ export const APP_URL = {
     BACKEND_LOGIN: serverUrl + '/login',
     BACKEND_LOGOUT: serverUrl + '/logout',
     BACKEND_REGISTER: serverUrl + '/register',
-    BACKEND_PROFILE: serverUrl + '/profile'
+    BACKEND_PROFILE: serverUrl + '/profile',
+    BACKEND_CATEGORY: serverUrl + '/category'
 };
