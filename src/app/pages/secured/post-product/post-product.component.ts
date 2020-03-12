@@ -27,7 +27,7 @@ export class PostProductComponent implements OnInit {
 
   categories: any = [];
 
-  constructor(private produstService: ProductService) {
+  constructor(private productService: ProductService) {
     this.getCategories();
   }
 
@@ -52,7 +52,7 @@ export class PostProductComponent implements OnInit {
   }
 
   getCategories() {
-    this.produstService.getCategories().subscribe(data => this.categories = data);
+    this.productService.getCategories().subscribe(data => this.categories = data);
     //  this.categories.push({ id: 1, name: 'hhhd', description: 'dgdfdfdf' });
   }
 
@@ -72,6 +72,9 @@ export class PostProductComponent implements OnInit {
     this.price = event.value;
   }
   postProduct() {
-
+    this.productService.postProduct(this.urls, this.productName, '', this.selectedCategory,
+      this.startDate, this.startTime, this.endDate, this.endTime, this.price).subscribe(apiResponse => {
+          console.log(apiResponse);
+      });
   }
 }
