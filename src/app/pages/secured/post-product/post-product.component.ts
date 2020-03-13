@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ProductService } from 'src/app/common/product/product.service';
 import { Category } from 'src/app/common/model/category.model';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { ResponseModel } from 'src/app/common/model/response.model';
 
 
 @Component({
@@ -12,8 +13,11 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 export class PostProductComponent implements OnInit {
 
   urls = [];
+  imageData = [];
   noOfImg: any = 0;
   maxImg: any = 10;
+  files = [];
+  selectedImageCount = 0;
 
   productName = '';
 
@@ -25,6 +29,10 @@ export class PostProductComponent implements OnInit {
   endTime = '';
   price: any;
 
+  responseModel: ResponseModel;
+  errorArray: string[];
+  successMessage: string;
+
   categories: any = [];
 
   constructor(private productService: ProductService) {
@@ -35,17 +43,26 @@ export class PostProductComponent implements OnInit {
   }
 
   onFileChanged(event: any) {
+    this.selectedImageCount = 0;
+    const file = event.target.files.item(0);
+
     this.urls = [];
     this.noOfImg = event.target.files.length;
+    this.files = event.target.files;
 
     if (this.noOfImg <= this.maxImg) {
       for (let i = 0; i < this.noOfImg; i++) {
-        if (event.target.files && event.target.files[i]) {
+        if (event.target.files && event.target.files[i]
+          && event.target.files[i].type.match('image.*') && event.target.files[i].size < 1000000) {
+          this.selectedImageCount++;
           const reader = new FileReader();
           reader.readAsDataURL(event.target.files[i]); // read file as data url
           reader.onload = (event) => { // called once readAsDataURL is completed
             this.urls[i] = (event.target as FileReader).result;
           };
+        } else {
+          alert('Please select image only and each image size must not exceeds 1 MB');
+          this.selectedImageCount = 0;
         }
       }
     }
@@ -72,9 +89,27 @@ export class PostProductComponent implements OnInit {
     this.price = event.value;
   }
   postProduct() {
-    this.productService.postProduct(this.urls, this.productName, '', this.selectedCategory,
-      this.startDate, this.startTime, this.endDate, this.endTime, this.price).subscribe(apiResponse => {
-          console.log(apiResponse);
+
+    this.successMessage = '';
+    this.errorArray = [];
+
+    this.productService.postProduct(this.files, this.productName, '', this.selectedCategory,
+      this.startDate, this.startTime, this.endDate, this.endTime, this.price).subscribe((res: ResponseModel) => {
+        this.responseModel = res;
+        if (res.success) {
+         this.successMessage = res.message;
+        } else if (!res.success) {
+          this.successMessage = null;
+          this.errorArray.push(res.message);
+        }
+      }, error => {
+        console.log(error);
+        this.errorArray = [];
+        if (error.error) {
+          this.errorArray = error.error.message.split('|');
+        } else {
+          this.errorArray.push(error.message);
+        }
       });
   }
 }

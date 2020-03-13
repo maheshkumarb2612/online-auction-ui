@@ -39,15 +39,15 @@ export class ProductService {
     const formData = new FormData();
     formData.append('productDetail', JSON.stringify(productDetail));
 
+    for (const img of images) {
+      formData.append('images', img, img.name);
+    }
+
     return this.httpClient.post<ResponseModel>(APP_URL.BACKEND_PRODUCT, formData).pipe(
       map(
         apiResponse => {
           console.log(apiResponse);
-          if (apiResponse.data) {
-            return apiResponse.data;
-          } else {
-            return apiResponse;
-          }
+          return apiResponse;
         }
       )
     );

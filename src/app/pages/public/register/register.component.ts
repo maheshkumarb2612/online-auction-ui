@@ -28,11 +28,15 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
+
+    this.successMessage = '';
+    this.errorArray = [];
+
     this.authService.register(this.username, this.email, this.password, this.confirmPassword)
       .subscribe((res: ResponseModel) => {
         this.responseModel = res;
         // console.log(this.responseModel);
-        if (res.success && res.success) {
+        if (res.success) {
             // this.authService.redirectToLogin();
             this.successMessage = res.message;
             this.errorArray = null;
@@ -40,7 +44,7 @@ export class RegisterComponent implements OnInit {
             this.email = null;
             this.password = null;
             this.confirmPassword = null;
-        } else if (res.success && !res.success) {
+        } else if (!res.success) {
           this.successMessage = null;
           this.errorArray = res.message.split('|');
         }

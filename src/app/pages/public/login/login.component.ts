@@ -30,16 +30,20 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+
+    this.errorArray = [];
+
     this.authService.authenticate(this.username, this.password)
       .subscribe((res: ResponseModel) => {
         this.responseModel = res;
         // console.log(this.responseModel);
-        if (res.success && res.success) {
+        if (res.success) {
           if (localStorage.getItem('token')) {
             this.authService.redirectToHome();
           }
-        } else if (res.success && !res.success) {
-          this.errorArray = res.message.split('|');
+        } else if (!res.success) {
+          this.errorArray = [];
+          this.errorArray.push(res.message);
         }
       }, error => {
         this.errorArray = [];
