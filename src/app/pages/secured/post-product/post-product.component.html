@@ -1,6 +1,6 @@
 <div class="top-padding">
   <div class="container post-product-form">
-    <form ngNativeValidate class="product-content">
+    <form ngNativeValidate class="product-content" (submit)="postProduct()">
       <div class="row">
         <div class="col-md-5">
           <h5>Select Product : </h5>
@@ -103,7 +103,7 @@
         <div class="col-md-8"></div>
         <div class="col-md-2">
           <!--<a [routerLink]="['/product-listing/product-detail']" routerLinkActive="router-link-active"> </a>-->
-          <button type="submit" (click)="postProduct()" mat-button class="header-font-color">Submit</button>
+          <button type="submit" mat-button class="header-font-color">Submit</button>
           <!-- <input mat-button-toggle type="submit" value="Submit"> -->
         </div>
       </div>
