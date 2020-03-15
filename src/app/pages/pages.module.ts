@@ -25,6 +25,8 @@ import { BuyNowComponent } from './secured/buy-now/buy-now.component';
 import { LogoutComponent } from './secured/logout/logout.component';
 import { LiveAuctionComponent } from './public/live-auction/live-auction.component';
 import { BillingComponent } from './secured/billing/billing.component';
+import { AllProductComponent } from './secured/manage-product/all-product/all-product.component';
+import { ViewCategoryComponent } from './secured/manage-product/view-category/view-category.component';
 
 
 const routes: Routes = [
@@ -64,7 +66,9 @@ const routes: Routes = [
     BuyNowComponent,
     LogoutComponent,
     LiveAuctionComponent,
-    BillingComponent
+    BillingComponent,
+    AllProductComponent,
+    ViewCategoryComponent
   ],
   imports: [
     CommonModule,
