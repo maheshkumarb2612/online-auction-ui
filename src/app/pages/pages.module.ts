@@ -35,7 +35,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'post-product', component: PostProductComponent },
-  { path: 'product-listing/product-detail', component: ProductDetailComponent },
+  { path: 'product-listing/product-detail/:id', component: ProductDetailComponent },
   { path: 'profile/edit-profile', component: EditProfileComponent },
   { path: 'profile/edit-profile/change-password', component: ChangePasswordComponent },
   { path: 'product-listing', component: ProductListingComponent },

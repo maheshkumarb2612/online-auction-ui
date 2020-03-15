@@ -13,5 +13,15 @@ export const APP_URL = {
     BACKEND_REGISTER: serverUrl + '/register',
     BACKEND_PROFILE: serverUrl + '/profile',
     BACKEND_CATEGORY: serverUrl + '/category',
-    BACKEND_PRODUCT: serverUrl + '/product'
+    BACKEND_PRODUCT: serverUrl + '/product',
+    BACKEND_DOWNLOAD_IMAGE: serverUrl + '/download',
+
+
+    getProductDetail(productId: any): any {
+        return this.BACKEND_PRODUCT + "/" + productId;
+    },
+
+    getDownlodImageUrl(imageId: any): any {
+        return this.BACKEND_DOWNLOAD_IMAGE + "?imageId=" + imageId;
+    }
 };

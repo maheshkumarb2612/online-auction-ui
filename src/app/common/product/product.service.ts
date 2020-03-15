@@ -52,4 +52,21 @@ export class ProductService {
       )
     );
   }
+
+  getProductDetail(productId:any): any {
+
+    return this.httpClient.get<ResponseModel>(APP_URL.getProductDetail(productId))
+      .pipe(
+        map(
+          apiResponse => {
+            console.log(apiResponse);
+            if (apiResponse.data) {
+              return apiResponse.data;
+            } else {
+              return apiResponse;
+            }
+          }
+        )
+      );
+  }
 }
