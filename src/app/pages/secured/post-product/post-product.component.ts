@@ -20,6 +20,7 @@ export class PostProductComponent implements OnInit {
   selectedImageCount = 0;
 
   productName = '';
+  productDescription = '';
 
   selectedCategory: any;
 
@@ -93,7 +94,7 @@ export class PostProductComponent implements OnInit {
     this.successMessage = '';
     this.errorArray = [];
 
-    this.productService.postProduct(this.files, this.productName, '', this.selectedCategory,
+    this.productService.postProduct(this.files, this.productName, this.productDescription, this.selectedCategory,
       this.startDate, this.startTime, this.endDate, this.endTime, this.price).subscribe((res: ResponseModel) => {
         this.responseModel = res;
         if (res.success) {
