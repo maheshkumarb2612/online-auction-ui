@@ -1,5 +1,4 @@
 .header-color{
-  background-color:#222;
   padding-top: 18px;
   padding-bottom: 0%;
   padding-left: 3%;
@@ -49,7 +48,7 @@ h3 { font-family: Amaranth;
          line-height: 18.5714px;
         }
 .header-font-color{
-  color: rgb(255, 255, 255);
+  color: rgb(232, 255, 225);
   font-size: larger;
 }
 
@@ -68,10 +67,13 @@ h3 { font-family: Amaranth;
 
 }
 .left-padding{
-  padding-left: 45px;
+  padding-left: 40px;
+  color: rgb(0, 182, 0);
 }
 
-
+.header-font-color:hover{
+  color: yellow;
+}
 
 
 

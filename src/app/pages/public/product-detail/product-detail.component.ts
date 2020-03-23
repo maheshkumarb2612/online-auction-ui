@@ -19,11 +19,11 @@ export class ProductDetailComponent implements OnInit {
   constructor(private productService: ProductService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    /*this.route.params.subscribe(params => {
       this.productId = params['id'];
     });
     console.log(this.productId);
-    this.getProductDetail(this.productId);
+    this.getProductDetail(this.productId);*/
   }
 
   getProductDetail(productId: any) {
@@ -38,7 +38,7 @@ export class ProductDetailComponent implements OnInit {
           this.images.push(APP_URL.getDownlodImageUrl(imgId));
         }
       }
-      
+
     })
   }
 

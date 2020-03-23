@@ -20,4 +20,6 @@ social-link {
 .top-padding{
   padding-top: 115px;
 }
-
+.container{
+  background-color: rgb(255, 255, 255);
+}

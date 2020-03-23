@@ -1,4 +1,58 @@
+<div class="headding">
+  <h3 class="btnbg darkblue rounded-pill px-4 py-3 text-uppercase font-weight-bold"
+    style="text-align: center;">Category</h3>
+</div>
+<mat-divider>
+  <hr>
+</mat-divider><br>
 
+<div class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource">
+
+<!-- Category ID Column -->
+<ng-container matColumnDef="catId">
+  <th mat-header-cell *matHeaderCellDef class="font-size bg-light text-uppercase"><b>Category ID</b></th>
+  <td mat-cell *matCellDef="let element"> {{element.catId}} </td>
+</ng-container>
+
+<!-- Category Column -->
+<ng-container matColumnDef="catName">
+  <th mat-header-cell *matHeaderCellDef class="font-size bg-light text-uppercase"><b> category Name </b> </th>
+  <td mat-cell *matCellDef="let element"> {{element.catName}} </td>
+</ng-container>
+
+<!-- Description Column -->
+<ng-container matColumnDef="description">
+  <th mat-header-cell *matHeaderCellDef class="font-size bg-light text-uppercase"><b> description </b> </th>
+  <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+</ng-container>
+
+  <!-- Delect Column -->
+  <ng-container matColumnDef="deleteId">
+    <th mat-header-cell *matHeaderCellDef class="font-size bg-light text-uppercase"><b> Action </b> </th>
+    <td mat-cell *matCellDef="let element"><button mat-button><mat-icon>delete</mat-icon></button></td>
+  </ng-container>
+
+
+<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 
 <div class="container-fluid">
   <div class="page-header">
@@ -13,9 +67,9 @@
       </div>
   </div>
 </div>
-<!-- Container-fluid Ends-->
 
-<!-- Container-fluid starts-->
+
+
 <div class="container-fluid">
   <div class="row product-adding">
       <div class="col-xl-6">
@@ -34,7 +88,8 @@
                           <input class="form-control" id="validationCustomtitle" type="text" required="">
           </div>
 
-      <!-- categories starts-->
+
+
                       <div class="form-group">
                           <label class="col-form-label"><span>*</span> Categories</label>
                           <select class="custom-select" required="">
@@ -44,9 +99,9 @@
                               <option value="3">tablat</option>
                           </select>
           </div>
-      <!-- categories ends-->
 
-      <!-- textarea starts-->
+
+
           <div class="example-container">
             <label class="col-form-label"><span>*</span> Sort Summary </label><br>
             <mat-form-field appearance="fill">
@@ -54,33 +109,31 @@
               <textarea matInput></textarea>
               </mat-form-field>
             </div>
-      <!-- textarea ends-->
+
 
         <div class="form-group">
           <label for="validationCustom02" class="col-form-label"><span>*</span> Product Price</label>
           <input class="form-control" id="validationCustom02" type="text" required="">
         </div>
 
-      <!-- radio starts-->
+
         <label class="col-form-label"><span>*</span> Status</label><br>
         <mat-radio-group aria-label="Select an option">
           <mat-radio-button value="1">  Option 1  </mat-radio-button>
           <mat-radio-button value="2">  Option 2  </mat-radio-button><br>
           </mat-radio-group>
-      <!-- radio end-->
 
-      <!-- File Upload-->
-      <label class="col-form-label"><span>*</span>PRODUCT UPLOAD</label><br>
+
+          <label class="col-form-label"><span>*</span>PRODUCT UPLOAD</label><br>
       <div class="file-upload-wrapper">
         <input type="file" id="input-file-now" class="file_upload" />
       <script>
         $('.file-upload').file_upload();
       </script>
       </div>
-      <!-- File Upload ends-->
 
 
-      <!-- datepicker-->
+
 
       <mat-form-field>
         <label class="col-form-label"><span>*</span> DATE </label><br>
@@ -88,45 +141,25 @@
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-      <!-- datepicker-->
+
     </div>
   </div>
 </div>
-</div>
+</div> -->
 
 
-      <div class="col-xl-6">
-
-        <div class="card">
-          <div class="card-header">
-            <h5>Meta Data</h5>
-          </div>
-          <div class="card-body">
-            <div class="digital-add needs-validation">
-              <div class="form-group">
-                <label for="validationCustom05" class="col-form-label pt-0"><span>*</span> Meta Title</label>
-                <input class="form-control" id="validationCustom05" type="text" required="">
-              </div>
-              <div class="example-container">
-                <label class="col-form-label"><span>*</span> Meta Discription </label><br>
-                <mat-form-field appearance="fill">
-                  <mat-label>Textarea</mat-label>
-                  <textarea matInput></textarea>
-                  </mat-form-field>
-                </div>
-              <div class="form-group mb-0">
-                <div class="product-buttons text-center">
-                  <button type="button" class="btn btn-primary">Add</button>
-                  <button type="button" class="btn btn-light">Discard</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- </div>
       </div>
     </div>
-  </div>
-  <!-- Container-fluid Ends-->
+  </div> -->
+
+
+
+
+
+
+
+
 
 
 

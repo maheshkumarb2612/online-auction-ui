@@ -27,6 +27,8 @@ import { LiveAuctionComponent } from './public/live-auction/live-auction.compone
 import { BillingComponent } from './secured/billing/billing.component';
 import { AllProductComponent } from './secured/manage-product/all-product/all-product.component';
 import { ViewCategoryComponent } from './secured/manage-product/view-category/view-category.component';
+import { AddCategoryComponent } from './secured/manage-product/add-category/add-category.component';
+import { UpdateProductComponent } from './secured/manage-product/update-product/update-product.component';
 
 
 const routes: Routes = [
@@ -35,7 +37,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'post-product', component: PostProductComponent },
-  { path: 'product-listing/product-detail/:id', component: ProductDetailComponent },
+  // { path: 'product-listing/product-detail/:id', component: ProductDetailComponent },
+  { path: 'product-listing/product-detail', component: ProductDetailComponent },
   { path: 'profile/edit-profile', component: EditProfileComponent },
   { path: 'profile/edit-profile/change-password', component: ChangePasswordComponent },
   { path: 'product-listing', component: ProductListingComponent },
@@ -44,9 +47,11 @@ const routes: Routes = [
   { path: 'image-upload', component: ImageUploadComponent },
   { path: 'product-listing/product-detail/bid', component: BidComponent },
   { path: 'feedback', component: FeedbackComponent },
+  { path: 'manage-product', component: ManageProductComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'help', component: HelpComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'billing', component: BillingComponent },
   { path: 'bid-details', component: LiveAuctionComponent },
   { path: 'logout', component: LogoutComponent }
 ];
@@ -68,7 +73,9 @@ const routes: Routes = [
     LiveAuctionComponent,
     BillingComponent,
     AllProductComponent,
-    ViewCategoryComponent
+    ViewCategoryComponent,
+    AddCategoryComponent,
+    UpdateProductComponent
   ],
   imports: [
     CommonModule,

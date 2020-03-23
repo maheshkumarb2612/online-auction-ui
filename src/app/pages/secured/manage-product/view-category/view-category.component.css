@@ -1,22 +1,26 @@
-.container-fluid{
-	padding-bottom: 6px;
+table {
+  width: 100%;
 }
-.page-header-left
-{
-	color: purple;
-}
-.col-form-label
-{
-color: red;
+.font-size{
+  font-size: 15px;
 }
 
-.mat-radio-button ~ .mat-radio-button {
-	margin-left: 16px;
-  }
+hr{
+  width: 100%;
+  size: 5px;
+}
+.darkblue{
+  color: darkblue;
+  font-style: initial;
+}
+table {
+  width: 100%;
+}
 
-
-
-
-
-
-
+.headding{
+  padding-top: 3%;
+  padding-bottom: 7%;
+}
+.btnbg{
+  background-color: rgb(150, 143, 143);
+}

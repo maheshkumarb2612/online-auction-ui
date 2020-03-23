@@ -100,9 +100,9 @@
 
 
 <div>
-  <button mat-button class="back-btn"><span>
+  <!-- <button mat-button class="back-btn"><span>
       <mat-icon matPrefix>arrow_back_ios</mat-icon>BACK
-    </span></button>
+    </span></button> -->
 
   <div class="mag-container">
     <div class="row p-2">
@@ -112,16 +112,11 @@
           <hr>
           <h5 class="darkblue"><b>You are Admin</b></h5>
           <hr><br>
-          <button mat-button class="bg-light darkblue btn-width rounded-pill px-4 py-1 text-uppercase"
-            (click)="viewPshow = !viewPshow">View Products</button><br><br>
-          <button mat-button class="bg-light darkblue btn-width rounded-pill px-4 py-1 text-uppercase"
-            (click)="viewCategory = !viewCategory">View Categories</button><br><br>
-          <button mat-button class="bg-light darkblue btn-width rounded-pill px-4 py-1 text-uppercase"
-            >Add Category</button><br><br>
-          <button mat-button class="bg-light darkblue btn-width rounded-pill px-4 py-1 text-uppercase"
-            >Remove Product</button><br><br>
-          <button mat-button class="bg-light darkblue btn-width rounded-pill px-4 py-1 text-uppercase"
-            >Update Product</button><br><br>
+          <button mat-button class="bg-light darkblue btn-width rounded-pill px-4 py-1 text-uppercase"> View Product</button><br><br>
+          <button mat-button class="bg-light darkblue btn-width rounded-pill px-4 py-1 text-uppercase">View Categories</button><br><br>
+          <button mat-button class="bg-light darkblue btn-width rounded-pill px-4 py-1 text-uppercase">Add Category</button><br><br>
+          <!-- <button mat-button class="bg-light darkblue btn-width rounded-pill px-4 py-1 text-uppercase">Remove Product</button><br><br> -->
+          <button mat-button class="bg-light darkblue btn-width rounded-pill px-4 py-1 text-uppercase">Update Product</button><br><br>
           <mat-divider>
             <hr>
           </mat-divider>
@@ -130,38 +125,27 @@
 
       <!-- View Products -->
       <div class="row p-3 col-sm-9">
-        <div class="col p-2">
-          <div class="headding">
-            <h3 class="bg-light darkblue rounded-pill px-4 py-3 text-uppercase font-weight-bold"
-              style="text-align: center;"><b>Products</b></h3>
-          </div>
-          <mat-divider>
-            <hr>
-          </mat-divider><br>
-          <div *ngIf = "viewPshow">
-            <app-all-product></app-all-product>
-          </div>
+        <div class="col">
+
+          <!-- <div *ngIf = "viewPshow"> -->
+            <!-- <app-all-product></app-all-product> -->
+          <!-- </div> -->
 
 
-          <div *ngIf = "viewCategory">
-            <app-view-category></app-view-category>
-          </div>
+          <!-- <div *ngIf = "viewCategory"> -->
+            <!-- <app-view-category></app-view-category> -->
+          <!-- </div> -->
 
 
-          <div *ngIf = "">
-            <app-all-product></app-all-product>
-          </div>
+          <!-- <div *ngIf = ""> -->
+
+          <!-- </div> -->
 
 
-          <div *ngIf = "">
-            <app-all-product></app-all-product>
-          </div>
-
-
-          <div *ngIf = "">
-            <app-all-product></app-all-product>
-          </div>
-
+          <!-- <div *ngIf = ""> -->
+            <!-- <app-update-product></app-update-product> -->
+          <!-- </div> -->
+              <app-add-category></app-add-category>
 
         </div>
       </div>

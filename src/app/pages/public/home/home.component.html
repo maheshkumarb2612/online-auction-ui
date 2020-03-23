@@ -1,5 +1,5 @@
-<div class="top-padding">
-<div class="carousel-padding">
+
+<div class="carousel-padding fixed-bg-1">
     <div id="carouselExampleCaptions" class="carousel slide " data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -48,9 +48,12 @@
       </div>
 </div>
 
-            <div class="cycle center">
+
+
+
+<div class="cycle center">
               <div class="row center">
-                <h1>HOW IT WORKS</h1>
+                <h1 class="font-weight-bold" style="color: rgb(240, 133, 46);">HOW IT WORKS</h1>
               </div><hr heigth="12" color="red" width="10%">
             </div>
             <div class="steps-background center">
@@ -88,12 +91,16 @@
               </div>
             </div>
 
+
+<div class="all-auction-bg ">
+  <div class="rgba-white rounded">
 <!-- Current Auction -->
-<div class="live-auction center" id="live-auction">
-  <div class="horizontal-line pd-5"></div>
-    <h2> CURRENT AUCTIONS </h2>
-    <div class="horizontal-line"></div>
-    <hr heigth="12" size="10" color="red" width="10%">
+
+<div class="live-auction center"  id="live-auction">
+  <!-- <div class="horizontal-line pd-5"></div> -->
+    <h1 class="bg-light darkblue rounded-pill px-5 py-4 text-uppercase font-weight-bold"
+    style="text-align: center;">CURRENT AUCTIONS</h1>
+    <!-- <div class="horizontal-line"></div> -->
   <div class="row">
     <hr color="#222" size="15" widht="10%"/>
   </div>
@@ -114,8 +121,13 @@
             <mat-card-actions>
               <div class="example-button-row">
               <!-- Button trigger modal -->
+<!--<<<<<<< Updated upstream
               <button type="button" class="bg-grey" data-toggle="modal" data-target="#modelId" mat-raised-button>Bid Now</button>
                <button class="bg-grey" mat-raised-button [routerLink]="['/product-listing/product-detail',1]"
+=======-->
+              <button type="button" class=" btn btn-unique" data-toggle="modal" data-target="#modelId" mat-raised-button>Bid Now</button>
+               <button class="btn btn-unique" mat-raised-button [routerLink]="['/product-listing/product-detail']"
+
                routerLinkActive="router-link-active" >View Product Details</button>
             </div>
             </mat-card-actions>
@@ -125,11 +137,12 @@
 </div>
 
 <!-- UpComing Auction -->
-<div class="live-auction center">
-  <div class="horizontal-line"></div>
-  <h2>===> UPCOMING AUCTIONS <===</h2>
-  <div class="horizontal-line"></div>
-  <hr heigth="12" size="10" color="red" width="10%">
+<div class="live-auction center " >
+  <!-- <div class="horizontal-line"></div> -->
+  <h1 class="bg-light darkblue rounded-pill px-5 py-4 text-uppercase font-weight-bold"
+    style="text-align: center;">UPCOMING AUCTIONS</h1>
+  <!-- <div class="horizontal-line"></div> -->
+
 <div class="row">
   <hr color="#222" size="15" widht="10%"/>
 </div>
@@ -143,14 +156,12 @@
           </mat-card-header>
           <img mat-card-image src="../../../../assets/Alea-Pinar-Du-Pre-celia-2-Ransom-Art-Gallery.jpg" alt="Photo of a Shiba Inu">
           <mat-card-content>
-            <p>
-              Description Description Description
-            </p>
+
           </mat-card-content>
           <mat-card-actions>
             <div class="example-button-row">
             <!-- Button trigger modal -->
-            <button class="bg-grey bid-btn" mat-raised-button [routerLink]="['/product-listing/product-detail']"
+            <button class="btn btn-unique" mat-raised-button [routerLink]="['/product-listing/product-detail']"
              routerLinkActive="router-link-active" >View Product Details</button>
           </div>
           </mat-card-actions>
@@ -162,9 +173,10 @@
 
 <!-- Past Auction -->
 <div class="live-auction center">
-  <div class="horizontal-line"></div>
-  <h2>===> PAST AUCTIONS <===</h2><div class="horizontal-line"></div>
-  <hr heigth="12" size="10" color="red" width="10%">
+  <!-- <div class="horizontal-line"></div> -->
+  <h1 class="bg-light darkblue rounded-pill px-5 py-4 text-uppercase font-weight-bold"
+    style="text-align: center;">PAST AUCTIONS</h1>
+  <!-- <div class="horizontal-line"></div> -->
 <div class="row">
   <hr color="#222" size="15" widht="10%"/>
 </div>
@@ -185,7 +197,7 @@
           <mat-card-actions>
             <div class="example-button-row">
             <!-- Button trigger modal -->
-            <button class="bg-grey" mat-raised-button [routerLink]="['/product-listing/product-detail']"
+            <button class="btn btn-unique" mat-raised-button [routerLink]="['/product-listing/product-detail']"
              routerLinkActive="router-link-active" >View Product Details</button>
           </div>
           </mat-card-actions>
@@ -193,17 +205,22 @@
   </div>
 </div>
 </div>
+</div>
+</div>
 
-  <div class="home-background">
+
+<section class="fixed-bg-2">
+    <div class="rgba-black-strong rounded p-5">
+  <div class="home-background ">
     <div class="row">
      <div class="col-md-6">
-       <h1 class="card-title"><br>
+       <h1 class="card-title  font-weight-bold"><br>
          Auction Management <br>
          & Bidding Website<br>
          that Keeps it Simple <br>
        </h1>
-       <h4 class="card-text">Used by Large and small companies worldwide, our products are designed to do the heavy lifting for you
-         <b>while saving you money and time</b></h4>
+       <h4 class="card-text"><b>Used by Large and small companies worldwide, our products are designed to do the heavy lifting for you </b>
+         <span class="font-weight-bold">while saving you money and time</span></h4>
      </div>
      <div class="col-md-6">
        <img src="../../../../assets/4.png" height="90%" width="62%">
@@ -214,22 +231,26 @@
 
 
 
-<div class="row">
+
+<div class="row pt-3">
   <div class="col-sm-6 center-align">
-    <img src="../../../../assets/fast-track-your-sales-with-mobile-learning.jpg" class="home-img-right" width="80%" height="60%">
-    <br><br><span class="imgRel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Available everywhere</b></span>
+    <img src="../../../../assets/fast-track-your-sales-with-mobile-learning.jpg" class="home-img" width="80%" height="60%">
+    <br><br><span class="imgRel"><b>Available everywhere</b></span>
   </div>
   <div class="col-sm-6 center-align">
-    <img src="../../../../assets/bidding.jpg" class="home-img-left" width="80%" height="60%">
+    <img src="../../../../assets/bidding.jpg" class="home-img" width="80%" height="60%">
     <br><br><span class="imgRel"><b>Working 24 hours</b></span>
   </div>
 </div>
 
-<div class="website-details row">
-  <div class="rules-font col-sm-6">
+
+
+<div class="yellow-line">
+<div class="website-details row font-white">
+  <div class=" col-sm-6">
       <h3>Online Auction Rules</h3>
     <mat-list>
-      <mat-icon>label_important</mat-icon> User Account Per Person / IP Address / House is allowed<br>
+      <mat-icon>label_important</mat-icon> User Account Per Person / House is allowed<br>
       <mat-icon>label_important</mat-icon> Group Bidding is strictly not allowed<br>
       <mat-icon>label_important</mat-icon> Do not use any 3rd party bidding softwares of bots for bidding<br>
       <mat-icon>label_important</mat-icon> Misleading USER IDs are not allowed - Please don't try your tricks<br>
@@ -249,6 +270,12 @@
   </div>
 </div>
 </div>
+
+</div>
+</section>
+
+
+
 
 <!-- bid -->
 <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -285,3 +312,20 @@
     </mat-form-field>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

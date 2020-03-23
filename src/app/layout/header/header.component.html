@@ -1,13 +1,15 @@
-<nav class="navbar navbar-light header-color haeder-fix">
+<nav class="navbar navbar-light header-color unique-color-dark haeder-fix position-sticky position-fixed">
   <a class="navbar-brand" href="#">
     <h1 class="left-padding"> Online-Auction</h1>
   </a>
   <form class="form-inline my-2 my-lg-0">
     <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
-    <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+    <button type="button" class="btn btn-outline-success btn-rounded waves-effect my-2 my-sm-0"><i class="fas fa-search pr-2"
+      aria-hidden="true"></i>Search</button>
+    <!-- <button class="btn  " type="submit">Search</button> -->
   </form>
 
-  <nav class="navbar-expand-sm navbar-dark header-color">
+  <nav class="navbar-expand-sm navbar-dark header-color unique-color-dark">
     <div class="collapse navbar-collapse" id="collapsibleNavId">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
@@ -42,6 +44,11 @@
             <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active"><button
                 mat-menu-item>Other</button></a>
           </mat-menu>
+        </li>
+
+        <li class="nav-item" *ngIf="isUserLoggedIn">
+          <a [routerLink]="['/manage-product']" routerLinkActive="router-link-active">
+            <button mat-button class="header-font-color"> Manage Product </button></a>
         </li>
 
         <li class="nav-item" *ngIf="isUserLoggedIn">

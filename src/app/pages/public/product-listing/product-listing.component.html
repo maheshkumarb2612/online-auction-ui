@@ -1,8 +1,8 @@
-<div class="top-padding">
+
 <div class="container-fluid">
-    <div class="row bg-grey">
-      <div class="col-3">
-        <mat-card class="example-card mg-bottom-15px bg-light">
+    <div class="row">
+      <div class="col-3 bg-white">
+        <mat-card class="example-card mg-bottom-15px">
             <mat-card-header>
               <!--<div mat-card-avatar class="example-header-image"></div>-->
               <mat-card-title>Product Category</mat-card-title>
@@ -16,14 +16,16 @@
               </mat-selection-list>
             </mat-card-content>
             <mat-card-actions>
-              <button class="bg-grey" mat-raised-button>Apply</button>
-              <button class="bg-grey" mat-raised-button>Reset</button>
+              <div class="tab">
+                <button class=" btn btn-unique" mat-raised-button>Apply</button>
+                <button class="btn btn-unique" mat-raised-button>Reset</button>
+              </div>
             </mat-card-actions>
           </mat-card>
 
       </div>
 
-      <div class="col-9 bg-light">
+      <div class="col-9 bg-white">
        <!-- <div class="card-deck">
           <div class="card">
             <img class="card-img-top" src="holder.js/100x180/" alt="">
@@ -81,21 +83,18 @@
             </mat-grid-tile>
           </mat-grid-list>
   -->
-  <div class="row">
-    <div class="col-sm-12">
-      <h4 class="mg-left-15px mg-top-15px">Auction product listing</h4>
-    </div>
-  </div>
+
+      <span class="mg-left-15px mg-top-15px"><h4><b>&nbsp;&nbsp;Auction product listing</b></h4></span>
               <div class="row">
                 <div class="col-sm-6 pd-10px">
-                    <section class="example-section bg-light">
+                    <section class="example-section">
                         <mat-checkbox class="example-margin" >Live Auction</mat-checkbox>
                         <mat-checkbox class="example-margin" >Upcoming Auction</mat-checkbox>
                         <mat-checkbox class="example-margin" >Past Auction</mat-checkbox>
                       </section>
                 </div>
                   <div class="col-sm-6 pd-5px">
-                          <mat-paginator class="bg-light"
+                          <mat-paginator class="bg-white"
                           [length]="100"
                           [pageSize]="10"
                           [pageSizeOptions]="[5, 10, 25, 100]">
@@ -165,4 +164,4 @@
     </mat-form-field>
   </div>
 </div>
-</div>
+
