@@ -1,6 +1,6 @@
 
 .top-padding{
-  padding-top: 115px;
+  padding-top: 123px;
 }
 .bg{
   background-color: rgb(243, 239, 239);
@@ -88,4 +88,15 @@ input.example-right-align {
   align-content: center;
   text-align: center;
   align-items: center;
+}
+
+
+.element {
+  background:#f2f2f2;
+  background-position: 100%;
+  position: -ms-page;
+}
+.btn{
+  margin-bottom: 5%;
+
 }

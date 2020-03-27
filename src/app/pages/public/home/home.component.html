@@ -1,4 +1,4 @@
-
+<div class="top-padding"></div>
 <div class="carousel-padding fixed-bg-1">
     <div id="carouselExampleCaptions" class="carousel slide " data-ride="carousel">
         <ol class="carousel-indicators">
@@ -96,30 +96,37 @@
   <div class="rgba-white rounded">
 <!-- Current Auction -->
 
-<div class="live-auction center"  id="live-auction">
+<div class="live-auction"  id="live-auction">
   <!-- <div class="horizontal-line pd-5"></div> -->
-    <h1 class="bg-light darkblue rounded-pill px-5 py-4 text-uppercase font-weight-bold"
-    style="text-align: center;">CURRENT AUCTIONS</h1>
+    <h1 class=" px-5 py-4 text-uppercase font-weight-bold"
+    style="text-align: center; background-color: rgb(49, 10, 10); color: gold;">CURRENT AUCTIONS</h1>
     <!-- <div class="horizontal-line"></div> -->
   <div class="row">
     <hr color="#222" size="15" widht="10%"/>
   </div>
   <div class="row mg-bottom-10px">
     <div class="col-sm-3 pd-5px" *ngFor="let tile of tiles">
-        <mat-card class="example-card">
+        <mat-card class="example-card hoverable">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image-c"></div>
-              <mat-card-title>Antique</mat-card-title>
-              <mat-card-subtitle>Antique silver piece</mat-card-subtitle>
+              <mat-card-title style="color: darkblue;">Product Name</mat-card-title>
+                          <mat-card-subtitle style="color: rgb(150, 37, 37); font-size: 16px ;"><b>category</b></mat-card-subtitle>
             </mat-card-header>
             <img mat-card-image src="../../../../assets/old_piece_1.jpg" alt="Photo of a Shiba Inu">
             <mat-card-content>
-              <p>
-                Description Description Description
-              </p>
+              <div class="row">
+                <div class="col-sm-6"><h3 class="font-weight-bold" style="color: rgb(0, 167, 0);">Rs.199</h3></div>
+                <!-- <div class="col-sm-6" style="text-align: right;"><label style="color: rgb(0, 167, 0); font-size: 20px;" class="font-weight-bold">42:05:36</label></div>Remaining Time -->
+                 <!-- {{startDate | date:'medium'}}<br> -->
+                 <!-- {{endDate | date:'medium'}} -->
+                <div class="col-sm-6" id="timer" onload="count()" style="text-align: right; color: rgb(0, 167, 0); font-size: 20px;" class="font-weight-bold">
+                  <span id="days"></span>days
+                  <span id="hours"></span>:<span id="minutes"></span>:<span id="seconds"></span>
+                </div>
+              </div>
             </mat-card-content>
             <mat-card-actions>
-              <div class="example-button-row">
+              <div class="example-button-row  center">
               <!-- Button trigger modal -->
 <!--<<<<<<< Updated upstream
               <button type="button" class="bg-grey" data-toggle="modal" data-target="#modelId" mat-raised-button>Bid Now</button>
@@ -137,10 +144,10 @@
 </div>
 
 <!-- UpComing Auction -->
-<div class="live-auction center " >
+<div class="live-auction " >
   <!-- <div class="horizontal-line"></div> -->
-  <h1 class="bg-light darkblue rounded-pill px-5 py-4 text-uppercase font-weight-bold"
-    style="text-align: center;">UPCOMING AUCTIONS</h1>
+  <h1 class=" px-5 py-4 text-uppercase font-weight-bold"
+    style="text-align: center; background-color: rgb(49, 10, 10); color: gold;">UPCOMING AUCTIONS</h1>
   <!-- <div class="horizontal-line"></div> -->
 
 <div class="row">
@@ -148,18 +155,18 @@
 </div>
 <div class="row mg-bottom-15px">
   <div class="col-sm-3 pd-10px" *ngFor="let tile of tiles">
-      <mat-card class="example-card">
+      <mat-card class="example-card hoverable">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image-up"></div>
-            <mat-card-title>Art</mat-card-title>
-            <mat-card-subtitle>Alea Pinar Du Pre celia</mat-card-subtitle>
+            <mat-card-title style="color: darkblue;">Product Name</mat-card-title>
+                          <mat-card-subtitle style="color: rgb(150, 37, 37); font-size: 16px ;"><b>category</b></mat-card-subtitle>
           </mat-card-header>
           <img mat-card-image src="../../../../assets/Alea-Pinar-Du-Pre-celia-2-Ransom-Art-Gallery.jpg" alt="Photo of a Shiba Inu">
           <mat-card-content>
 
           </mat-card-content>
           <mat-card-actions>
-            <div class="example-button-row">
+            <div class="example-button-row center">
             <!-- Button trigger modal -->
             <button class="btn btn-unique" mat-raised-button [routerLink]="['/product-listing/product-detail']"
              routerLinkActive="router-link-active" >View Product Details</button>
@@ -172,21 +179,21 @@
 
 
 <!-- Past Auction -->
-<div class="live-auction center">
+<div class="live-auction">
   <!-- <div class="horizontal-line"></div> -->
-  <h1 class="bg-light darkblue rounded-pill px-5 py-4 text-uppercase font-weight-bold"
-    style="text-align: center;">PAST AUCTIONS</h1>
+  <h1 class="px-5 py-4 text-uppercase font-weight-bold"
+    style="text-align: center; background-color: rgb(49, 10, 10); color: gold;">PAST AUCTIONS</h1>
   <!-- <div class="horizontal-line"></div> -->
 <div class="row">
   <hr color="#222" size="15" widht="10%"/>
 </div>
 <div class="row mg-bottom-15px">
   <div class="col-sm-3 pd-5px" *ngFor="let tile of tiles">
-      <mat-card class="example-card">
+      <mat-card class="example-card hoverable">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image-p"></div>
-            <mat-card-title>Antique</mat-card-title>
-            <mat-card-subtitle>Duc D’Orléans Breguet Sympathique</mat-card-subtitle>
+            <mat-card-title style="color: darkblue;">Product Name</mat-card-title>
+            <mat-card-subtitle style="color: rgb(150, 37, 37); font-size: 16px ;"><b>category</b></mat-card-subtitle>
           </mat-card-header>
           <img mat-card-image src="../../../../assets/highest_appraised_antique_items_in_world_breguet_sympathique_1280px_90a26d8db8164d87af6c3ac30a69c630.jpeg" alt="Photo of a Shiba Inu">
           <mat-card-content>
@@ -195,7 +202,7 @@
             </p>
           </mat-card-content>
           <mat-card-actions>
-            <div class="example-button-row">
+            <div class="example-button-row center">
             <!-- Button trigger modal -->
             <button class="btn btn-unique" mat-raised-button [routerLink]="['/product-listing/product-detail']"
              routerLinkActive="router-link-active" >View Product Details</button>

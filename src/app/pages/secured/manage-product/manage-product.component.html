@@ -98,7 +98,7 @@
 
 
 
-
+<div class="top-padding"></div>
 <div>
   <!-- <button mat-button class="back-btn"><span>
       <mat-icon matPrefix>arrow_back_ios</mat-icon>BACK
@@ -112,11 +112,11 @@
           <hr>
           <h5 class="darkblue"><b>You are Admin</b></h5>
           <hr><br>
-          <button mat-button class="bg-light darkblue btn-width rounded-pill px-4 py-1 text-uppercase"> View Product</button><br><br>
-          <button mat-button class="bg-light darkblue btn-width rounded-pill px-4 py-1 text-uppercase">View Categories</button><br><br>
-          <button mat-button class="bg-light darkblue btn-width rounded-pill px-4 py-1 text-uppercase">Add Category</button><br><br>
+          <a mat-button class="bg-light darkblue btn-width rounded-pill px-4 py-1 text-uppercase" (click)="viewProduct('viewPshow')"> View Product</a><br><br>
+          <a mat-button class="bg-light darkblue btn-width rounded-pill px-4 py-1 text-uppercase" (click)="viewCategories('viewCategory')">View Categories</a><br><br>
+          <a mat-button class="bg-light darkblue btn-width rounded-pill px-4 py-1 text-uppercase" (click)="addCategory('viewAddCategory')">Add Category</a><br><br>
           <!-- <button mat-button class="bg-light darkblue btn-width rounded-pill px-4 py-1 text-uppercase">Remove Product</button><br><br> -->
-          <button mat-button class="bg-light darkblue btn-width rounded-pill px-4 py-1 text-uppercase">Update Product</button><br><br>
+          <!-- <button mat-button class="bg-light darkblue btn-width rounded-pill px-4 py-1 text-uppercase">Update Product</button><br><br> -->
           <mat-divider>
             <hr>
           </mat-divider>
@@ -127,25 +127,20 @@
       <div class="row p-3 col-sm-9">
         <div class="col">
 
-          <!-- <div *ngIf = "viewPshow"> -->
-            <!-- <app-all-product></app-all-product> -->
-          <!-- </div> -->
+          <div *ngIf = "viewPshow">
+            <app-all-product></app-all-product>
+          </div>
 
 
-          <!-- <div *ngIf = "viewCategory"> -->
-            <!-- <app-view-category></app-view-category> -->
-          <!-- </div> -->
+          <div *ngIf = "viewCategory">
+            <app-view-category></app-view-category>
+          </div>
 
 
-          <!-- <div *ngIf = ""> -->
+          <div *ngIf = "viewAddCategory">
+            <app-add-category></app-add-category>
+          </div>
 
-          <!-- </div> -->
-
-
-          <!-- <div *ngIf = ""> -->
-            <!-- <app-update-product></app-update-product> -->
-          <!-- </div> -->
-              <app-add-category></app-add-category>
 
         </div>
       </div>

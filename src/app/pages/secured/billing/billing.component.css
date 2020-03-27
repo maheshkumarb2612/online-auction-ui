@@ -28,11 +28,17 @@
 }
 
 .container {
-  background-color: #f2f2f2;
-  padding: 5px 20px 15px 20px;
-  border: 1px solid lightgrey;
+  background-color:rgb(253, 212, 198);
+  padding: 0%;
+  border: 1px double rgb(66, 35, 35);
+  border-style: double;
   border-radius: 3px;
 }
+.container:hover{
+  color: rgb(95, 48, 48);
+
+}
+
 
 input[type=text] {
   width: 100%;
@@ -85,5 +91,15 @@ span.price {
 }
 
 .top-padding{
-  padding-top: 125px ;
+  padding-top: 123px ;
+}
+.bg{
+  background-image: url('../../../../assets/2771691.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
 }

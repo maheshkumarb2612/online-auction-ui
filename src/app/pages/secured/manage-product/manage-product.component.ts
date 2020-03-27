@@ -19,27 +19,30 @@ export class ManageProductComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  comLoad = '<app-all-product></app-all-product>';
+  // comLoad = '<app-all-product></app-all-product>';
+
+  viewPshow: boolean = false;
+  viewCategory: boolean = false;
+  viewAddCategory: boolean = false;
 
   viewProduct() {
-    this.comLoad = '<app-all-product></app-all-product>';
+    this.viewPshow = true;
+    this.viewCategory = false;
+    this.viewAddCategory = false;
   }
 
   viewCategories() {
-    this.comLoad = '';
+    this.viewPshow = false;
+    this.viewCategory = true;
+    this.viewAddCategory = false;
   }
 
   addCategory() {
-    this.comLoad = '';
+    this.viewPshow = false;
+    this.viewCategory = false;
+    this.viewAddCategory = true;
   }
 
-  removeProduct() {
-    this.comLoad = '';
-  }
-
-  updateProduct() {
-    this.comLoad = '';
-  }
 }
 
 export interface PeriodicElement {
