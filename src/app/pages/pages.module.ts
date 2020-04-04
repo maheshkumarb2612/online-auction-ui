@@ -28,7 +28,6 @@ import { BillingComponent } from './secured/billing/billing.component';
 import { AllProductComponent } from './secured/manage-product/all-product/all-product.component';
 import { ViewCategoryComponent } from './secured/manage-product/view-category/view-category.component';
 import { AddCategoryComponent } from './secured/manage-product/add-category/add-category.component';
-import { UpdateProductComponent } from './secured/manage-product/update-product/update-product.component';
 
 
 const routes: Routes = [
@@ -74,8 +73,7 @@ const routes: Routes = [
     BillingComponent,
     AllProductComponent,
     ViewCategoryComponent,
-    AddCategoryComponent,
-    UpdateProductComponent
+    AddCategoryComponent
   ],
   imports: [
     CommonModule,
