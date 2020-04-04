@@ -54,7 +54,7 @@ export class PostProductComponent implements OnInit {
     if (this.noOfImg <= this.maxImg) {
       for (let i = 0; i < this.noOfImg; i++) {
         if (event.target.files && event.target.files[i]
-          && event.target.files[i].type.match('image.*') && event.target.files[i].size < 1000000) {
+          && event.target.files[i].type.match('image.*') && event.target.files[i].size < 512000) {
           this.selectedImageCount++;
           const reader = new FileReader();
           reader.readAsDataURL(event.target.files[i]); // read file as data url
@@ -62,7 +62,7 @@ export class PostProductComponent implements OnInit {
             this.urls[i] = (event.target as FileReader).result;
           };
         } else {
-          alert('Please select image only and each image size must not exceeds 1 MB');
+          alert('Please select image only and each image size must not exceeds 500 KB');
           this.selectedImageCount = 0;
         }
       }
