@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ResponseModel } from '../model/response.model';
-import { APP_URL } from '../app-urls';
-import { map } from 'rxjs/operators';
-import { Category } from '../model/category.model';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {ResponseModel} from '../model/response.model';
+import {APP_URL} from '../app-urls';
+import {map} from 'rxjs/operators';
+import {Category} from '../model/category.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,8 @@ export class ProductService {
 
   categories: Category[];
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
   getCategories(): any {
 
@@ -32,9 +33,9 @@ export class ProductService {
   }
 
   postProduct(images: any, name: any, description: any, categoryId: any,
-    startDate: any, startTime: any, endDate: any, endTime: any, price: any): any {
+              startDate: any, startTime: any, endDate: any, endTime: any, price: any): any {
 
-    const productDetail = { name, description, categoryId, startDate, startTime, endDate, endTime, price };
+    const productDetail = {name, description, categoryId, startDate, startTime, endDate, endTime, price};
 
     const formData = new FormData();
     formData.append('productDetail', JSON.stringify(productDetail));
@@ -53,9 +54,26 @@ export class ProductService {
     );
   }
 
-  getProductDetail(productId:any): any {
+  getProductDetail(productId: any): any {
 
     return this.httpClient.get<ResponseModel>(APP_URL.getProductDetail(productId))
+      .pipe(
+        map(
+          apiResponse => {
+            console.log(apiResponse);
+            if (apiResponse.data) {
+              return apiResponse.data;
+            } else {
+              return apiResponse;
+            }
+          }
+        )
+      );
+  }
+
+  getProducts(expired: boolean, live: boolean, upcoming: boolean): any {
+
+    return this.httpClient.get<ResponseModel>(APP_URL.BACKEND_PRODUCT)
       .pipe(
         map(
           apiResponse => {

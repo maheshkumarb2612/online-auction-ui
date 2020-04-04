@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/common/model/product.model';
-import { ProductService } from 'src/app/common/product/product.service';
-import { ActivatedRoute } from '@angular/router';
-import { APP_URL } from 'src/app/common/app-urls';
+import {Component, OnInit} from '@angular/core';
+import {Product} from 'src/app/common/model/product.model';
+import {ProductService} from 'src/app/common/product/product.service';
+import {ActivatedRoute} from '@angular/router';
+import {APP_URL} from 'src/app/common/app-urls';
 
 @Component({
   selector: 'app-product-detail',
@@ -16,7 +16,8 @@ export class ProductDetailComponent implements OnInit {
 
   images = [];
 
-  constructor(private productService: ProductService, private route: ActivatedRoute) { }
+  constructor(private productService: ProductService, private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
     /*this.route.params.subscribe(params => {
@@ -39,7 +40,7 @@ export class ProductDetailComponent implements OnInit {
         }
       }
 
-    })
+    });
   }
 
 }

@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { DatePipe, formatDate } from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {DatePipe} from '@angular/common';
+import {Product} from '../../../common/model/product.model';
+import {ProductService} from '../../../common/product/product.service';
+import {Pagination} from '../../../common/model/pagination.model';
 
 export interface Tile {
   color: string;
@@ -17,15 +20,15 @@ export interface Tile {
 export class ProductListingComponent implements OnInit {
 
   tiles: Tile[] = [
-    { text: 'One', cols: 3, rows: 1, color: 'lightblue' },
-    { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
-    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
-    { text: 'Four', cols: 2, rows: 1, color: '#DDBDF1' },
-    { text: 'One', cols: 3, rows: 1, color: 'lightblue' },
-    { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
-    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
-    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
-    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
+    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
+    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
+    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
+    {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
+    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
+    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
+    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
+    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
+    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
   ];
 
   typesOfShoes: string[] = ['Antique', 'Art', 'Books', 'Coins', 'Electronics', 'Painting', 'Other'];
@@ -34,7 +37,6 @@ export class ProductListingComponent implements OnInit {
   indeterminate = false;
   labelPosition = 'after';
   disabled = false;
-
 
 
   startDate = '12/12/1999';
@@ -46,15 +48,30 @@ export class ProductListingComponent implements OnInit {
   myDate = new Date();
   today = Date.now();
 
-  //this.startDate = new Date("this.startDate 11:26:16").getHours();
-  //this.endDate = new Date("this.endDate 12:26:16").getHours();
+  // this.startDate = new Date("this.startDate 11:26:16").getHours();
+  // this.endDate = new Date("this.endDate 12:26:16").getHours();
 
   // this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
 
-  constructor() {
+  pagination: Pagination;
+  products: Product[];
+  errorMessage: string;
+
+
+  constructor(private productService: ProductService) {
 
   }
 
   ngOnInit() {
+
+    this.productService.getProducts(true, true, true).subscribe(data => {
+
+      if (data.products && data.products instanceof Array) {
+        this.products = data.products;
+        this.pagination = data.pagination;
+      } else {
+        this.errorMessage = 'No products posted by any user';
+      }
+    });
   }
 }

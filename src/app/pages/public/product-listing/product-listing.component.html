@@ -83,9 +83,10 @@
             </mat-grid-tile>
           </mat-grid-list>
   -->
-
-       <span class="mg-left-15px mg-top-15px"><h4><b>&nbsp;&nbsp;Auction product listing</b></h4></span>
-              <div class="row">
+              <div class="row pd-5px">
+                <span class="mg-left-15px mg-top-15px"><h4><b>&nbsp;&nbsp;Auction product listing</b></h4></span>
+              </div>
+              <div class="row" *ngIf="products">
                 <div class="col-sm-6 pd-10px">
                     <section class="example-section">
                         <mat-checkbox class="example-margin" >Live Auction</mat-checkbox>
@@ -101,15 +102,15 @@
                           </mat-paginator>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-sm-4 pd-5px p-4" *ngFor="let tile of tiles">
+              <div class="row" *ngIf="products">
+                <div class="col-sm-4 pd-5px p-4" *ngFor="let product of products">
                     <mat-card class="example-card hoverable">
                         <mat-card-header>
                           <div mat-card-avatar class="example-header-image"></div>
-                          <mat-card-title style="color: darkblue;">Product Name</mat-card-title>
-                          <mat-card-subtitle style="color: rgb(150, 37, 37); font-size: 16px ;"><b>category</b></mat-card-subtitle>
+                          <mat-card-title style="color: darkblue;">{{product.name}}</mat-card-title>
+                          <mat-card-subtitle style="color: rgb(150, 37, 37); font-size: 16px ;"><b>{{product.categoryName}}</b></mat-card-subtitle>
                         </mat-card-header>
-                        <img mat-card-image src="../../../../assets/old_piece.jpg" alt="Photo of a Shiba Inu">
+                        <img mat-card-image src="{{product.firstImageData}}" alt="Photo of a Shiba Inu">
                         <mat-card-content>
                           <div class="row">
                             <div class="col-sm-6"><h3 class="font-weight-bold" style="color: rgb(0, 167, 0);">Rs.199</h3></div>
