@@ -15,16 +15,21 @@ export class ProductDetailComponent implements OnInit {
   productId: any;
 
   images = [];
+  firstImageData: string;
+  otherImagesData = [];
+
+  firstImageId: any;
+  otherImagesId = [];
 
   constructor(private productService: ProductService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    /*this.route.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       this.productId = params['id'];
     });
     console.log(this.productId);
-    this.getProductDetail(this.productId);*/
+    this.getProductDetail(this.productId);
   }
 
   getProductDetail(productId: any) {
@@ -33,10 +38,26 @@ export class ProductDetailComponent implements OnInit {
       this.product = data;
       console.log(this.product);
 
-      if (data.imageIds) {
+      if (data.otherImagesId) {
         this.images = [];
-        for (const imgId of data.imageIds) {
+        for (const imgId of data.otherImagesId) {
           this.images.push(APP_URL.getDownlodImageUrl(imgId));
+        }
+      }
+
+      if (data.imageDataList) {
+        this.otherImagesData = [];
+        this.otherImagesId = [];
+        let i = 0;
+        for (const imgData of data.imageDataList) {
+          if (i === 0) {
+            this.firstImageData = imgData;
+            this.firstImageId = 'img-' + i;
+          } else {
+            this.otherImagesData.push(imgData);
+            this.otherImagesId.push('img-' + i);
+          }
+          i++;
         }
       }
 

@@ -55,7 +55,7 @@
                   			<button mat-button class="header-font-color">Bid Details</button></a>
 ======= -->
 							<div class="preview-pic tab-content">
-								<div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" />
+								<!--<div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" />
 								</div>
 								<div class="tab-pane" id="pic-2"><img
 										src="https://cdn.pixabay.com/photo/2017/09/25/13/12/dog-2785074__340.jpg" />
@@ -68,10 +68,16 @@
 								</div>
 								<div class="tab-pane" id="pic-5"><img
 										src="https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg" />
-								</div>
+								</div>-->
+                <div class="tab-pane active" id="pic-1">
+                  <img src="{{firstImageData}}" height="500" width="500" />
+                </div>
+                <div class="tab-pane" *ngFor="let imgData of otherImagesData" id="pic-4">
+                  <img src="{{imgData}}" height="500" width="500" />
+                </div>
 							</div>
 							<ul class="preview-thumbnail nav nav-tabs">
-								<li class="active"><a data-target="#pic-1" data-toggle="tab"><img
+								<!--<li class="active"><a data-target="#pic-1" data-toggle="tab"><img
 											src="http://placekitten.com/200/126" /></a></li>
 								<li><a data-target="#pic-2" data-toggle="tab"><img
 											src="https://cdn.pixabay.com/photo/2017/09/25/13/12/dog-2785074__340.jpg" /></a>
@@ -84,7 +90,13 @@
 								</li>
 								<li><a data-target="#pic-5" data-toggle="tab"><img
 											src="https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg" /></a>
-								</li>
+								</li>-->
+                <li class="active"><a data-target="#pic-1" data-toggle="tab">
+                  <img src="{{firstImageData}}" height="100" width="100" /></a>
+                </li>
+                <li *ngFor="let imgData of otherImagesData"><a data-target="#pic-4" data-toggle="tab">
+                  <img src="{{imgData}}"  height="100" width="100" /></a>
+                </li>
 							</ul>
 
 						</div>
