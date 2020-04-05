@@ -15,4 +15,5 @@ export interface Product {
   isExpired: boolean;
   isUpcoming: boolean;
   firstImageData: string;
+  imageDataList: [];
 }
