@@ -71,9 +71,9 @@ export class ProductService {
       );
   }
 
-  getProducts(expired: boolean, live: boolean, upcoming: boolean): any {
+  getProducts(searchValue: any, expired: boolean, live: boolean, upcoming: boolean): any {
 
-    return this.httpClient.get<ResponseModel>(APP_URL.BACKEND_PRODUCT)
+    return this.httpClient.get<ResponseModel>(APP_URL.BACKEND_PRODUCT + '?searchValue=' + searchValue)
       .pipe(
         map(
           apiResponse => {

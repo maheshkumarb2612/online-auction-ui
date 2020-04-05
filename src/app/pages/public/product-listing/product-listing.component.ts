@@ -3,6 +3,7 @@ import {DatePipe} from '@angular/common';
 import {Product} from '../../../common/model/product.model';
 import {ProductService} from '../../../common/product/product.service';
 import {Pagination} from '../../../common/model/pagination.model';
+import {ActivatedRoute} from '@angular/router';
 
 export interface Tile {
   color: string;
@@ -48,23 +49,28 @@ export class ProductListingComponent implements OnInit {
   myDate = new Date();
   today = Date.now();
 
-  // this.startDate = new Date("this.startDate 11:26:16").getHours();
-  // this.endDate = new Date("this.endDate 12:26:16").getHours();
+  // this.startDate = new Date('this.startDate 11:26:16').getHours();
+  // this.endDate = new Date('this.endDate 12:26:16').getHours();
 
   // this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
 
   pagination: Pagination;
   products: Product[];
   errorMessage: string;
+  searchValue: any;
 
-
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private route: ActivatedRoute) {
 
   }
 
   ngOnInit() {
 
-    this.productService.getProducts(true, true, true).subscribe(data => {
+    this.route.queryParams.subscribe(params => {
+      this.searchValue = params['searchValue'];
+    });
+    console.log(this.searchValue);
+
+    this.productService.getProducts(this.searchValue,true, true, true).subscribe(data => {
 
       if (data.products && data.products instanceof Array) {
         this.products = data.products;
