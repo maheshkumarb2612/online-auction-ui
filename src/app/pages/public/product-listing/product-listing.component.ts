@@ -57,7 +57,7 @@ export class ProductListingComponent implements OnInit {
   pagination: Pagination;
   products: Product[];
   errorMessage: string;
-  searchValue: any;
+  searchValue = '';
 
   constructor(private productService: ProductService, private route: ActivatedRoute) {
 

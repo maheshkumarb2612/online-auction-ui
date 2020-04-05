@@ -73,7 +73,12 @@ export class ProductService {
 
   getProducts(searchValue: any, expired: boolean, live: boolean, upcoming: boolean): any {
 
-    return this.httpClient.get<ResponseModel>(APP_URL.BACKEND_PRODUCT + '?searchValue=' + searchValue)
+    let url = APP_URL.BACKEND_PRODUCT;
+    if (searchValue) {
+      url = url + '?searchValue=' + searchValue;
+    }
+
+    return this.httpClient.get<ResponseModel>(url)
       .pipe(
         map(
           apiResponse => {
