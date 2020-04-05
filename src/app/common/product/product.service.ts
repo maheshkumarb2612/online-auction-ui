@@ -131,4 +131,18 @@ export class ProductService {
     return this.httpClient.get<ResponseModel>(url);
   }
 
+  payment(contactPerson: any, contactNo: any, email: any, address: any, city: any, pincode: any, state: any, country: any) {
+
+    const detail = {contactPerson, contactNo, email, address, city, pincode, state, country};
+    return this.httpClient.post(APP_URL.BACKEND_PAYMENT, detail);
+      /*.pipe(
+      map(
+        apiResponse => {
+          console.log(apiResponse);
+          return apiResponse;
+        }
+      )
+    );*/
+  }
+
 }

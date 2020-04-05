@@ -20,6 +20,7 @@ export const APP_URL = {
   BACKEND_ADD_TO_CART: serverUrl + '/addToCart',
   BACKEND_CART_PRODUCTS: serverUrl + '/cartProducts',
   BACKEND_REMOVE_FROM_CART: serverUrl + '/removeFromCart',
+  BACKEND_PAYMENT: serverUrl + '/payment',
 
   getProductDetail(productId: any): any {
     return this.BACKEND_PRODUCT + '/' + productId;
