@@ -17,7 +17,6 @@ export const APP_URL = {
   BACKEND_PRODUCT: serverUrl + '/product',
   BACKEND_DOWNLOAD_IMAGE: serverUrl + '/download',
 
-
   getProductDetail(productId: any): any {
     return this.BACKEND_PRODUCT + '/' + productId;
   },
@@ -28,5 +27,9 @@ export const APP_URL = {
 
   getUiProductSearchUrl(searchValue: any) {
     return this.PRODUCT_LISTING + '?searchValue=' + searchValue;
+  },
+
+  getBidOnProductUrl(productId: any) {
+    return this.BACKEND_PRODUCT + '/' + productId + '/' + 'bid';
   }
 };

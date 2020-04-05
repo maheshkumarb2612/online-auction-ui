@@ -23,6 +23,10 @@ export class ProductDetailComponent implements OnInit {
   productStatus = '';
 
   isOwner = false;
+  bidAmount: any;
+
+  bidSuccessMessage: any;
+  bidErrorMessage: any;
 
   constructor(private productService: ProductService, private route: ActivatedRoute) {
   }
@@ -77,6 +81,26 @@ export class ProductDetailComponent implements OnInit {
       }
 
     });
+  }
+
+  bid(productId: any) {
+
+    console.log(productId);
+
+    this.bidSuccessMessage = '';
+    this.bidErrorMessage = '';
+
+    if (productId && this.bidAmount) {
+      this.productService.bidOnProduct(productId, this.bidAmount).subscribe(data => {
+
+        console.log(data);
+        if (data.success) {
+          this.bidSuccessMessage = data.message;
+        } else {
+          this.bidErrorMessage = 'User bidding was not successful';
+        }
+      });
+    }
   }
 
 }

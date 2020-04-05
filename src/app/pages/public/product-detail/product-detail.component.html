@@ -143,7 +143,8 @@
           <div class="row mt-3">
             <div class="col-md-12 text-center text-md-left text-md-right">
 
-              <button class="btn btn-primary btn-rounded" [disabled]="product.isExpired">
+              <button class="btn btn-primary btn-rounded" data-toggle="modal" data-target="#exampleModalCenter"
+                      [disabled]="product.isExpired">
                 Bid Now
               </button>
               <button class="btn btn-primary btn-rounded" [disabled]="product.isExpired">
@@ -179,5 +180,63 @@
         description
       </div>
     </div>
+  </div>
+</div>
+
+
+<!-- Bid -->
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+
+  <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+  <div class="modal-dialog modal-dialog-centered" role="document">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Welcome! Bid Now</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="form-group">
+            <div class="center-align col-md-12">
+              <button class="btn btn-primary" type="button">Pay Base Price</button>
+            </div>
+            <br>
+            <br>
+            <h4 style="text-align: center;">OR</h4>
+            <br>
+            <br>
+
+            <form ngNativeValidate (submit)="bid(product.id)">
+              <label><h5>Enter Your Bidding Price</h5></label> &nbsp;
+              <mat-form-field appearance="fill">
+                <span matPrefix>₹&nbsp;</span>
+                <mat-label>Bid Price</mat-label>
+                <input matInput type="number" name="bidAmount" [(ngModel)]="bidAmount" class="example-right-align"
+                       required>
+                <!--<span matSuffix class="amount">.00</span>-->
+                <mat-hint>Hint</mat-hint>
+              </mat-form-field>
+              <button type="submit" class="btn btn-primary col-md-6">BID NOW</button>
+            </form>
+
+            <li class="alert alert-success" *ngIf="bidSuccessMessage"> {{bidSuccessMessage}}</li>
+            <li class="alert alert-danger" *ngIf="bidErrorMessage"> {{bidErrorMessage}} </li>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!--<button type="button" class="btn btn-unique">Bid Now</button>&nbsp;&nbsp;&nbsp;-->
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
   </div>
 </div>

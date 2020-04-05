@@ -92,4 +92,19 @@ export class ProductService {
         )
       );
   }
+
+  bidOnProduct(productId: any, bidPrice: any) {
+
+    const bidReq = {productId, bidPrice};
+    const url = APP_URL.getBidOnProductUrl(productId);
+    return this.httpClient.post<ResponseModel>(url, bidReq).pipe(
+      map(
+        apiResponse => {
+          console.log(apiResponse);
+          return apiResponse;
+        }
+      )
+    );
+  }
+
 }
