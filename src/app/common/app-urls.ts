@@ -8,6 +8,7 @@ export const APP_URL = {
   HOME: '/home',
   LOGIN: '/login',
   LOGOUT: '/logout',
+  CART: '/cart',
   PRODUCT_LISTING: '/product-listing',
   BACKEND_LOGIN: serverUrl + '/login',
   BACKEND_LOGOUT: serverUrl + '/logout',
@@ -16,6 +17,7 @@ export const APP_URL = {
   BACKEND_CATEGORY: serverUrl + '/category',
   BACKEND_PRODUCT: serverUrl + '/product',
   BACKEND_DOWNLOAD_IMAGE: serverUrl + '/download',
+  BACKEND_ADD_TO_CART: serverUrl + '/addToCart',
 
   getProductDetail(productId: any): any {
     return this.BACKEND_PRODUCT + '/' + productId;

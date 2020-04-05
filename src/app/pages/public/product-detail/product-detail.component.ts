@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from 'src/app/common/model/product.model';
 import {ProductService} from 'src/app/common/product/product.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {APP_URL} from 'src/app/common/app-urls';
 
 @Component({
@@ -28,7 +28,10 @@ export class ProductDetailComponent implements OnInit {
   bidSuccessMessage: any;
   bidErrorMessage: any;
 
-  constructor(private productService: ProductService, private route: ActivatedRoute) {
+  cartSuccessMessage: any;
+  cartErrorMessage: any;
+
+  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
@@ -102,5 +105,28 @@ export class ProductDetailComponent implements OnInit {
       });
     }
   }
+
+
+  addToCart(productId: any) {
+
+    console.log(productId);
+
+    this.cartErrorMessage = '';
+    this.cartSuccessMessage = '';
+
+    if (productId) {
+      this.productService.addToCart(productId).subscribe(data => {
+
+        console.log(data);
+        if (data.success) {
+          this.cartSuccessMessage = data.message;
+          this.router.navigateByUrl(APP_URL.CART);
+        } else {
+          this.cartErrorMessage = 'User bidding was not successful';
+        }
+      });
+    }
+  }
+
 
 }

@@ -147,7 +147,7 @@
                       [disabled]="product.isExpired">
                 Bid Now
               </button>
-              <button class="btn btn-primary btn-rounded" [disabled]="product.isExpired">
+              <button class="btn btn-primary btn-rounded" (click)="addToCart(product.id)" [disabled]="product.isExpired">
                 Add to Cart
               </button>
               <button class="btn btn-primary btn-rounded" [disabled]="product.isExpired">

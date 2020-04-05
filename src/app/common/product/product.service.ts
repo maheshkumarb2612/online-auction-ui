@@ -107,4 +107,20 @@ export class ProductService {
     );
   }
 
+  addToCart(productId: any) {
+
+    const productIds = [productId];
+    const cartRequest = {productIds};
+    const url = APP_URL.BACKEND_ADD_TO_CART;
+
+    return this.httpClient.post<ResponseModel>(url, cartRequest).pipe(
+      map(
+        apiResponse => {
+          console.log(apiResponse);
+          return apiResponse;
+        }
+      )
+    );
+  }
+
 }
