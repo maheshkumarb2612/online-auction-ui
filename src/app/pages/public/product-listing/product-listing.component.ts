@@ -64,15 +64,15 @@ export class ProductListingComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.errorMessage = '';
     this.route.queryParams.subscribe(params => {
       this.searchValue = params['searchValue'];
     });
     console.log(this.searchValue);
 
-    this.productService.getProducts(this.searchValue,true, true, true).subscribe(data => {
+    this.productService.getProducts(this.searchValue, true, true, true).subscribe(data => {
 
-      if (data.products && data.products instanceof Array) {
+      if (data.products && data.products instanceof Array && data.products.length > 0) {
         this.products = data.products;
         this.pagination = data.pagination;
       } else {
