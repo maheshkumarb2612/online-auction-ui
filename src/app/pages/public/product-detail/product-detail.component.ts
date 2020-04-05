@@ -20,6 +20,9 @@ export class ProductDetailComponent implements OnInit {
 
   firstImageId: any;
   otherImagesId = [];
+  productStatus = '';
+
+  isOwner = false;
 
   constructor(private productService: ProductService, private route: ActivatedRoute) {
   }
@@ -37,6 +40,18 @@ export class ProductDetailComponent implements OnInit {
 
       this.product = data;
       console.log(this.product);
+
+      if (this.product.ownerUsername && this.product.ownerUsername === localStorage.getItem('username')) {
+        this.isOwner = true;
+      }
+
+      if (this.product.isExpired) {
+        this.productStatus = 'EXPIRED';
+      } else if (this.product.isUpcoming) {
+        this.productStatus = 'UPCOMING';
+      } else {
+        this.productStatus = 'LIVE';
+      }
 
       if (data.otherImagesId) {
         this.images = [];

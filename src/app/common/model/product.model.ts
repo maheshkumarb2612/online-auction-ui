@@ -16,4 +16,5 @@ export interface Product {
   isUpcoming: boolean;
   firstImageData: string;
   imageDataList: [];
+  ownerUsername: string;
 }
