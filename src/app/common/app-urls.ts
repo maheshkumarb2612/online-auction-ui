@@ -18,6 +18,8 @@ export const APP_URL = {
   BACKEND_PRODUCT: serverUrl + '/product',
   BACKEND_DOWNLOAD_IMAGE: serverUrl + '/download',
   BACKEND_ADD_TO_CART: serverUrl + '/addToCart',
+  BACKEND_CART_PRODUCTS: serverUrl + '/cartProducts',
+  BACKEND_REMOVE_FROM_CART: serverUrl + '/removeFromCart',
 
   getProductDetail(productId: any): any {
     return this.BACKEND_PRODUCT + '/' + productId;

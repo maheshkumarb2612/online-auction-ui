@@ -123,4 +123,12 @@ export class ProductService {
     );
   }
 
+
+  getCartProducts(): any {
+
+    const url = APP_URL.BACKEND_CART_PRODUCTS;
+
+    return this.httpClient.get<ResponseModel>(url);
+  }
+
 }
