@@ -31,7 +31,7 @@ export class ProductDetailComponent implements OnInit {
   cartSuccessMessage: any;
   cartErrorMessage: any;
 
-  isUserLogged: false;
+  isUserLogged = false;
 
   constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {
   }
