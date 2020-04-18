@@ -25,9 +25,10 @@ export class BillingComponent implements OnInit {
 
   payment() {
     this.productService.payment(this.contactPerson, this.contactNo, this.email, this.address, this.city,
-      this.pincode, this.state, this.country);/*.subscribe(response => {
-      console.log(response);
-    });*/
+      this.pincode, this.state, this.country);
+    /*.subscribe(response => {
+          console.log(response);
+        });*/
   }
 
 }

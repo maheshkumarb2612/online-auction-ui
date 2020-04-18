@@ -4,6 +4,7 @@ import {ResponseModel} from '../model/response.model';
 import {APP_URL} from '../app-urls';
 import {map} from 'rxjs/operators';
 import {Category} from '../model/category.model';
+import {Payment} from '../model/payment.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,8 @@ import {Category} from '../model/category.model';
 export class ProductService {
 
   categories: Category[];
+
+  paymentModel: Payment;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -134,15 +137,40 @@ export class ProductService {
   payment(contactPerson: any, contactNo: any, email: any, address: any, city: any, pincode: any, state: any, country: any) {
 
     const detail = {contactPerson, contactNo, email, address, city, pincode, state, country};
-    return this.httpClient.post(APP_URL.BACKEND_PAYMENT, detail);
-      /*.pipe(
-      map(
-        apiResponse => {
-          console.log(apiResponse);
-          return apiResponse;
-        }
-      )
-    );*/
+    return this.httpClient.post<ResponseModel>(APP_URL.BACKEND_PAYMENT, detail).subscribe(res => {
+
+      console.log(res);
+      //this.paymentModel = res;
+
+      /*let url = this.paymentModel.PAYMENT_URL;
+      url = url + '?';
+      url = url + 'CALLBACK_URL=' + this.paymentModel.CALLBACK_URL;
+      url = url + '&' + 'CHANNEL_ID=' + this.paymentModel.CHANNEL_ID;
+      url = url + '&' + 'CHECKSUMHASH=' + this.paymentModel.CHECKSUMHASH;
+      url = url + '&' + 'CUST_ID=' + this.paymentModel.CUST_ID;
+      url = url + '&' + 'EMAIL=' + this.paymentModel.EMAIL;
+      url = url + '&' + 'INDUSTRY_TYPE_ID=' + this.paymentModel.INDUSTRY_TYPE_ID;
+      url = url + '&' + 'MID=' + this.paymentModel.MID;
+      url = url + '&' + 'MOBILE_NO=' + this.paymentModel.MOBILE_NO;
+      url = url + '&' + 'ORDER_ID=' + this.paymentModel.ORDER_ID;
+      url = url + '&' + 'PAYMENT_URL=' + this.paymentModel.PAYMENT_URL;
+      url = url + '&' + 'TXN_AMOUNT=' + this.paymentModel.TXN_AMOUNT;
+      url = url + '&' + 'WEBSITE=' + this.paymentModel.WEBSITE;
+
+      console.log(url);*/
+
+      window.location.href = res.data;
+
+    });
+
+    /*.pipe(
+    map(
+      apiResponse => {
+        console.log(apiResponse);
+        return apiResponse;
+      }
+    )
+  );*/
   }
 
 }
