@@ -144,13 +144,13 @@
             <div class="col-md-12 text-center text-md-left text-md-right">
 
               <button class="btn btn-primary btn-rounded" data-toggle="modal" data-target="#exampleModalCenter"
-                      [disabled]="product.isExpired">
+                      [disabled]="product.isExpired || product.isUpcoming">
                 Bid Now
               </button>
-              <button class="btn btn-primary btn-rounded" (click)="addToCart(product.id)" [disabled]="product.isExpired">
+              <button class="btn btn-primary btn-rounded" (click)="addToCart(product.id)" [disabled]="product.isExpired || product.isUpcoming || !product.canAddToCart">
                 Add to Cart
               </button>
-              <button class="btn btn-primary btn-rounded" [disabled]="product.isExpired">
+              <button class="btn btn-primary btn-rounded" (click)="addToCart(product.id)" [disabled]="product.isExpired || product.isUpcoming || !product.canAddToCart">
                 Pay Base Price
               </button>
               <button class="btn btn-primary btn-rounded" *ngIf="isOwner">

@@ -17,4 +17,5 @@ export interface Product {
   firstImageData: string;
   imageDataList: [];
   ownerUsername: string;
+  canAddToCart: boolean;
 }
