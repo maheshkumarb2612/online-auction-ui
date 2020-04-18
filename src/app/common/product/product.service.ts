@@ -50,7 +50,7 @@ export class ProductService {
     return this.httpClient.post<ResponseModel>(APP_URL.BACKEND_PRODUCT, formData).pipe(
       map(
         apiResponse => {
-          console.log(apiResponse);
+          console.log(apiResponse.success);
           return apiResponse;
         }
       )
@@ -63,7 +63,7 @@ export class ProductService {
       .pipe(
         map(
           apiResponse => {
-            console.log(apiResponse);
+            console.log(apiResponse.success);
             if (apiResponse.data) {
               return apiResponse.data;
             } else {
@@ -85,7 +85,7 @@ export class ProductService {
       .pipe(
         map(
           apiResponse => {
-            console.log(apiResponse);
+            console.log(apiResponse.success);
             if (apiResponse.data) {
               return apiResponse.data;
             } else {
@@ -119,7 +119,7 @@ export class ProductService {
     return this.httpClient.post<ResponseModel>(url, cartRequest).pipe(
       map(
         apiResponse => {
-          console.log(apiResponse);
+          console.log(apiResponse.success);
           return apiResponse;
         }
       )
@@ -171,6 +171,23 @@ export class ProductService {
       }
     )
   );*/
+  }
+
+
+  removeFromCart(productId: any) {
+
+    const productIds = [productId];
+    const cartRequest = {productIds};
+    const url = APP_URL.BACKEND_REMOVE_FROM_CART;
+
+    return this.httpClient.put<ResponseModel>(url, cartRequest).pipe(
+      map(
+        apiResponse => {
+          console.log(apiResponse.success);
+          return apiResponse;
+        }
+      )
+    );
   }
 
 }

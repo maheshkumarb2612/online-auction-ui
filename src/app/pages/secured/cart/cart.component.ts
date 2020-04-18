@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../../../common/product/product.service';
 import {CartProduct} from '../../../common/model/cart.product.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -19,7 +20,13 @@ export class CartComponent implements OnInit {
   total = 0;
   shippingCharge = 0;
 
-  constructor(private productService: ProductService) {
+  cartSuccessMessage: any;
+  cartErrorMessage: any;
+
+  constructor(private productService: ProductService, private router: Router) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
   }
 
   ngOnInit() {
@@ -47,6 +54,28 @@ export class CartComponent implements OnInit {
         this.errorMessage = 'Cart is empty';
       }
     });
+  }
+
+  removeFromCart(productId: any) {
+
+    console.log(productId);
+
+    this.cartErrorMessage = '';
+    this.cartSuccessMessage = '';
+
+    if (productId) {
+      this.productService.removeFromCart(productId).subscribe(data => {
+
+        console.log(data);
+        if (data.success) {
+          this.cartSuccessMessage = data.message;
+          this.router.navigated = false;
+          this.router.navigate([this.router.url]);
+        } else {
+          this.cartErrorMessage = 'Product removing from cart failed.';
+        }
+      });
+    }
   }
 
 }

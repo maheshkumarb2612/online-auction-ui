@@ -144,7 +144,7 @@
             <div class="col-md-12 text-center text-md-left text-md-right">
 
               <button class="btn btn-primary btn-rounded" data-toggle="modal" data-target="#exampleModalCenter"
-                      [disabled]="product.isExpired || product.isUpcoming">
+                      [disabled]="product.isExpired || product.isUpcoming || !isUserLogged">
                 Bid Now
               </button>
               <button class="btn btn-primary btn-rounded" (click)="addToCart(product.id)" [disabled]="product.isExpired || product.isUpcoming || !product.canAddToCart">

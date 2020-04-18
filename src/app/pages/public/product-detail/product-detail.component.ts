@@ -31,10 +31,17 @@ export class ProductDetailComponent implements OnInit {
   cartSuccessMessage: any;
   cartErrorMessage: any;
 
+  isUserLogged: false;
+
   constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
+    const token = localStorage.getItem('token');
+    if (token && token != null) {
+      this.isUserLogged = true;
+    }
+
     this.route.params.subscribe(params => {
       this.productId = params['id'];
     });

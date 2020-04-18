@@ -57,7 +57,9 @@
                 <td class="border-1 align-middle"><strong>Rs. {{product.productPrice}}</strong></td>
                 <td class="border-1 align-middle"><strong>Rs. {{product.totalPrice}}</strong></td>
                 <td class="border-1 align-middle"><strong>{{product.quantity}}</strong></td>
-                <td class="border-1 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
+                <!--<td class="border-1 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>-->
+                <td class="border-1 align-middle"><button class="btn-outline-dark" (click)="removeFromCart(product.id)">Remove</button></td>
+
               </tr>
 
               <!--<tr>
@@ -130,9 +132,9 @@
                     <h5 class="font-weight-bold">Rs. {{total}}</h5>
                   </li>
                 </ul>
-                <a href="#" class="btn btn-dark rounded-pill py-2 btn-block" mat-raised-button
+                <button class="btn btn-dark rounded-pill py-2 btn-block"
                    [routerLink]="['/billing']"
-                   routerLinkActive="router-link-active">Proceed to checkout</a>
+                   routerLinkActive="router-link-active" [disabled]=" cartProducts == undefined || cartProducts.length <= 0">Proceed to checkout</button>
               </div>
             </div>
           </div>

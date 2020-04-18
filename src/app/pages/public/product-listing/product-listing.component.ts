@@ -3,7 +3,7 @@ import {DatePipe} from '@angular/common';
 import {Product} from '../../../common/model/product.model';
 import {ProductService} from '../../../common/product/product.service';
 import {Pagination} from '../../../common/model/pagination.model';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 export interface Tile {
   color: string;
@@ -59,8 +59,10 @@ export class ProductListingComponent implements OnInit {
   errorMessage: string;
   searchValue = '';
 
-  constructor(private productService: ProductService, private route: ActivatedRoute) {
-
+  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
   }
 
   ngOnInit() {
