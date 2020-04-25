@@ -40,7 +40,20 @@ export class PostProductComponent implements OnInit {
     this.getCategories();
   }
 
+  // validationStartDate: any;
+  // validationEndDate: any;
+  todayDate: any = new Date().toJSON().split('T')[0];
+  validationStartDate: any = this.todayDate;
+  validationEndDate: any = this.validationStartDate;
   ngOnInit() {
+    // this.todayDate = new Date().toJSON().split('T')[0];
+    // this.validationStartDate = this.todayDate;
+    // this.validationEndDate = this.validationStartDate;
+    // this.validationEndDate.setDate( this.validationEndDate.getDate() + 2 );
+  }
+
+  endDateValidate() {
+    this.validationEndDate.setDate(this.validationEndDate.getDate() + 2);
   }
 
   onFileChanged(event: any) {
@@ -98,7 +111,7 @@ export class PostProductComponent implements OnInit {
       this.startDate, this.startTime, this.endDate, this.endTime, this.price).subscribe((res: ResponseModel) => {
         this.responseModel = res;
         if (res.success) {
-         this.successMessage = res.message;
+          this.successMessage = res.message;
         } else if (!res.success) {
           this.successMessage = null;
           this.errorArray.push(res.message);
@@ -113,4 +126,27 @@ export class PostProductComponent implements OnInit {
         }
       });
   }
+
+
+
+  // todayNumber: number;
+  // todayDate: Date;
+  // todayString: string;
+  // todayISOString: string;
+  // today: number;
+  // date: number;
+  // msg: any = 'hello';
+  // startDateTime() {
+  //   // this.todayNumber = Date.now();
+  //   // this.todayDate = new Date();
+  //   // this.todayString = new Date().toDateString();
+  //   // this.todayISOString = new Date().toISOString();
+  //   this.today = Date.now();
+
+  //   if ( this.today >  this.date) {
+  //     this.msg = "Wrong date";
+  //   }
+  // }
+
+
 }

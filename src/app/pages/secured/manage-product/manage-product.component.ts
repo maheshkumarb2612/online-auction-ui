@@ -21,7 +21,7 @@ export class ManageProductComponent implements OnInit {
 
   // comLoad = '<app-all-product></app-all-product>';
 
-  viewPshow: boolean = false;
+  viewPshow: boolean = true;
   viewCategory: boolean = false;
   viewAddCategory: boolean = false;
 

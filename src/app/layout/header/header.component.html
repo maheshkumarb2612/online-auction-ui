@@ -110,10 +110,11 @@
                       </a>
 
 
-                      <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active" mat-button class="header-font-color line"> Auctions </a>
-
+                  <a [routerLink]="['/product-listing']" routerLinkActive="router-link-active" mat-button class="header-font-color line"> Auctions </a>
 
                   <a *ngIf="isUserLoggedIn" [routerLink]="['/post-product']" routerLinkActive="router-link-active" mat-button class="header-font-color line"> Post Product</a>
+
+                  <a *ngIf="isUserLoggedIn" [routerLink]="['/manage-product']" routerLinkActive="router-link-active" mat-button class="header-font-color line"> Manage Product </a>
 
                   <a *ngIf="isUserLoggedIn" [routerLink]="['/profile']" routerLinkActive="router-link-active" mat-button class="header-font-color line">My Account</a>
 

@@ -35,7 +35,7 @@
         </h5>
         <div class="col-md-6">
           <mat-form-field class="form-container">
-            <input matInput placeholder="Product Name" [(ngModel)]="productName" name="productName" required>
+            <input matInput placeholder="Product Name" [(ngModel)]="productName" name="productName" required="required">
           </mat-form-field>
         </div>
       </div>
@@ -81,14 +81,22 @@
         </h5>
         <div class="col-md-6">
           <mat-form-field>
-            <input matInput [matDatepicker]="startDate" placeholder="Choose a date"
+            <input matInput [matDatepicker]="startDate" placeholder="Choose a date" class="alert-input date-input" [min]="validationStartDate"
               (dateChange)="startDateChange($event)" required>
             <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
             <mat-datepicker #startDate></mat-datepicker>
           </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <!-- <mat-form-field>
+            <input matInput [matDatepicker]="startDate" placeholder="Choose a date"
+              (dateChange)="startDateChange($event)" required onblur="startDateTime()" [(ngModel)]="date" min="startDateTime();">
+            <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+            <mat-datepicker #startDate></mat-datepicker>
+          </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp; -->
           <input type="time" id="startTime" name="startTime" [(ngModel)]="startTime" required>
         </div>
       </div>
+      <!-- <div class="col-md-6"><input [(ngModel)]="msg" name="msg"></div> -->
       <hr>
       <div class="row">
         <h5 class="col-md-5">
@@ -97,7 +105,7 @@
         <div class="col-md-6">
           <mat-form-field>
             <input matInput [matDatepicker]="endDate" placeholder="Choose a date" (dateChange)="endDateChange($event)"
-              required>
+            [min]="validationStartDate" [max]="validationEndDate" required>
             <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
             <mat-datepicker #endDate></mat-datepicker>
           </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -111,7 +119,7 @@
         </h5>
         <div class="col-md-6">
           <mat-form-field>
-            <input matInput placeholder="Amount" type="number" name="price" class="example-right-align"
+            <input matInput placeholder="Amount" type="number" name="price" class="example-right-align" min="0"
               [(ngModel)]="price" required>
             <span matPrefix>₹&nbsp;</span>
             <span matSuffix>.00</span>
@@ -122,7 +130,7 @@
         <div class="col-md-6"></div>
         <div class="col-md-6">
           <!--<a [routerLink]="['/product-listing/product-detail']" routerLinkActive="router-link-active"> </a>-->
-          <button type="submit" mat-button class="header-font-color bg-grey">Submit</button>
+          <button type="submit" mat-button class="header-font-color bg-grey" (click)="endDateValidate()">Submit</button>
           <button type="reset" mat-button class="header-font-color bg-grey">Reset</button>
           <!-- <input mat-button-toggle type="submit" value="Submit"> -->
         </div>
@@ -133,4 +141,8 @@
       </div>
     </form>
   </div>
-
+<!--
+    <p>Today is {{today | date}}</p>
+    <p>Or if you prefer, {{today | date:'fullDate'}}</p>
+    <p>The time is {{today | date:'h:mm a z'}}</p> -->
+{{validationEndDate}}

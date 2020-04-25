@@ -41,3 +41,11 @@ function timeBetweenDates(toDate) {
   }
 }
 }
+
+
+
+
+$(document).ready(function () {
+  $('#dtBasicExample').DataTable();
+  $('.dataTables_length').addClass('bs-select');
+  });

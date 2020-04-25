@@ -1,3 +1,4 @@
+<div class="top-margin"></div>
 <div class="container">
   <div class="card">
     <div class="container-fliud">
@@ -39,7 +40,7 @@
                                       <a [routerLink]="['/bid-details']" routerLinkActive="router-link-active">
                                         <button mat-button class="header-font-color">Bid Details</button></a>
           ======= -->
-          <div class="preview-pic tab-content">
+          <div class="preview-pic tab-content" style="margin-top: 10%;">
             <!--<div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" />
                             </div>
                             <div class="tab-pane" id="pic-2"><img
@@ -55,10 +56,10 @@
                                     src="https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg" />
                             </div>-->
             <div class="tab-pane active" id="pic-1">
-              <img src="{{firstImageData}}" height="500" width="500"/>
+              <img src="{{firstImageData}}" class="first-img"/>
             </div>
             <div class="tab-pane" *ngFor="let imgData of otherImagesData" id="pic-4">
-              <img src="{{imgData}}" height="500" width="500"/>
+              <img src="{{imgData}}" class="first-img"/>
             </div>
           </div>
           <ul class="preview-thumbnail nav nav-tabs">
@@ -160,7 +161,7 @@
           </div>
 
 
-          <div class="action">
+          <!-- <div class="action">
             <button mat-raised-button class="btn btn-default cart" type="button"> Cart</button>
             <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
               <a [routerLink]="['/bid-details']" routerLinkActive="router-link-active">
@@ -169,7 +170,7 @@
 
               <mat-icon>favorite</mat-icon>
             </button>
-          </div>
+          </div>  -->
         </div>
       </div>
     </div>
@@ -177,7 +178,7 @@
     <div class="description-card">
       <h3 class="product-title">Product Current Bids</h3>
       <div class="des-content">
-        description
+        <app-live-auction></app-live-auction>
       </div>
     </div>
   </div>

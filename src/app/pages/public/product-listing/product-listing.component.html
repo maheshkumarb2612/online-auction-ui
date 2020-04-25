@@ -1,9 +1,9 @@
-<div class="top-padding"></div>
-<div class="container-fluid">
+<div class="top-padding purple-gradient">
+<div class="container-fluid ">
   <div class="row">
-    <div class="col-3 bg-white element">
-      <mat-card class="example-card mg-bottom-15px">
-        <mat-card-header>
+    <div class="col-3 element ">
+      <mat-card class="example-card mg-bottom-15px blue-gradient">
+        <mat-card-header class="blue-gradient p-2 font-weight-bold">
           <!--<div mat-card-avatar class="example-header-image"></div>-->
           <mat-card-title>Product Category</mat-card-title>
           <!--<mat-card-subtitle>Select product category</mat-card-subtitle>-->
@@ -16,16 +16,16 @@
           </mat-selection-list>
         </mat-card-content>
         <mat-card-actions>
-          <div class="tab">
-            <button class=" btn btn-unique" mat-raised-button>Apply</button>
-            <button class="btn btn-unique" mat-raised-button>Reset</button>
+          <div class="blue-gradient p-2 font-weight-bold">
+            <button class=" btn btn-unique rounded-pill" algin="right" mat-raised-button>Apply</button>
+            <button class="btn btn-unique rounded-pill" algin="right" mat-raised-button>Reset</button>
           </div>
         </mat-card-actions>
       </mat-card>
 
     </div>
 
-    <div class="col-9 bg-white">
+    <div class="col-9 purple-gradient">
       <!-- <div class="card-deck">
          <div class="card">
            <img class="card-img-top" src="holder.js/100x180/" alt="">
@@ -95,7 +95,7 @@
           </section>
         </div>
         <div class="col-sm-6 pd-5px">
-          <mat-paginator class="bg-white"
+          <mat-paginator class="purple-gradient"
                          [length]="100"
                          [pageSize]="10"
                          [pageSizeOptions]="[5, 10, 25, 100]">
@@ -104,14 +104,23 @@
       </div>
       <div class="row" *ngIf="products">
         <div class="col-sm-4 pd-5px p-4" *ngFor="let product of products">
-          <mat-card class="example-card hoverable">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title style="color: darkblue;">{{product.name}}</mat-card-title>
-              <mat-card-subtitle style="color: rgb(150, 37, 37); font-size: 16px ;"><b>{{product.categoryName}}</b>
-              </mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="{{product.firstImageData}}" alt="Photo of a Shiba Inu">
+          <mat-card class="example-card hoverable peach-gradient">
+            <a [routerLink]="['/product-listing/product-detail',product.id]" routerLinkActive="router-link-active">
+                <mat-card-header class="">
+                  <div mat-card-avatar class="example-header-image">
+                      <img src="{{product.firstImageData}}" alt="Photo of a Shiba Inu" style="height: 50px; width: 50px; border-radius: 50%;">
+                  </div>
+                  <mat-card-title style="color: darkblue;">{{product.name}}</mat-card-title>
+                  <mat-card-subtitle style="color: rgb(150, 37, 37); font-size: 16px ;"><b>{{product.categoryName}}</b>
+                  </mat-card-subtitle>
+                </mat-card-header>
+              </a>
+            <div class="p-1 image-center" align="center">
+              <a [routerLink]="['/product-listing/product-detail',product.id]" routerLinkActive="router-link-active">
+                <img mat-card-image src="{{product.firstImageData}}" alt="Photo of a Shiba Inu" class="image-center">
+              </a>
+           </div>
+
             <mat-card-content>
               <div class="row">
                 <div class="col-sm-6"><h3 class="font-weight-bold" style="color: rgb(0, 167, 0);">
@@ -121,23 +130,23 @@
                 <!-- {{endDate | date:'medium'}} -->
 
 
-                <div class="col-sm-6" id="timer" style="text-align: right; color: rgb(0, 167, 0); font-size: 20px;"
+                <!-- <div class="col-sm-6" id="timer" style="text-align: right; color: rgb(0, 167, 0); font-size: 20px;"
                      class="font-weight-bold" onload="timerCount()">
                   <button onclick="timerCount()">timer</button>
                   <span id="days"></span>days
                   <span id="hours"></span>:<span id="minutes"></span>:<span id="seconds"></span>
-                </div>
+                </div> -->
 
 
               </div>
             </mat-card-content>
-            <mat-card-actions>
+            <mat-card-actions class="">
               <div class="example-button-row">
-                <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-unique"
+                <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-unique rounded-pill"
                         *ngIf="product.isLive">Bid Now
                 </button>
-                <button class="btn btn-unique" [routerLink]="['/product-listing/product-detail',product.id]"
-                        routerLinkActive="router-link-active">Product Details
+                <button class="btn btn-unique rounded-pill" [routerLink]="['/product-listing/product-detail',product.id]"
+                        routerLinkActive="router-link-active"> Details
                 </button>
               </div>
             </mat-card-actions>
@@ -195,4 +204,5 @@
     </div>
 
   </div>
+</div>
 </div>

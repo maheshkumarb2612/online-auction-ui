@@ -36,9 +36,9 @@ export class ProductService {
   }
 
   postProduct(images: any, name: any, description: any, categoryId: any,
-              startDate: any, startTime: any, endDate: any, endTime: any, price: any): any {
+    startDate: any, startTime: any, endDate: any, endTime: any, price: any): any {
 
-    const productDetail = {name, description, categoryId, startDate, startTime, endDate, endTime, price};
+    const productDetail = { name, description, categoryId, startDate, startTime, endDate, endTime, price };
 
     const formData = new FormData();
     formData.append('productDetail', JSON.stringify(productDetail));
@@ -78,9 +78,10 @@ export class ProductService {
 
     let url = APP_URL.BACKEND_PRODUCT;
     if (searchValue) {
-      url = url + '?searchValue=' + searchValue;
+      url = url + '?searchValue=' + searchValue + '&pageNum=1&pageSize=100&sortBy=startDateTime&sortOrder=desc';
+    } else {
+      url = url + '?pageNum=1&pageSize=100&sortBy=startDateTime&sortOrder=desc';
     }
-
     return this.httpClient.get<ResponseModel>(url)
       .pipe(
         map(

@@ -8,7 +8,7 @@ table {
 }
 
 .live-card{
-  width: 70%;
+  width: 100%;
   margin-left: 15%;
   margin-right: 20%;
   margin-top: 20%;
@@ -16,4 +16,11 @@ table {
 
 .top-padding{
   padding-top: 123px;
+}
+
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+.w-100{
+  width: 100%;
 }

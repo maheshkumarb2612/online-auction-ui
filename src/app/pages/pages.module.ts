@@ -28,6 +28,11 @@ import { BillingComponent } from './secured/billing/billing.component';
 import { AllProductComponent } from './secured/manage-product/all-product/all-product.component';
 import { ViewCategoryComponent } from './secured/manage-product/view-category/view-category.component';
 import { AddCategoryComponent } from './secured/manage-product/add-category/add-category.component';
+import { TermsConditionsComponent } from './public/terms-conditions/terms-conditions.component';
+import { MyBidComponent } from './secured/my-bid/my-bid.component';
+import { MyProductComponent } from './secured/my-product/my-product.component';
+import { OrderComponent } from './secured/order/order.component';
+import { OrderDetailComponent } from './secured/order-detail/order-detail.component';
 
 
 const routes: Routes = [
@@ -36,8 +41,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'post-product', component: PostProductComponent },
-   { path: 'product-listing/product-detail/:id', component: ProductDetailComponent },
- // { path: 'product-listing/product-detail', component: ProductDetailComponent },
+  { path: 'product-listing/product-detail/:id', component: ProductDetailComponent },
+      { path: 'terms-and-Conditions', component: TermsConditionsComponent },
   { path: 'profile/edit-profile', component: EditProfileComponent },
   { path: 'profile/edit-profile/change-password', component: ChangePasswordComponent },
   { path: 'product-listing', component: ProductListingComponent },
@@ -52,7 +57,9 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'billing', component: BillingComponent },
   { path: 'bid-details', component: LiveAuctionComponent },
-  { path: 'logout', component: LogoutComponent }
+  { path: 'logout', component: LogoutComponent },
+  { path: 'order', component: OrderComponent },
+  { path: 'order-detail', component: OrderDetailComponent }
 ];
 
 
@@ -73,7 +80,12 @@ const routes: Routes = [
     BillingComponent,
     AllProductComponent,
     ViewCategoryComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    TermsConditionsComponent,
+    MyBidComponent,
+    MyProductComponent,
+    OrderComponent,
+    OrderDetailComponent
   ],
   imports: [
     CommonModule,
