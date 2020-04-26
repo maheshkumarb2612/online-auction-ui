@@ -1,16 +1,17 @@
-import { Injectable, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { ResponseModel } from '../model/response.model';
-import { APP_URL } from '../app-urls';
-import { map } from 'rxjs/operators';
+import {Injectable, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
+import {ResponseModel} from '../model/response.model';
+import {APP_URL} from '../app-urls';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private httpClient: HttpClient, private router: Router) { }
+  constructor(private httpClient: HttpClient, private router: Router) {
+  }
 
   getProfile() {
 
@@ -26,6 +27,22 @@ export class UserService {
   }
 
   updateProfile(firstName: any, lastName: any, contact: any, gender: any, address: any, bio: any): any {
-    return this.httpClient.put<ResponseModel>(APP_URL.BACKEND_PROFILE, { firstName, lastName, contact, gender, address, bio });
+    return this.httpClient.put<ResponseModel>(APP_URL.BACKEND_PROFILE, {
+      firstName,
+      lastName,
+      contact,
+      gender,
+      address,
+      bio
+    });
+  }
+
+  changePassword(username: any, currentPassword: any, newPassword: any, confirmPassword: any): any {
+    return this.httpClient.put(APP_URL.BACKEND_CHANGE_PASSWORD, {
+      username,
+      currentPassword,
+      newPassword,
+      confirmPassword
+    });
   }
 }

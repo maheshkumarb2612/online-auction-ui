@@ -21,6 +21,7 @@ export const APP_URL = {
   BACKEND_CART_PRODUCTS: serverUrl + '/cartProducts',
   BACKEND_REMOVE_FROM_CART: serverUrl + '/removeFromCart',
   BACKEND_PAYMENT: serverUrl + '/payment',
+  BACKEND_CHANGE_PASSWORD: serverUrl + '/changePassword',
 
   getProductDetail(productId: any): any {
     return this.BACKEND_PRODUCT + '/' + productId;
