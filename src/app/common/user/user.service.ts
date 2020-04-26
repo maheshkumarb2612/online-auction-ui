@@ -45,4 +45,10 @@ export class UserService {
       confirmPassword
     });
   }
+
+  resetPassword(username: any): any {
+    return this.httpClient.put(APP_URL.BACKEND_RESET_PASSWORD, {
+      username
+    });
+  }
 }
