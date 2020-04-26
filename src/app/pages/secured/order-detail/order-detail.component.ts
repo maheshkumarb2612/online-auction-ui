@@ -10,6 +10,8 @@ import {CartProduct} from '../../../common/model/cart.product.model';
 })
 export class OrderDetailComponent implements OnInit {
 
+  date: any = '21/10/2020';
+
   cartProducts: CartProduct[];
 
   username: any;

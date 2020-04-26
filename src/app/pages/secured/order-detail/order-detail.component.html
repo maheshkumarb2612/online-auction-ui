@@ -3,22 +3,31 @@
   <!-- For demo purpose -->
 
   <!-- End -->
+       
 
   <div class="cart-container">
-    <div class="row p-3">
-      <div class="col-sm-12 p-5 bg-white rounded shadow-sm mb-5">
-
+        <div class="row">
+          <div class="col-12 col-sm-6 col-lg-8">
+              <h1 class="font-weight-bold">Order Details</h1>
+          </div>
+          <div class="col-6 col-lg-4" style="padding-top: 20px;">
+              <h5 class="">Ordered placed on {{date}}</h5>
+          </div>
+        </div> 
+         <hr class="order-hr">
+     <div class="row p-3">
+      <div class="col-sm-12 bg-white rounded shadow-sm sub-container-1">
+        <!-- <div><h1 class="font-weight-bold">Order Details</h1></div> 
+        <hr class="order-hr"> -->
         <!-- Shopping cart table -->
-
-        <div class="table ">
-          <h5>Welcome {{username}}</h5>
-          <hr>
-          <div class="">
+        
+        <div class="table">
+          <!-- <div class="">
             <h4>Your Cart</h4>
             <label>Items to be ordered are here,</label>
           </div>
-          <hr>
-          <br>
+          <hr> -->
+
           <div class="row">
             <table class="table col-sm-8">
               <thead>
@@ -139,6 +148,26 @@
         </div>
       </div>
     </div>
+
+    <div class="row p-3 col-sm-12">
+          <div class="col-sm-5 col-12 sub-container-2 bg-white rounded shadow-sm" style="margin-right: 3%;">
+              <hr><h4 class="font-weight-bold"> Billing Information</h4>
+              <hr>
+              <br>
+
+
+          </div>
+
+          <div class="col-sm-5 col-12 sub-container-2 bg-white rounded shadow-sm" style="margin-left: 3%;">
+                 <hr><h4 class="font-weight-bold"> Shipping Information</h4>
+                 <hr>
+                 <br>
+          </div>
+      <div>
+
+
   </div>
 </div>
 
+
+      
