@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {DatePipe} from '@angular/common';
-import {Product} from '../../../common/model/product.model';
-import {ProductService} from '../../../common/product/product.service';
-import {Pagination} from '../../../common/model/pagination.model';
-import {ActivatedRoute, Router} from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Product } from '../../../common/model/product.model';
+import { ProductService } from '../../../common/product/product.service';
+import { Pagination } from '../../../common/model/pagination.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface Tile {
   color: string;
@@ -21,15 +21,15 @@ export interface Tile {
 export class ProductListingComponent implements OnInit {
 
   tiles: Tile[] = [
-    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
-    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
+    { text: 'One', cols: 3, rows: 1, color: 'lightblue' },
+    { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
+    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
+    { text: 'Four', cols: 2, rows: 1, color: '#DDBDF1' },
+    { text: 'One', cols: 3, rows: 1, color: 'lightblue' },
+    { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
+    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
+    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
+    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
   ];
 
   typesOfShoes: string[] = ['Antique', 'Art', 'Books', 'Coins', 'Electronics', 'Painting', 'Other'];
@@ -65,7 +65,11 @@ export class ProductListingComponent implements OnInit {
     };
   }
 
+  public productList: Product[] = [];
+  public paginationList: Product[] = [];
+
   ngOnInit() {
+
     this.errorMessage = '';
     this.route.queryParams.subscribe(params => {
       this.searchValue = params['searchValue'];
@@ -76,10 +80,26 @@ export class ProductListingComponent implements OnInit {
 
       if (data.products && data.products instanceof Array && data.products.length > 0) {
         this.products = data.products;
+        this.productList = data.productList;
         this.pagination = data.pagination;
+        this.paginationList = data.paginationList;
       } else {
         this.errorMessage = 'No products posted by any user';
       }
     });
+
+
+    // this.productList = product;
+
+
+    // this.activatedRoute.params.subscribe((param: any) => {
+    //   this.catalogService.getProductList(this.searchValue, true, true, true)
+    //     .do((product: any) => {
+    //       this.productList = product;
+    //     })
+    //     .subscribe();
+    // });
+
+
   }
 }

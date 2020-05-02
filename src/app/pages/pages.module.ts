@@ -58,8 +58,10 @@ const routes: Routes = [
   { path: 'billing', component: BillingComponent },
   { path: 'bid-details', component: LiveAuctionComponent },
   { path: 'logout', component: LogoutComponent },
-  { path: 'order', component: OrderComponent },
-  { path: 'order-detail', component: OrderDetailComponent }
+  { path: 'orders', component: OrderComponent },
+  { path: 'order-detail/:orderId', component: OrderDetailComponent },
+  { path: 'my-bid', component: MyBidComponent },
+  { path: 'my-posted-product', component: MyProductComponent }
 ];
 
 

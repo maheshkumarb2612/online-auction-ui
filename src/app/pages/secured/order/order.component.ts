@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from '../../../common/user/user.service';
 
 @Component({
   selector: 'app-order',
@@ -7,9 +8,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderComponent implements OnInit {
 
-  constructor() { }
+  searchValue = '';
+  orders: Order[];
+
+  errorMessage: any;
+
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit() {
+
+    this.userService.getOrders(this.searchValue).subscribe(data => {
+
+      if (data && data instanceof Array && data.length > 0) {
+        this.orders = data;
+      } else {
+        this.errorMessage = 'No orders placed yet';
+      }
+    });
+
+  }
+
+  getOrders() {
+
+    this.userService.getOrders(this.searchValue).subscribe(data => {
+
+      if (data && data instanceof Array && data.length > 0) {
+        this.orders = data;
+      } else {
+        this.errorMessage = 'No orders placed yet';
+      }
+    });
   }
 
 }

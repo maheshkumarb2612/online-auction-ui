@@ -53,7 +53,9 @@ export class PostProductComponent implements OnInit {
   }
 
   endDateValidate() {
-    this.validationEndDate.setDate(this.validationEndDate.getDate() + 2);
+    this.validationEndDate.setDate(this.validationEndDate + 2);
+
+  // this.validationEndDate.add(this.validationEndDate, 2);
   }
 
   onFileChanged(event: any) {

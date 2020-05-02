@@ -29,6 +29,7 @@ export class BasicAuthHtppInterceptorService implements HttpInterceptor {
           console.error(error.status);
           if (error.status && error.status === 401) {
             this.authService.logOut();
+            this.authService.redirectToLogin();
           }
         })
       );

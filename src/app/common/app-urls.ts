@@ -23,6 +23,7 @@ export const APP_URL = {
   BACKEND_PAYMENT: serverUrl + '/payment',
   BACKEND_CHANGE_PASSWORD: serverUrl + '/changePassword',
   BACKEND_RESET_PASSWORD: serverUrl + '/resetPassword',
+  BACKEND_ORDERS: serverUrl + '/orders',
 
   getProductDetail(productId: any): any {
     return this.BACKEND_PRODUCT + '/' + productId;

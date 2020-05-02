@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../../../common/product/product.service';
 import {CartProduct} from '../../../common/model/cart.product.model';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 @Component({
@@ -22,12 +23,20 @@ export class OrderDetailComponent implements OnInit {
   total = 0;
   shippingCharge = 0;
 
-  constructor(private productService: ProductService) {
+  orderId: any;
+
+  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
     this.username = localStorage.getItem('username');
-    this.getCartProducts();
+    // this.getCartProducts();
+
+
+    this.route.params.subscribe(params => {
+      this.orderId = params['orderId'];
+    });
+    console.log(this.orderId);
   }
 
   getCartProducts() {

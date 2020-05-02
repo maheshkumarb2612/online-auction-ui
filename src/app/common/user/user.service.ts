@@ -51,4 +51,28 @@ export class UserService {
       username
     });
   }
+
+
+  getOrders(searchValue: any): any {
+
+    let url = APP_URL.BACKEND_ORDERS;
+    if (searchValue) {
+      url = url + '?searchValue=' + searchValue + '&pageNum=1&pageSize=100&sortBy=startDateTime&sortOrder=desc';
+    } else {
+      url = url + '?pageNum=1&pageSize=100&sortBy=startDateTime&sortOrder=desc';
+    }
+    return this.httpClient.get<ResponseModel>(url)
+      .pipe(
+        map(
+          apiResponse => {
+            console.log(apiResponse.success);
+            if (apiResponse.data) {
+              return apiResponse.data;
+            } else {
+              return apiResponse;
+            }
+          }
+        )
+      );
+  }
 }

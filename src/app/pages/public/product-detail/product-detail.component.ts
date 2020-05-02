@@ -135,5 +135,7 @@ export class ProductDetailComponent implements OnInit {
     }
   }
 
-
+username: string ='AdminMahesh';
+firstName: string = 'Maheshkumar';
+bidPrice: number = 153;
 }
