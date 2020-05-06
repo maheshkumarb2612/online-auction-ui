@@ -7,31 +7,21 @@
 
   <div class="cart-container">
     <div class="row">
-      <div class="col-12 col-sm-6 col-lg-8">
+      <div class="col-12 col-sm-6 col-lg-6">
         <h1 class="font-weight-bold">Order Details</h1>
       </div>
-      <div class="col-6 col-lg-4" style="padding-top: 20px;">
-        <h5 class="">Ordered placed on {{date}}</h5>
+      <div class="col-12 col-sm-6 col-lg-6" style="padding-top: 20px;">
+        <label class="font-weight-bold">Order Id #OD_2a8471ae-3629-43bc-afe2-5838f1f6ed7e, placed on {{date}}</label>
       </div>
     </div>
 
     <hr class="order-hr">
 
-    <div class="row p-3">
-      <div class="col-sm-7 bg-white rounded shadow-sm sub-container-1">
-        <!-- <div><h1 class="font-weight-bold">Order Details</h1></div>
-        <hr class="order-hr"> -->
-        <!-- Shopping cart table -->
-
-        <div class="table">
-          <!-- <div class="">
-            <h4>Your Cart</h4>
-            <label>Items to be ordered are here,</label>
-          </div>
-          <hr> -->
-
+    <div class="row p-3 col-12 col-sm-12">
+      <div class="col-12 col-sm-6 col-lg-8 bg-white rounded shadow-sm sub-container-1" style="margin-right: 3%;">
+        <div class="table full-width">
           <div class="row">
-            <table class="table col-sm-8">
+            <table class="table col-12">
               <thead>
               <tr>
                 <th scope="col" class="border-0 bg-light">
@@ -128,51 +118,72 @@
         </div>
       </div>
 
-      <div class="col-sm-5">
-          <div class="bg-white px-4 py-3 text-uppercase font-weight-bold">Order summary</div>
-          <div class="p-4 bg-white">
-            <!--<p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have
-              entered.</p>-->
+      <div class="col-12 col-sm-5 col-lg-3 bg-white">
+          <div class="p-4"><div class="bg-light px-4 py-3 text-uppercase font-weight-bold rounded-pill">Order summary</div></div>
+          <div class="p-3 bg-white">
             <p class="font-italic mb-4">Shipping and additional costs are included in order total.</p>
             <ul class="list-unstyled mb-4">
               <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order
                 Subtotal </strong><strong>Rs. {{subTotal}}</strong></li>
-              <!--<li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and
-                handling</strong><strong>$10.00</strong></li>-->
-              <!--<li class="d-flex justify-content-between py-3 border-bottom"><strong
-                class="text-muted">Tax</strong><strong>$0.00</strong></li>-->
-              <li class="d-flex justify-content-between py-3 border-bottom"><strong>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong
                 class="text-muted">Order Total</strong>
                 <h5 class="font-weight-bold">Rs. {{total}}</h5>
               </li>
             </ul>
-            <a href="#" class="btn btn-dark rounded-pill py-2 btn-block" mat-raised-button
-               [routerLink]="['/billing']"
-               routerLinkActive="router-link-active">Proceed to checkout</a>
           </div>
       </div>
     </div>
 
-    <div class="row p-3">
-      <div class="col-sm-7 bg-white rounded shadow-sm sub-container-1">
+    <div class="row p-3 col-12 col-sm-12">
+      <div class="col-sm-5 bg-white rounded shadow-sm sub-container-2">
         <hr>
         <h4 class="font-weight-bold"> Billing Information</h4>
-        Payment Method, Bank Name, Currency
         <hr>
+          <div class="col-12 col-sm-12">
+              <div class="row">
+                  <label class="font-weight-bold col-sm-4">Payment Method </label>
+                  <label class="col-sm-8"><span class="font-weight-bold">: </span> {{paymentMethod}}</label>
+              </div>
+              <div class="row">
+                  <label class="font-weight-bold col-sm-4">Bank Name </label>
+                  <label class="col-sm-8"><span class="font-weight-bold">: &nbsp;</span> {{bankName}}</label>
+              </div>
+              <div class="row">
+                  <label class="font-weight-bold col-sm-4">Currency </label>
+                  <label class="col-sm-8"><span class="font-weight-bold">: &nbsp;</span> {{currency}}</label>
+              </div>
+          </div>
         <br>
 
 
       </div>
 
-      <div class="col-sm-5">
+      <div class="col-sm-5 col-sm-5 bg-white rounded shadow-sm sub-container-2">
         <hr>
         <h4 class="font-weight-bold"> Shipping Information</h4>
-        Contact Person, Contact No, Email id, Address
         <hr>
+              <div class="col-12">
+                <div class="row">
+                    <label class="font-weight-bold col-sm-4">Contact Person </label>
+                    <label class="col-sm-8"><span class="font-weight-bold">: &nbsp;</span> {{contactPerson}}</label>
+                </div>
+                <div class="row">
+                    <label class="font-weight-bold col-sm-4">Contact No. </label>
+                    <label class="col-sm-8"><span class="font-weight-bold">: &nbsp;</span> {{contactNumber}}</label>
+                </div>
+                <div class="row">
+                    <label class="font-weight-bold col-sm-4">Email id </label>
+                    <label class="col-sm-8"><span class="font-weight-bold">: &nbsp;</span> {{emailId}}</label>
+                </div>
+                <div class="row">
+                    <label class="font-weight-bold col-sm-4">Address </label>
+                    <label class="col-sm-8"><span class="font-weight-bold">: &nbsp;</span> {{address}}</label>
+                </div>
+            </div>
+
         <br>
       </div>
     </div>
-
 
   </div>
 </div>

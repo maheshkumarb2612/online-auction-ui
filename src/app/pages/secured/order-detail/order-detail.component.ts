@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {ProductService} from '../../../common/product/product.service';
-import {CartProduct} from '../../../common/model/cart.product.model';
-import {ActivatedRoute, Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../../../common/product/product.service';
+import { CartProduct } from '../../../common/model/cart.product.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -10,6 +10,15 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./order-detail.component.css']
 })
 export class OrderDetailComponent implements OnInit {
+
+  paymentMethod = 'Paytem';
+  bankName = 'ICICI';
+  currency = 'Rupees';
+
+  contactPerson = 'Deepak';
+  contactNumber = '9885568899';
+  emailId = 'deepakb3080@gmail.com';
+  address = 'Kismat Nagar, Kubernagar, Ahmedabad - 382340';
 
   date: any = '21/10/2020';
 
