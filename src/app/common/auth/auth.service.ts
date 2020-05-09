@@ -27,6 +27,13 @@ export class AuthenticationService {
             let tokenStr = 'Bearer ' + userData.data.token;
             localStorage.setItem('token', tokenStr);
             this.isLoggedIn.next(true);
+
+            if(userData.data.role) {
+              localStorage.setItem('role', userData.data.role);
+            }
+            if(userData.data.isAdmin) {
+              localStorage.setItem('isAdmin', userData.data.isAdmin);
+            }
             return userData;
           }
         )
@@ -44,6 +51,8 @@ export class AuthenticationService {
   logOut() {
     localStorage.removeItem('username');
     localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('isAdmin');
     this.isLoggedIn.next(false);
   }
 

@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   user: any;
 
   searchValue = '';
+  isAdmin = false;
 
   constructor(private authService: AuthenticationService, private router: Router) {
     /*if (localStorage.getItem('token')) {
@@ -30,6 +31,10 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    if (localStorage.getItem('isAdmin') && localStorage.getItem('isAdmin') === 'true') {
+      this.isAdmin = true;
+    }
   }
 
 
