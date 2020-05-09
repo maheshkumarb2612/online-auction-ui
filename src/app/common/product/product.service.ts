@@ -36,9 +36,9 @@ export class ProductService {
   }
 
   postProduct(images: any, name: any, description: any, categoryId: any,
-    startDate: any, startTime: any, endDate: any, endTime: any, price: any): any {
+              startDate: any, startTime: any, endDate: any, endTime: any, price: any): any {
 
-    const productDetail = { name, description, categoryId, startDate, startTime, endDate, endTime, price };
+    const productDetail = {name, description, categoryId, startDate, startTime, endDate, endTime, price};
 
     const formData = new FormData();
     formData.append('productDetail', JSON.stringify(productDetail));
@@ -191,4 +191,17 @@ export class ProductService {
     );
   }
 
+
+  addCategory(name: any, description: any) {
+    const categoryDetail = {name, description};
+
+    return this.httpClient.post<ResponseModel>(APP_URL.BACKEND_CATEGORY, categoryDetail).pipe(
+      map(
+        apiResponse => {
+          console.log(apiResponse.success);
+          return apiResponse;
+        }
+      )
+    );
+  }
 }
