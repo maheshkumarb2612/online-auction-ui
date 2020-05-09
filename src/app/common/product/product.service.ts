@@ -204,4 +204,38 @@ export class ProductService {
       )
     );
   }
+
+  getManageProducts(): any {
+
+    const url = APP_URL.BACKEND_PRODUCT + '?needImage=false';
+
+    return this.httpClient.get<ResponseModel>(url)
+      .pipe(
+        map(
+          apiResponse => {
+            console.log(apiResponse.success);
+            if (apiResponse.data) {
+              return apiResponse.data;
+            } else {
+              return apiResponse;
+            }
+          }
+        )
+      );
+  }
+
+
+  removeProduct(productId: any) {
+
+    const url = APP_URL.getRemoveProductUrl(productId);
+
+    return this.httpClient.delete<ResponseModel>(url).pipe(
+      map(
+        apiResponse => {
+          console.log(apiResponse.success);
+          return apiResponse;
+        }
+      )
+    );
+  }
 }

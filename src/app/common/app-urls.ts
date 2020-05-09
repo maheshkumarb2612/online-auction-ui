@@ -44,5 +44,9 @@ export const APP_URL = {
 
   getOrderDetailsUrl(orderId: any) {
     return this.BACKEND_ODDER_DETAILS + '?orderId=' + orderId;
+  },
+
+  getRemoveProductUrl(productId: any) {
+    return this.BACKEND_PRODUCT + '/' + productId;
   }
 };
