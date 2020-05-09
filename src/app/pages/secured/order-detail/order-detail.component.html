@@ -11,7 +11,7 @@
         <h1 class="font-weight-bold">Order Details</h1>
       </div>
       <div class="col-12 col-sm-6 col-lg-6" style="padding-top: 20px;">
-        <label class="font-weight-bold">Order Id #OD_2a8471ae-3629-43bc-afe2-5838f1f6ed7e, placed on {{date}}</label>
+        <label class="font-weight-bold">Order Id #{{order.orderId}}, placed on {{order.orderDate}}</label>
       </div>
     </div>
 
@@ -36,14 +36,11 @@
                 <th scope="col" class="border-0 bg-light">
                   <div class="py-2 text-uppercase">Quantity</div>
                 </th>
-                <th scope="col" class="border-0 bg-light">
-                  <div class="py-2 text-uppercase">Remove</div>
-                </th>
               </tr>
               </thead>
               <tbody>
 
-              <tr *ngFor="let product of cartProducts">
+              <tr *ngFor="let product of orderProducts">
                 <th scope="row" class="border-1">
                   <div class="p-2">
                     <img src="{{product.firstImageData}}" alt="" width="70" class="img-fluid rounded shadow-sm">
@@ -58,7 +55,6 @@
                 <td class="border-1 align-middle"><strong>Rs. {{product.productPrice}}</strong></td>
                 <td class="border-1 align-middle"><strong>Rs. {{product.totalPrice}}</strong></td>
                 <td class="border-1 align-middle"><strong>{{product.quantity}}</strong></td>
-                <td class="border-1 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
               </tr>
 
               <!--<tr>
@@ -124,10 +120,10 @@
             <p class="font-italic mb-4">Shipping and additional costs are included in order total.</p>
             <ul class="list-unstyled mb-4">
               <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order
-                Subtotal </strong><strong>Rs. {{subTotal}}</strong></li>
+                Subtotal </strong><strong>Rs. {{order.orderAmount}}</strong></li>
               <li class="d-flex justify-content-between py-3 border-bottom"><strong
                 class="text-muted">Order Total</strong>
-                <h5 class="font-weight-bold">Rs. {{total}}</h5>
+                <h5 class="font-weight-bold">Rs. {{order.orderAmount}}</h5>
               </li>
             </ul>
           </div>
@@ -142,15 +138,15 @@
           <div class="col-12 col-sm-12">
               <div class="row">
                   <label class="font-weight-bold col-sm-4">Payment Method </label>
-                  <label class="col-sm-8"><span class="font-weight-bold">: </span> {{paymentMethod}}</label>
+                  <label class="col-sm-8"><span class="font-weight-bold">: </span> {{order.paymentMode}}</label>
               </div>
               <div class="row">
                   <label class="font-weight-bold col-sm-4">Bank Name </label>
-                  <label class="col-sm-8"><span class="font-weight-bold">: &nbsp;</span> {{bankName}}</label>
+                  <label class="col-sm-8"><span class="font-weight-bold">: &nbsp;</span> {{order.paymentBank}}</label>
               </div>
               <div class="row">
                   <label class="font-weight-bold col-sm-4">Currency </label>
-                  <label class="col-sm-8"><span class="font-weight-bold">: &nbsp;</span> {{currency}}</label>
+                  <label class="col-sm-8"><span class="font-weight-bold">: &nbsp;</span> {{order.currency}}</label>
               </div>
           </div>
         <br>
@@ -165,19 +161,19 @@
               <div class="col-12">
                 <div class="row">
                     <label class="font-weight-bold col-sm-4">Contact Person </label>
-                    <label class="col-sm-8"><span class="font-weight-bold">: &nbsp;</span> {{contactPerson}}</label>
+                    <label class="col-sm-8"><span class="font-weight-bold">: &nbsp;</span> {{order.contactPerson}}</label>
                 </div>
                 <div class="row">
                     <label class="font-weight-bold col-sm-4">Contact No. </label>
-                    <label class="col-sm-8"><span class="font-weight-bold">: &nbsp;</span> {{contactNumber}}</label>
+                    <label class="col-sm-8"><span class="font-weight-bold">: &nbsp;</span> {{order.contactNo}}</label>
                 </div>
                 <div class="row">
                     <label class="font-weight-bold col-sm-4">Email id </label>
-                    <label class="col-sm-8"><span class="font-weight-bold">: &nbsp;</span> {{emailId}}</label>
+                    <label class="col-sm-8"><span class="font-weight-bold">: &nbsp;</span> {{order.email}}</label>
                 </div>
                 <div class="row">
                     <label class="font-weight-bold col-sm-4">Address </label>
-                    <label class="col-sm-8"><span class="font-weight-bold">: &nbsp;</span> {{address}}</label>
+                    <label class="col-sm-8"><span class="font-weight-bold">: &nbsp;</span> {{order.fullAddress}}</label>
                 </div>
             </div>
 

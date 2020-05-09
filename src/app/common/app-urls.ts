@@ -24,6 +24,7 @@ export const APP_URL = {
   BACKEND_CHANGE_PASSWORD: serverUrl + '/changePassword',
   BACKEND_RESET_PASSWORD: serverUrl + '/resetPassword',
   BACKEND_ORDERS: serverUrl + '/orders',
+  BACKEND_ODDER_DETAILS: serverUrl + '/orderDetails',
 
   getProductDetail(productId: any): any {
     return this.BACKEND_PRODUCT + '/' + productId;
@@ -39,5 +40,9 @@ export const APP_URL = {
 
   getBidOnProductUrl(productId: any) {
     return this.BACKEND_PRODUCT + '/' + productId + '/' + 'bid';
+  },
+
+  getOrderDetailsUrl(orderId: any) {
+    return this.BACKEND_ODDER_DETAILS + '?orderId=' + orderId;
   }
 };

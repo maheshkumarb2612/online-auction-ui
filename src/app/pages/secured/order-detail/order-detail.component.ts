@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../../common/product/product.service';
-import { CartProduct } from '../../../common/model/cart.product.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ProductService} from '../../../common/product/product.service';
+import {CartProduct} from '../../../common/model/cart.product.model';
+import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from '../../../common/user/user.service';
+import {Order} from '../../../common/model/order.model';
 
 
 @Component({
@@ -22,7 +24,7 @@ export class OrderDetailComponent implements OnInit {
 
   date: any = '21/10/2020';
 
-  cartProducts: CartProduct[];
+  orderProducts: CartProduct[];
 
   username: any;
 
@@ -33,40 +35,28 @@ export class OrderDetailComponent implements OnInit {
   shippingCharge = 0;
 
   orderId: any;
+  order: Order;
 
-  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {
+  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
     this.username = localStorage.getItem('username');
-    // this.getCartProducts();
-
 
     this.route.params.subscribe(params => {
       this.orderId = params['orderId'];
     });
     console.log(this.orderId);
+
+    this.getProductDetail(this.orderId);
   }
 
-  getCartProducts() {
-    this.errorMessage = '';
-    this.subTotal = 0;
-    this.total = 0;
-    this.shippingCharge = 0;
+  getProductDetail(orderId: any) {
+    this.userService.getOrderDetails(orderId).subscribe(data => {
 
+      this.order = data;
+      this.orderProducts = data.products;
 
-    this.productService.getCartProducts().subscribe(response => {
-
-      if (response.success && response.data && response.data instanceof Array && response.data.length > 0) {
-        this.cartProducts = response.data;
-
-        for (const product of this.cartProducts) {
-          this.subTotal = this.subTotal + product.totalPrice;
-        }
-        this.total = this.subTotal;
-      } else {
-        this.errorMessage = 'Cart is empty';
-      }
     });
   }
 

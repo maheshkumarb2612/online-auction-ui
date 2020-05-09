@@ -75,4 +75,21 @@ export class UserService {
         )
       );
   }
+
+  getOrderDetails(orderId: any): any {
+
+    return this.httpClient.get<ResponseModel>(APP_URL.getOrderDetailsUrl(orderId))
+      .pipe(
+        map(
+          apiResponse => {
+            console.log(apiResponse.success);
+            if (apiResponse.data) {
+              return apiResponse.data;
+            } else {
+              return apiResponse;
+            }
+          }
+        )
+      );
+  }
 }
