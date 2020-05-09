@@ -3,6 +3,7 @@ import {Product} from 'src/app/common/model/product.model';
 import {ProductService} from 'src/app/common/product/product.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {APP_URL} from 'src/app/common/app-urls';
+import {UserBid} from '../../../common/model/user.bid.model';
 
 @Component({
   selector: 'app-product-detail',
@@ -33,7 +34,12 @@ export class ProductDetailComponent implements OnInit {
 
   isUserLogged = false;
 
+  userBids: UserBid[];
+
   constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
   }
 
   ngOnInit() {
@@ -50,6 +56,8 @@ export class ProductDetailComponent implements OnInit {
   }
 
   getProductDetail(productId: any) {
+    this.userBids = [];
+
     this.productService.getProductDetail(productId).subscribe(data => {
 
       this.product = data;
@@ -88,6 +96,10 @@ export class ProductDetailComponent implements OnInit {
           }
           i++;
         }
+      }
+
+      if (data.userBiddingDetails) {
+        this.userBids = data.userBiddingDetails;
       }
 
     });
@@ -135,7 +147,15 @@ export class ProductDetailComponent implements OnInit {
     }
   }
 
-username: string ='AdminMahesh';
-firstName: string = 'Maheshkumar';
-bidPrice: number = 153;
+
+  refreshPage() {
+    console.log('refreshPage');
+    this.router.navigated = false;
+    this.router.navigate([this.router.url]);
+  }
+
+
+  username: string = 'AdminMahesh';
+  firstName: string = 'Maheshkumar';
+  bidPrice: number = 153;
 }

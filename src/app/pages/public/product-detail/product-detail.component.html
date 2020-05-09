@@ -206,7 +206,7 @@
     <div class="description-card">
       <h3 class="product-title">Product All Bids</h3>
       <div class="des-content">
-        <app-live-auction></app-live-auction>
+        <app-live-auction [userBids]="userBids"></app-live-auction>
       </div>
     </div>
   </div>
@@ -263,7 +263,7 @@
       </div>
       <div class="modal-footer">
         <!--<button type="button" class="btn btn-unique">Bid Now</button>&nbsp;&nbsp;&nbsp;-->
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="refreshPage()">Close</button>
       </div>
     </div>
 
