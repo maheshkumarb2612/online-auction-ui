@@ -92,4 +92,21 @@ export class UserService {
         )
       );
   }
+
+  getUserBids(): any {
+
+    return this.httpClient.get<ResponseModel>(APP_URL.BACKEND_USER_BIDS)
+      .pipe(
+        map(
+          apiResponse => {
+            console.log(apiResponse.success);
+            if (apiResponse.data) {
+              return apiResponse.data;
+            } else {
+              return apiResponse;
+            }
+          }
+        )
+      );
+  }
 }

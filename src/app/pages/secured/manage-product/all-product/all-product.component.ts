@@ -27,7 +27,7 @@ export class AllProductComponent implements OnInit {
     };
   }
 
-  displayedColumns: string[] = ['proId', 'proName', 'cateory', 'basePrice', 'startDate', 'endDate', 'deleteId', 'viewDatails'];
+  displayedColumns: string[] = ['proId', 'proName', 'cateory', 'basePrice', 'startDate', 'endDate', 'deleteId', 'viewDetails'];
 
   ngOnInit() {
 

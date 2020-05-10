@@ -60,7 +60,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'orders', component: OrderComponent },
   { path: 'order-detail/:orderId', component: OrderDetailComponent },
-  { path: 'my-bid', component: MyBidComponent },
+  { path: 'my-bids', component: MyBidComponent },
   { path: 'my-posted-product', component: MyProductComponent }
 ];
 
