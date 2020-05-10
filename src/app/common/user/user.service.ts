@@ -109,4 +109,21 @@ export class UserService {
         )
       );
   }
+
+  getUserPostedProducts(): any {
+
+    return this.httpClient.get<ResponseModel>(APP_URL.BACKEND_USER_POSTED_PRODUCTS)
+      .pipe(
+        map(
+          apiResponse => {
+            console.log(apiResponse.success);
+            if (apiResponse.data) {
+              return apiResponse.data;
+            } else {
+              return apiResponse;
+            }
+          }
+        )
+      );
+  }
 }

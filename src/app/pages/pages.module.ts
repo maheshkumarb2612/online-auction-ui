@@ -61,7 +61,7 @@ const routes: Routes = [
   { path: 'orders', component: OrderComponent },
   { path: 'order-detail/:orderId', component: OrderDetailComponent },
   { path: 'my-bids', component: MyBidComponent },
-  { path: 'my-posted-product', component: MyProductComponent }
+  { path: 'my-posted-products', component: MyProductComponent }
 ];
 
 

@@ -4,30 +4,6 @@ import {ProfileUserBid} from '../../../common/model/profile.user.bid.model';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import {ActivatedRoute, Router} from '@angular/router';
 
-export interface PeriodicElement {
-  no: number;
-  product: any;
-  name: string;
-  category: any;
-  startingDate: any;
-  status: string;
-  baseAmount: number;
-  action: number;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {
-    no: 1,
-    product: '../../../../assets/3.jpg',
-    name: 'Test',
-    category: 'H',
-    startingDate: '12-03-2020',
-    status: 'Past Auction',
-    baseAmount: 156,
-    action: 2
-  }
-];
-
 @Component({
   selector: 'app-my-bid',
   templateUrl: './my-bid.component.html',
@@ -42,7 +18,7 @@ export class MyBidComponent implements OnInit {
 
   dataSource: MatTableDataSource<ProfileUserBid>;
 
-  totalUserBids=0;
+  totalUserBids = 0;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
@@ -62,7 +38,7 @@ export class MyBidComponent implements OnInit {
       this.userBids = data;
       this.totalUserBids = this.userBids.length;
       this.dataSource = new MatTableDataSource(this.userBids);
-      //this.dataSource.paginator = this.paginator;
+      // this.dataSource.paginator = this.paginator;
 
     });
   }

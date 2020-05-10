@@ -120,6 +120,8 @@
 
                   <a *ngIf="isUserLoggedIn" [routerLink]="['/orders']" routerLinkActive="router-link-active" mat-button class="header-font-color line">My Orders</a>
 
+                  <a *ngIf="isUserLoggedIn" [routerLink]="['/my-posted-products']" routerLinkActive="router-link-active" mat-button class="header-font-color line">My Products</a>
+
                   <a *ngIf="isUserLoggedIn" [routerLink]="['/my-bids']" routerLinkActive="router-link-active" mat-button class="header-font-color line">My Bids</a>
 
                   <a *ngIf="isUserLoggedIn" [routerLink]="['/cart']" routerLinkActive="router-link-active" mat-button class="header-font-color line">Cart</a>

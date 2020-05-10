@@ -1,78 +1,103 @@
 <div class="top-padding"></div>
 <div class="container">
   <div class="table-wrapper">
-  <div class="table-title">
+    <div class="table-title">
       <div class="row">
-          <div class="col-sm-4">
-  <h2>MY <b>POSTED PRODUCTS</b></h2>
-</div>
-<div class="col-sm-8">
-  <a href="my-bid.component.html" class="btn btn-primary"><i class="material-icons">&#xE863;</i> <span>Refresh List</span></a>
-</div>
+        <div class="col-sm-4">
+          <h2>MY <b>POSTED PRODUCTS</b></h2>
+        </div>
+        <div class="col-sm-8">
+          <button name="refresh" class="btn btn-primary" (click)="refreshPage()">Refresh</button>
+        </div>
       </div>
-  </div>
-            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table table-striped table-responsive-md btn-table">
+    </div>
+    <table mat-table [dataSource]="dataSource"
+           class="mat-elevation-z8 table table-striped table-responsive-md btn-table">
 
-              <!--- Note that these columns can be defined in any order.
-                    The actual rendered columns are set as a property on the row definition" -->
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
 
-              <!-- Position Column -->
-              <ng-container matColumnDef="no">
-                <th mat-header-cell *matHeaderCellDef style="font-size: 18px; color:black;" class="font-weight-bold"> <b>#</b> </th>
-                <td mat-cell *matCellDef="let element" style="font-size: 16px; color:black;"> <b>{{element.no}}</b> </td>
-              </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="productId">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 16px; color:black;"
+            class="font-weight-bold"> Product Id
+        </th>
+        <!--<td mat-cell *matCellDef="let element"><img src="{{element.productId}}" class="" alt="Avatar"
+                                                    style="width: 75px; height: 40px;"></td>-->
+        <td mat-cell *matCellDef="let element" style="font-size: 16px; color:black;"><b>{{element.productId}}</b></td>
+      </ng-container>
 
-              <!-- Name Column -->
-              <ng-container matColumnDef="product">
-                <th mat-header-cell *matHeaderCellDef style="width: 84px; font-size: 18px; color:black;" class="font-weight-bold"> Product </th>
-                <td mat-cell *matCellDef="let element"><img src="{{element.product}}" class="avatar" alt="Avatar" style="width: 75px; height: 40px;"> </td>
-              </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="productName">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 16px; color:black;" class="font-weight-bold"> Product
+          Name
+        </th>
+        <td mat-cell *matCellDef="let element" style="font-size: 16px; color:black;"><b>{{element.productName}}</b></td>
+      </ng-container>
 
-              <!-- Name Column -->
-              <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef style="font-size: 18px; color:black;" class="font-weight-bold">  </th>
-                <td mat-cell *matCellDef="let element" style="font-size: 16px; color:black;"> <b>{{element.name}}</b> </td>
-              </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="categoryName">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 16px; color:black;" class="font-weight-bold"> Category
+        </th>
+        <td mat-cell *matCellDef="let element" style="font-size: 16px; color:black;"> {{element.categoryName}}</td>
+      </ng-container>
 
-              <!-- Weight Column -->
-              <ng-container matColumnDef="category">
-                <th mat-header-cell *matHeaderCellDef style="font-size: 18px; color:black;" class="font-weight-bold"> Category </th>
-                <td mat-cell *matCellDef="let element" style="font-size: 16px; color:black;"> {{element.category}} </td>
-              </ng-container>
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="productStartDateTime">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 16px; color:black;" class="font-weight-bold"> Start Date
+          Time
+        </th>
+        <td mat-cell *matCellDef="let element" style="font-size: 16px; color:black;"> {{element.productStartDateTime}}
+        </td>
+      </ng-container>
 
-              <!-- Symbol Column -->
-              <ng-container matColumnDef="startingDate">
-                <th mat-header-cell *matHeaderCellDef style="font-size: 18px; color:black;" class="font-weight-bold"> Starting Date </th>
-                <td mat-cell *matCellDef="let element" style="font-size: 16px; color:black;"> {{element.startingDate}} </td>
-              </ng-container>
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="productEndDateTime">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 16px; color:black;" class="font-weight-bold"> End Date
+          Time
+        </th>
+        <td mat-cell *matCellDef="let element" style="font-size: 16px; color:black;"> {{element.productEndDateTime}}
+        </td>
+      </ng-container>
 
-              <!-- Symbol Column -->
-              <ng-container matColumnDef="baseAmount">
-                <th mat-header-cell *matHeaderCellDef style="font-size: 18px; color:black;" class="font-weight-bold"> Base Amount </th>
-                <td mat-cell *matCellDef="let element" style="font-size: 16px; color:black;"> <b> ₹ {{element.baseAmount}} </b> </td>
-              </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="productStatus">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 16px; color:black;" class="font-weight-bold"> Status
+        </th>
+        <td mat-cell *matCellDef="let element" style="font-size: 16px; color:black;"> {{element.productStatus}}</td>
+      </ng-container>
 
-              <!-- Symbol Column -->
-              <ng-container matColumnDef="status">
-                <th mat-header-cell *matHeaderCellDef style="font-size: 18px; color:black;" class="font-weight-bold"> Status </th>
-                <td mat-cell *matCellDef="let element" style="font-size: 16px; color:black;"> {{element.status}} </td>
-              </ng-container>
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="basePrice">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 16px; color:black;" class="font-weight-bold"> Base
+          Amount
+        </th>
+        <td mat-cell *matCellDef="let element" style="font-size: 16px; color:black;"><b> ₹ {{element.basePrice}} </b>
+        </td>
+      </ng-container>
 
-              <!-- Symbol Column -->
-              <ng-container matColumnDef="action">
-                <th mat-header-cell *matHeaderCellDef style="font-size: 18px; color:black;" class="font-weight-bold"> Action </th>
-                <td mat-cell *matCellDef="let element"> <a href="#" class="view" title="View Details" data-toggle="tooltip"><i class="material-icons">&#xE5C8;</i></a> </td>
-              </ng-container>
+      <!-- View Details Column -->
+      <ng-container matColumnDef="viewDetails">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 16px; color:black;" class="font-weight-bold">
 
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <a [routerLink]="['/product-listing/product-detail',element.productId]" routerLinkActive="router-link-active"
+             title="View Details" data-toggle="tooltip">
+            <button class="btn btn-primary">View</button>
+          </a>
+        </td>
+      </ng-container>
 
-            </table>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-            <br>
-            <div class="clearfix">
-              <div class="hint-text">Total my bids are <b>5</b></div>
-            </div>
+    </table>
+
+    <br>
+    <div class="clearfix">
+      <div class="hint-text">Total My Posted Products: <b>{{totalUserPostedProducts}}</b></div>
+    </div>
 
   </div>
 </div>

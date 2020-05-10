@@ -1,19 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {UserPostedProduct} from '../../../common/model/user.posted.product.model';
+import {UserService} from '../../../common/user/user.service';
 
-export interface PeriodicElement {
-  no: number;
-  product: any;
-  name: string;
-  category: any;
-  startingDate: any;
-  status: string;
-  baseAmount: number;
-  action: number;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { no: 1, product: '../../../../assets/3.jpg', name: 'Test', category: 'H', startingDate: '12-03-2020', status: 'Past Auction', baseAmount: 156, action: 2 }
-];
 
 @Component({
   selector: 'app-my-product',
@@ -22,12 +12,40 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class MyProductComponent implements OnInit {
 
-  displayedColumns: string[] = ['no', 'product', 'name', 'category', 'startingDate', 'status', 'baseAmount', 'action'];
-  dataSource = ELEMENT_DATA;
+  userPostedProducts: UserPostedProduct[];
 
-  constructor() { }
+  displayedColumns: string[] = ['productId', 'productName', 'categoryName', 'productStartDateTime', 'productEndDateTime',
+    'productStatus', 'basePrice', 'viewDetails'];
 
-  ngOnInit() {
+  dataSource: MatTableDataSource<UserPostedProduct>;
+
+  totalUserPostedProducts = 0;
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
+  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
   }
 
+  ngOnInit() {
+    this.getUserPostedProducts();
+  }
+
+  getUserPostedProducts() {
+    this.userService.getUserPostedProducts().subscribe(data => {
+
+      this.userPostedProducts = data;
+      this.totalUserPostedProducts = this.userPostedProducts.length;
+      this.dataSource = new MatTableDataSource(this.userPostedProducts);
+      // this.dataSource.paginator = this.paginator;
+
+    });
+  }
+
+  refreshPage() {
+    this.router.navigated = false;
+    this.router.navigate([this.router.url]);
+  }
 }

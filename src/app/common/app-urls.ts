@@ -25,7 +25,8 @@ export const APP_URL = {
   BACKEND_RESET_PASSWORD: serverUrl + '/resetPassword',
   BACKEND_ORDERS: serverUrl + '/orders',
   BACKEND_ODDER_DETAILS: serverUrl + '/orderDetails',
-  BACKEND_USER_BIDS: serverUrl + '/mybids',
+  BACKEND_USER_BIDS: serverUrl + '/myBids',
+  BACKEND_USER_POSTED_PRODUCTS: serverUrl + '/myPostedProducts',
 
   getProductDetail(productId: any): any {
     return this.BACKEND_PRODUCT + '/' + productId;

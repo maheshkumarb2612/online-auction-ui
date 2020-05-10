@@ -28,13 +28,15 @@ export class HeaderComponent implements OnInit {
       this.isUserLoggedIn = value;
     });
 
+    if (localStorage.getItem('isAdmin') && localStorage.getItem('role') === 'ADMIN') {
+      this.isAdmin = true;
+    }
+
   }
 
   ngOnInit() {
 
-    if (localStorage.getItem('isAdmin') && localStorage.getItem('isAdmin') === 'true') {
-      this.isAdmin = true;
-    }
+
   }
 
 
