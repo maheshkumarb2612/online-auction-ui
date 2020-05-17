@@ -139,7 +139,7 @@
 
                   <a *ngIf="!isUserLoggedIn" [routerLink]="['/register']" routerLinkActive="router-link-active"mat-button class="header-font-color ">Register</a>
 
-                  <a [routerLink]="['/profile']" routerLinkActive="router-link-active" mat-button class="header-font-color2">My Account</a>
+                  <a *ngIf="isUserLoggedIn" [routerLink]="['/profile']" routerLinkActive="router-link-active" mat-button class="header-font-color2">My Account</a>
 
                   <!-- <a *ngIf="isUserLoggedIn" [routerLink]="['/logout']" routerLinkActive="router-link-active" mat-button class="header-font-color "> Logout </a> -->
 
@@ -148,7 +148,7 @@
                   <a [routerLink]="['/help']" routerLinkActive="router-link-active" mat-button class="header-font-color  ">
                            Help US</a>
 
-                  <a [routerLink]="['/cart']" routerLinkActive="router-link-active" mat-button class="header-font-color2 ">Cart</a>
+                  <a *ngIf="isUserLoggedIn" [routerLink]="['/cart']" routerLinkActive="router-link-active" mat-button class="header-font-color2 ">Cart</a>
 
 
 
@@ -166,7 +166,7 @@
 
                     </mat-menu>
 
-                    <a [routerLink]="['/logout']" routerLinkActive="router-link-active" mat-button class="header-font-color2 "> Logout </a>
+                    <a *ngIf="isUserLoggedIn" [routerLink]="['/logout']" routerLinkActive="router-link-active" mat-button class="header-font-color2 "> Logout </a>
 
 
                             </div>

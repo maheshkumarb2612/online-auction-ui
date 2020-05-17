@@ -105,7 +105,7 @@
         <div class="col-md-6">
           <mat-form-field>
             <input matInput [matDatepicker]="endDate" placeholder="Choose a date" (dateChange)="endDateChange($event)"
-            [min]="validationStartDate" [max]="validationEndDate" required>
+            [min]="validationStartDate" [max]="" required>
             <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
             <mat-datepicker #endDate></mat-datepicker>
           </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -145,4 +145,4 @@
     <p>Today is {{today | date}}</p>
     <p>Or if you prefer, {{today | date:'fullDate'}}</p>
     <p>The time is {{today | date:'h:mm a z'}}</p> -->
-{{validationEndDate}}
+<!-- {{validationEndDate}} -->

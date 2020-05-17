@@ -104,8 +104,10 @@ input.example-right-align {
 
 }
 .image-center{
-  width: 100%;
+  /* width: 295px; */
+  max-width: 295px;
    height: 200px;
+   vertical-align: middle;
 }
 .in-size:hover{
   font-size: 30px;
