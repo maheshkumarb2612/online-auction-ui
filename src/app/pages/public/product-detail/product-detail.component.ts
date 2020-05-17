@@ -98,8 +98,8 @@ export class ProductDetailComponent implements OnInit {
       }
 
       if (data.imageDataList) {
-        this.otherImagesData = [];
-        this.otherImagesId = [];
+        // this.otherImagesData = [];
+        // this.otherImagesId = [];
         this.otherIdImagesData = [];
 
         let i = 0;
