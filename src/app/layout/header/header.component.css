@@ -47,8 +47,8 @@ h3 { font-family: Amaranth;
          line-height: 18.5714px;
         }
 .header-font-color{
-  color: rgb(232, 255, 225);
-  font-size: larger;
+  color: rgb(255, 255, 255);
+  font-size: 17px;
 }
 
 .sub-menu-font-size{
@@ -71,7 +71,8 @@ h3 { font-family: Amaranth;
 }
 
 .header-font-color:hover{
-  color: yellow;
+  color: rgb(56, 228, 56);
+  font-size: 18px;
 }
 
 .line{
@@ -83,4 +84,46 @@ h3 { font-family: Amaranth;
   border-right-color: whitesmoke;
   border-right-style: solid;
   border-right-width: 2px;
+}
+
+
+
+
+
+
+
+
+.intro-2 {
+  background: url("https://mdbootstrap.com/img/Photos/Others/img (42).jpg")no-repeat center center;
+  background-size: cover;
+}
+.view {
+  margin-top: -56px;
+}
+.navbar {
+  z-index: 1;
+  background-color: transparent;
+}
+.top-nav-collapse {
+  background-color: #4285F4;
+}
+@media only screen and (max-width: 768px) {
+  .navbar {
+      background-color: #4285F4;
+  }
+}
+html,
+body,
+header,
+.view {
+  height: 100%;
+}
+.header-font-color2{
+  font-size: 16px;
+  color: azure;
+
+}
+.header-font-color2:hover{
+  color: rgb(56, 228, 56);
+  font-size: 18px;
 }
