@@ -19,4 +19,6 @@ export interface Product {
   ownerUsername: string;
   canAddToCart: boolean;
   userBiddingDetails: [];
+  userWinBid: any;
+  orderId: any;
 }

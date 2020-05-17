@@ -55,11 +55,11 @@
                             <div class="tab-pane" id="pic-5"><img
                                     src="https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg" />
                             </div>-->
-            <div class="tab-pane active" id="pic-1">
+            <div class="tab-pane active" id="{{firstImageId}}">
               <img src="{{firstImageData}}" class="first-img" style="max-width: max-content; max-height: max-content;"/>
             </div>
-            <div class="tab-pane" *ngFor="let imgData of otherImagesData" id="pic-4">
-              <img src="{{imgData}}" class="first-img"/>
+            <div class="tab-pane" *ngFor="let imgIdData of otherIdImagesData" id="{{imgIdData.id}}" >
+              <img src="{{imgIdData.imageData}}" class="first-img"/>
             </div>
           </div>
           <ul class="preview-thumbnail nav nav-tabs">
@@ -77,11 +77,11 @@
                             <li><a data-target="#pic-5" data-toggle="tab"><img
                                         src="https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg" /></a>
                             </li>-->
-            <li class="active"><a data-target="#pic-1" data-toggle="tab">
+            <li class="active"><a data-target="#{{firstImageId}}" data-toggle="tab">
               <img src="{{firstImageData}}" height="100" width="100"/></a>
             </li>
-            <li *ngFor="let imgData of otherImagesData"><a data-target="#pic-4" data-toggle="tab">
-              <img src="{{imgData}}" height="100" width="100"/></a>
+            <li *ngFor="let imgIdData of otherIdImagesData"><a data-target="#{{imgIdData.id}}" data-toggle="tab">
+              <img src="{{imgIdData.imageData}}" height="100" width="100"/></a>
             </li>
           </ul>
 
@@ -148,12 +148,21 @@
                       [disabled]="product.isExpired || product.isUpcoming || !isUserLogged">
                 Bid Now
               </button>
-              <button class="btn btn-primary btn-rounded" (click)="addToCart(product.id)" [disabled]="product.isExpired || product.isUpcoming || !product.canAddToCart">
+              <button class="btn btn-primary btn-rounded" (click)="addToCart(product.id)"
+                      [disabled]="product.isExpired || product.isUpcoming || !product.canAddToCart">
                 Add to Cart
               </button>
-              <button class="btn btn-primary btn-rounded" (click)="addToCart(product.id)" [disabled]="product.isExpired || product.isUpcoming || !product.canAddToCart">
+              <button class="btn btn-primary btn-rounded" (click)="addToCart(product.id)"
+                      [disabled]="product.isExpired || product.isUpcoming || !product.canAddToCart">
                 Pay Base Price
               </button>
+
+              <a *ngIf="product.orderId" [routerLink]="['/order-detail/',product.orderId]"
+                 routerLinkActive="router-link-active"
+                 title="Order Details" data-toggle="tooltip">
+                <button class="btn btn-primary btn-rounded">Order Details</button>
+              </a>
+
               <button class="btn btn-primary btn-rounded" *ngIf="isOwner">
                 <i class="far fa-edit"></i>&nbsp;&nbsp;<span>Update</span>
               </button>
@@ -176,32 +185,39 @@
     </div>
     <mat-divider class="divider" style="margin-bottom: 9px;"></mat-divider>
 
-    <div *ngIf="product.isExpired">
+    <div *ngIf="product.isExpired && userWinBid && userWinBid">
       <h2 align="center" class="font-weight-bold p-3 purple-gradient">WINNER</h2>
-    <mat-divider class=""></mat-divider>
-          <table class="table table-striped table-responsive-md btn-table">
-            <thead>
-              <tr>
-                <th class="font-weight-bold" style="font-size:18px;">User Name</th>
-                <th class="font-weight-bold" style="font-size:18px;">Bidder Name</th>
-                <th class="font-weight-bold" style="font-size:18px;">Bid Price</th>
-                <th class="font-weight-bold" style="font-size:18px;" >Remaining Amount</th>
-              </tr>
-            </thead>
+      <mat-divider class=""></mat-divider>
+      <table class="table table-striped table-responsive-md btn-table">
+        <thead>
+        <tr>
+          <th class="font-weight-bold" style="font-size:18px;">User Name</th>
+          <th class="font-weight-bold" style="font-size:18px;">Bidder Name</th>
+          <th class="font-weight-bold" style="font-size:18px;">Bid Price</th>
+          <th class="font-weight-bold" style="font-size:18px;">Bid Date Time</th>
+          <th *ngIf="userWinBid.currentUserWon" class="font-weight-bold" style="font-size:18px;">Remaining Price</th>
+          <th *ngIf="userWinBid.currentUserWon" class="font-weight-bold" style="font-size:18px;">Remaining Amount</th>
+        </tr>
+        </thead>
 
-            <tbody>
-              <tr>
-                <th scope="row" style="font-size:16px;">{{username}}</th>
-                <td style="font-size:16px;">{{firstName}}</td>
-                <td style="font-size:16px;">{{bidPrice}}</td>
-                <td style="font-size:16px;">
-                  <button type="button" class="btn btn-teal btn-rounded btn-sm m-0 rounded-pill">Pay Remaining Amount</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-    <mat-divider class="" style="margin-bottom: 9px;"></mat-divider>
-</div>
+        <tbody>
+        <tr>
+          <th scope="row" style="font-size:16px;">{{userWinBid.username}}</th>
+          <td style="font-size:16px;">{{userWinBid.firstName + userWinBid.lastName}}</td>
+          <td style="font-size:16px;">{{userWinBid.bidPrice}}</td>
+          <td style="font-size:16px;">{{userWinBid.bidDate}}</td>
+          <td *ngIf="userWinBid.currentUserWon" style="font-size:16px;">{{userWinBid.remainingPrice}}</td>
+          <td *ngIf="userWinBid.currentUserWon" style="font-size:16px;">
+            <button *ngIf="userWinBid.isPaymentRequired" type="button"
+                    class="btn btn-teal btn-rounded btn-sm m-0 rounded-pill">Pay Remaining Amount
+            </button>
+            <span *ngIf="!(userWinBid.isPaymentRequired)">No other payment required.</span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <mat-divider class="" style="margin-bottom: 9px;"></mat-divider>
+    </div>
 
     <div class="description-card">
       <h3 class="product-title">Product All Bids</h3>
@@ -239,7 +255,8 @@
                 <mat-form-field appearance="fill">
                   <span matPrefix>₹&nbsp;</span>
                   <mat-label>Bid Price</mat-label>
-                  <input matInput type="number" name="bidAmount" [(ngModel)]="bidAmount" class="example-right-align" min="1" >
+                  <input matInput type="number" name="bidAmount" [(ngModel)]="bidAmount" class="example-right-align"
+                         min="1">
                   <!--<span matSuffix class="amount">.00</span>-->
                   <mat-hint class="alert alert-danger" *ngIf="bidErrorMessage">{{bidErrorMessage}}</mat-hint>
                 </mat-form-field>
@@ -248,7 +265,7 @@
             </div>
 
             <li class="alert alert-success" *ngIf="bidSuccessMessage"> {{bidSuccessMessage}}</li>
-            <li class="alert alert-danger" *ngIf="bidErrorMessage"> {{bidErrorMessage}} </li>
+            <li class="alert alert-danger" *ngIf="bidErrorMessage"> {{bidErrorMessage}}</li>
 
           </div>
         </div>

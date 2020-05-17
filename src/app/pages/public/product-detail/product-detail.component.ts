@@ -4,6 +4,13 @@ import {ProductService} from 'src/app/common/product/product.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {APP_URL} from 'src/app/common/app-urls';
 import {UserBid} from '../../../common/model/user.bid.model';
+import {UserWinBid} from '../../../common/model/user.win.bid.model';
+
+class ImageIdDetail {
+  id: string;
+  imageData: string;
+}
+
 
 @Component({
   selector: 'app-product-detail',
@@ -17,10 +24,12 @@ export class ProductDetailComponent implements OnInit {
 
   images = [];
   firstImageData: string;
-  otherImagesData = [];
+  // otherImagesData = [];
+
+  otherIdImagesData: ImageIdDetail[];
 
   firstImageId: any;
-  otherImagesId = [];
+  // otherImagesId = [];
   productStatus = '';
 
   isOwner = false;
@@ -35,6 +44,8 @@ export class ProductDetailComponent implements OnInit {
   isUserLogged = false;
 
   userBids: UserBid[];
+
+  userWinBid: UserWinBid;
 
   constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
@@ -61,6 +72,10 @@ export class ProductDetailComponent implements OnInit {
     this.productService.getProductDetail(productId).subscribe(data => {
 
       this.product = data;
+      if (this.product.userWinBid) {
+        this.userWinBid = this.product.userWinBid;
+      }
+
       console.log(this.product);
 
       if (this.product.ownerUsername && this.product.ownerUsername === localStorage.getItem('username')) {
@@ -85,14 +100,22 @@ export class ProductDetailComponent implements OnInit {
       if (data.imageDataList) {
         this.otherImagesData = [];
         this.otherImagesId = [];
+        this.otherIdImagesData = [];
+
         let i = 0;
         for (const imgData of data.imageDataList) {
           if (i === 0) {
             this.firstImageData = imgData;
-            this.firstImageId = 'img-' + i;
+            this.firstImageId = 'img-' + 1;
           } else {
-            this.otherImagesData.push(imgData);
-            this.otherImagesId.push('img-' + i);
+            // this.otherImagesData.push(imgData);
+            // this.otherImagesId.push('img-' + i);
+
+            const o = new ImageIdDetail();
+            o.id = 'img-' + (i + 1);
+            o.imageData = imgData;
+
+            this.otherIdImagesData.push(o);
           }
           i++;
         }
@@ -154,8 +177,4 @@ export class ProductDetailComponent implements OnInit {
     this.router.navigate([this.router.url]);
   }
 
-
-  username: string = 'AdminMahesh';
-  firstName: string = 'Maheshkumar';
-  bidPrice: number = 153;
 }
