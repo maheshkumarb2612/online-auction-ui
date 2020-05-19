@@ -238,4 +238,15 @@ export class ProductService {
       )
     );
   }
+
+  paymentRemaining(productId: any, contactPerson: any, contactNo: any, email: any, address: any, city: any,
+                   pincode: any, state: any, country: any) {
+
+    const detail = {productId, contactPerson, contactNo, email, address, city, pincode, state, country};
+    return this.httpClient.post<ResponseModel>(APP_URL.BACKEND_PAYMENT_REMAINING, detail).subscribe(res => {
+
+      window.location.href = res.data;
+
+    });
+  }
 }
