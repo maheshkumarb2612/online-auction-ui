@@ -249,4 +249,27 @@ export class ProductService {
 
     });
   }
+
+
+  updateProduct(productId: any, images: any, name: any, description: any, categoryId: any,
+                startDate: any, startTime: any, endDate: any, endTime: any, price: any): any {
+
+    const productDetail = {name, description, categoryId, startDate, startTime, endDate, endTime, price};
+
+    const formData = new FormData();
+    formData.append('productDetail', JSON.stringify(productDetail));
+
+    for (const img of images) {
+      formData.append('images', img, img.name);
+    }
+
+    return this.httpClient.put<ResponseModel>(APP_URL.getProductDetail(productId), formData).pipe(
+      map(
+        apiResponse => {
+          console.log(apiResponse.success);
+          return apiResponse;
+        }
+      )
+    );
+  }
 }
