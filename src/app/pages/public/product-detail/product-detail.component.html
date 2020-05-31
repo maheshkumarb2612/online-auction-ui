@@ -40,7 +40,7 @@
                                       <a [routerLink]="['/bid-details']" routerLinkActive="router-link-active">
                                         <button mat-button class="header-font-color">Bid Details</button></a>
           ======= -->
-          <div class="preview-pic tab-content" style="max-height: 400px; max-width: 500px;" style="vertical-align: middle;">
+          <div class="preview-pic tab-content " style="max-height: 400px; max-width: 500px;" style="vertical-align: middle;">
             <!--<div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" />
                             </div>
                             <div class="tab-pane" id="pic-2"><img
@@ -257,7 +257,7 @@
                   <span matPrefix>₹&nbsp;</span>
                   <mat-label>Bid Price</mat-label>
                   <input matInput type="number" name="bidAmount" [(ngModel)]="bidAmount" class="example-right-align"
-                         min="1">
+                         min="{{product.price}}">
                   <!--<span matSuffix class="amount">.00</span>-->
                   <mat-hint class="alert alert-danger" *ngIf="bidErrorMessage">{{bidErrorMessage}}</mat-hint>
                 </mat-form-field>
