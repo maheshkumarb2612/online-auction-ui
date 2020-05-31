@@ -28,6 +28,7 @@ export const APP_URL = {
   BACKEND_USER_BIDS: serverUrl + '/myBids',
   BACKEND_USER_POSTED_PRODUCTS: serverUrl + '/myPostedProducts',
   BACKEND_PAYMENT_REMAINING: serverUrl + '/paymentRemaining',
+  BACKEND_FEEDBACK: serverUrl + '/feedback',
 
   getProductDetail(productId: any): any {
     return this.BACKEND_PRODUCT + '/' + productId;

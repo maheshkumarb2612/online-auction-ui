@@ -141,7 +141,7 @@ export class ProductService {
     return this.httpClient.post<ResponseModel>(APP_URL.BACKEND_PAYMENT, detail).subscribe(res => {
 
       console.log(res);
-      //this.paymentModel = res;
+      // this.paymentModel = res;
 
       /*let url = this.paymentModel.PAYMENT_URL;
       url = url + '?';

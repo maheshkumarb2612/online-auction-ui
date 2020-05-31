@@ -116,11 +116,11 @@
                   </mat-card-subtitle>
                 </mat-card-header>
               </a>
-            <div class="p-2 image-center" align="center" style="vertical-align: middle;">
+            <span class="p-2 image-center" align="center" style="vertical-align: middle;">
               <a [routerLink]="['/product-listing/product-detail',product.id]" routerLinkActive="router-link-active">
-                <img mat-card-image src="{{product.firstImageData}}" alt="Photo of a Shiba Inu" class="" style="">
+                <img mat-card-image src="{{product.firstImageData}}" alt="Photo of a Shiba Inu" class="image-center p-1" style="">
               </a>
-           </div>
+           </span>
 
             <mat-card-content>
                 <div class="col-sm-12 in-size"><h3 class="font-weight-bold center" style="color: rgb(40, 207, 40);">

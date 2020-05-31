@@ -126,4 +126,17 @@ export class UserService {
         )
       );
   }
+
+  sendFeedback(name: any, contact: any, email:any, subject:any, message:any) {
+    const feedback = {name, contact, email, subject, message};
+
+    return this.httpClient.post<ResponseModel>(APP_URL.BACKEND_FEEDBACK, feedback).pipe(
+      map(
+        apiResponse => {
+          console.log(apiResponse.success);
+          return apiResponse;
+        }
+      )
+    );
+  }
 }
