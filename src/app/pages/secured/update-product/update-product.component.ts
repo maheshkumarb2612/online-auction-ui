@@ -5,6 +5,7 @@ import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 import {ResponseModel} from 'src/app/common/model/response.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Product} from '../../../common/model/product.model';
+import {APP_URL} from '../../../common/app-urls';
 
 
 @Component({
@@ -14,6 +15,9 @@ import {Product} from '../../../common/model/product.model';
 })
 export class UpdateProductComponent implements OnInit {
 
+  images = [];
+  firstImageData: string;
+  firstImageId: any;
   product: Product;
   productId: number;
 
@@ -164,28 +168,10 @@ export class UpdateProductComponent implements OnInit {
 
 
   getProductDetail(productId: any) {
-    this.userBids = [];
 
     this.productService.getProductDetail(productId).subscribe(data => {
 
       this.product = data;
-      if (this.product.userWinBid) {
-        this.userWinBid = this.product.userWinBid;
-      }
-
-      console.log(this.product);
-
-      if (this.product.ownerUsername && this.product.ownerUsername === localStorage.getItem('username')) {
-        this.isOwner = true;
-      }
-
-      if (this.product.isExpired) {
-        this.productStatus = 'EXPIRED';
-      } else if (this.product.isUpcoming) {
-        this.productStatus = 'UPCOMING';
-      } else {
-        this.productStatus = 'LIVE';
-      }
 
       if (data.otherImagesId) {
         this.images = [];
@@ -195,32 +181,16 @@ export class UpdateProductComponent implements OnInit {
       }
 
       if (data.imageDataList) {
-        // this.otherImagesData = [];
-        // this.otherImagesId = [];
-        this.otherIdImagesData = [];
-
         let i = 0;
         for (const imgData of data.imageDataList) {
           if (i === 0) {
             this.firstImageData = imgData;
             this.firstImageId = 'img-' + 1;
-          } else {
-            // this.otherImagesData.push(imgData);
-            // this.otherImagesId.push('img-' + i);
-
-            const o = new ImageIdDetail();
-            o.id = 'img-' + (i + 1);
-            o.imageData = imgData;
-
-            this.otherIdImagesData.push(o);
           }
           i++;
         }
       }
 
-      if (data.userBiddingDetails) {
-        this.userBids = data.userBiddingDetails;
-      }
 
       this.productName = this.product.name;
       this.productId = this.product.id;
