@@ -59,7 +59,6 @@ export class PostProductComponent implements OnInit {
   }
 
   onFileChanged(event: any) {
-    this.selectedImageCount = 0;
     const file = event.target.files.item(0);
 
     this.urls = [];
@@ -74,7 +73,7 @@ export class PostProductComponent implements OnInit {
           const reader = new FileReader();
           reader.readAsDataURL(event.target.files[i]); // read file as data url
           reader.onload = (event) => { // called once readAsDataURL is completed
-            this.urls[i] = (event.target as FileReader).result;
+            this.urls.push((event.target as FileReader).result);
           };
         } else {
           alert('Please select image only and each image size must not exceeds 500 KB');

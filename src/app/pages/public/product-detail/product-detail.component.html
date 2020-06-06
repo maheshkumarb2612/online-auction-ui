@@ -164,7 +164,9 @@
                 <button class="btn btn-primary btn-rounded">Order Details</button>
               </a>
 
-              <button class="btn btn-primary btn-rounded" *ngIf="isOwner">
+              <button class="btn btn-primary btn-rounded" *ngIf="isOwner"
+                      [routerLink]="['/update-product/',product.id]" routerLinkActive="router-link-active">
+
                 <!--<a [routerLink]="['/update-product/',product.id]" routerLinkActive="router-link-active"
                    title="View Details" data-toggle="tooltip">
                   <i class="far fa-edit"></i>&nbsp;&nbsp;<span>Update</span>

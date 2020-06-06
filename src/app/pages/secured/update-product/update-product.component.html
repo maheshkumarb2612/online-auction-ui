@@ -7,12 +7,11 @@
           <h5>Select Product : </h5>
         </div>
         <div class="col-md-6">
-          <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput multiple="multiple"
-            required>
+          <input style="display: none" type="file" name="images" (change)="onFileChanged($event)" #fileInput multiple="multiple">
           <button mat-button-toggle (click)="fileInput.click()">
             <h6>Select Images</h6>
           </button>
-          &nbsp;You can select up to 10 images
+          &nbsp;You can select up to 10 new images
         </div>
       </div>
       <br>
@@ -81,7 +80,7 @@
         </h5>
         <div class="col-md-6">
           <mat-form-field>
-            <input matInput [matDatepicker]="startDate" placeholder="Choose a date" class="alert-input date-input" [min]="validationStartDate"
+            <input matInput [matDatepicker]="startDate" name="startDate" placeholder="Choose a date" class="alert-input date-input" [min]="validationStartDate"
               (dateChange)="startDateChange($event)" required>
             <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
             <mat-datepicker #startDate></mat-datepicker>
@@ -104,7 +103,7 @@
         </h5>
         <div class="col-md-6">
           <mat-form-field>
-            <input matInput [matDatepicker]="endDate" placeholder="Choose a date" (dateChange)="endDateChange($event)"
+            <input matInput [matDatepicker]="endDate" name="endDate" placeholder="Choose a date" (dateChange)="endDateChange($event)"
             [min]="validationStartDate" [max]="" required>
             <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
             <mat-datepicker #endDate></mat-datepicker>
@@ -130,7 +129,7 @@
         <div class="col-md-6"></div>
         <div class="col-md-6">
           <!--<a [routerLink]="['/product-listing/product-detail']" routerLinkActive="router-link-active"> </a>-->
-          <button type="submit" mat-button class="header-font-color bg-grey" (click)="endDateValidate()">Submit</button>
+          <button type="submit" mat-button class="header-font-color bg-grey">Submit</button>
           <button type="reset" mat-button class="header-font-color bg-grey">Reset</button>
           <!-- <input mat-button-toggle type="submit" value="Submit"> -->
         </div>

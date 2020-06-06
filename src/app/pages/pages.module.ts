@@ -34,6 +34,7 @@ import {MyProductComponent} from './secured/my-product/my-product.component';
 import {OrderComponent} from './secured/order/order.component';
 import {OrderDetailComponent} from './secured/order-detail/order-detail.component';
 import {UpdateProductComponent} from './secured/update-product/update-product.component';
+import {MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material';
 
 
 const routes: Routes = [
@@ -97,6 +98,10 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     MatLoaderModule,
     FormsModule
+  ],
+  providers: [
+    // to format matdatePicker for DD-MM-YYYY
+  //  {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}
   ]
 })
 export class PagesModule {

@@ -46,7 +46,7 @@ export class UpdateProductComponent implements OnInit {
   categories: any = [];
 
   constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {
-    this.getCategories();
+
   }
 
   // validationStartDate: any;
@@ -65,7 +65,8 @@ export class UpdateProductComponent implements OnInit {
       this.productId = params['id'];
     });
 
-    this.getProductDetail(this.productId);
+    this.getCategories();
+
   }
 
   endDateValidate() {
@@ -75,10 +76,8 @@ export class UpdateProductComponent implements OnInit {
   }
 
   onFileChanged(event: any) {
-    this.selectedImageCount = 0;
     const file = event.target.files.item(0);
 
-    this.urls = [];
     this.noOfImg = event.target.files.length;
     this.files = event.target.files;
 
@@ -90,7 +89,7 @@ export class UpdateProductComponent implements OnInit {
           const reader = new FileReader();
           reader.readAsDataURL(event.target.files[i]); // read file as data url
           reader.onload = (event) => { // called once readAsDataURL is completed
-            this.urls[i] = (event.target as FileReader).result;
+            this.urls.push((event.target as FileReader).result);
           };
         } else {
           alert('Please select image only and each image size must not exceeds 500 KB');
@@ -101,7 +100,12 @@ export class UpdateProductComponent implements OnInit {
   }
 
   getCategories() {
-    this.productService.getCategories().subscribe(data => this.categories = data);
+    this.productService.getCategories().subscribe(data => {
+      this.categories = data;
+
+      this.getProductDetail(this.productId);
+    });
+
     //  this.categories.push({ id: 1, name: 'hhhd', description: 'dgdfdfdf' });
   }
 
@@ -122,6 +126,8 @@ export class UpdateProductComponent implements OnInit {
   }
 
   updateProduct() {
+
+    // this.endDateValidate();
 
     this.successMessage = '';
     this.errorArray = [];
@@ -171,6 +177,8 @@ export class UpdateProductComponent implements OnInit {
 
     this.productService.getProductDetail(productId).subscribe(data => {
 
+      this.urls = [];
+
       this.product = data;
 
       if (data.otherImagesId) {
@@ -187,6 +195,10 @@ export class UpdateProductComponent implements OnInit {
             this.firstImageData = imgData;
             this.firstImageId = 'img-' + 1;
           }
+
+          this.urls.push(imgData);
+          this.selectedImageCount = i + 1;
+
           i++;
         }
       }
@@ -200,8 +212,13 @@ export class UpdateProductComponent implements OnInit {
       this.startTime = this.product.startTime;
       this.startDate = this.product.startDate;
       this.price = this.product.price;
-      this.selectedCategory = this.product.categoryName;
 
+      for (const cat of this.categories) {
+        if (this.product.categoryName && this.product.categoryName === cat.name) {
+          this.selectedCategory = cat.id;
+          break;
+        }
+      }
 
     });
   }
