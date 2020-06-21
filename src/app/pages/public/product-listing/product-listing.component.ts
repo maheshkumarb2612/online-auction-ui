@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { DatePipe } from '@angular/common';
-import { Product } from '../../../common/model/product.model';
-import { ProductService } from '../../../common/product/product.service';
-import { Pagination } from '../../../common/model/pagination.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {DatePipe} from '@angular/common';
+import {Product} from '../../../common/model/product.model';
+import {ProductService} from '../../../common/product/product.service';
+import {Pagination} from '../../../common/model/pagination.model';
+import {ActivatedRoute, Router} from '@angular/router';
 
 export interface Tile {
   color: string;
@@ -21,18 +21,19 @@ export interface Tile {
 export class ProductListingComponent implements OnInit {
 
   tiles: Tile[] = [
-    { text: 'One', cols: 3, rows: 1, color: 'lightblue' },
-    { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
-    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
-    { text: 'Four', cols: 2, rows: 1, color: '#DDBDF1' },
-    { text: 'One', cols: 3, rows: 1, color: 'lightblue' },
-    { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
-    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
-    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
-    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
+    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
+    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
+    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
+    {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
+    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
+    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
+    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
+    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
+    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
   ];
 
-  typesOfShoes: string[] = ['Antique', 'Art', 'Books', 'Coins', 'Electronics', 'Painting', 'Other'];
+  categories = [];
+  selectedCategories = [];
 
   checked = false;
   indeterminate = false;
@@ -76,18 +77,8 @@ export class ProductListingComponent implements OnInit {
     });
     console.log(this.searchValue);
 
-    this.productService.getProducts(this.searchValue, true, true, true).subscribe(data => {
-
-      if (data.products && data.products instanceof Array && data.products.length > 0) {
-        this.products = data.products;
-        this.productList = data.productList;
-        this.pagination = data.pagination;
-        this.paginationList = data.paginationList;
-      } else {
-        this.errorMessage = 'No products posted by any user';
-      }
-    });
-
+    this.getCategories();
+    this.getProducts();
 
     // this.productList = product;
 
@@ -100,6 +91,46 @@ export class ProductListingComponent implements OnInit {
     //     .subscribe();
     // });
 
-
   }
+
+  getProducts() {
+    this.productService.getProducts(this.searchValue, true, true, true, this.selectedCategories).subscribe(data => {
+
+      if (data.products && data.products instanceof Array && data.products.length > 0) {
+        this.products = data.products;
+        this.productList = data.productList;
+        this.pagination = data.pagination;
+        this.paginationList = data.paginationList;
+        this.errorMessage = '';
+      } else {
+        this.products = [];
+        this.productList = [];
+        this.pagination = null;
+        this.paginationList = [];
+        this.errorMessage = 'No products posted by any user';
+      }
+    });
+  }
+
+  getCategories() {
+    this.categories = [];
+    this.productService.getCategories().subscribe(data => {
+
+      this.categories = data;
+      /*for (const cat of data) {
+        this.categories.push(cat.name);
+      }*/
+    });
+  }
+
+  onNgModelChange($event) {
+    console.log($event);
+    this.selectedCategories = $event;
+  }
+
+  resetCategory() {
+    this.selectedCategories = [];
+    this.getProducts();
+  }
+
 }

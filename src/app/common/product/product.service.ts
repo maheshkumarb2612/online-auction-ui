@@ -74,7 +74,7 @@ export class ProductService {
       );
   }
 
-  getProducts(searchValue: any, expired: boolean, live: boolean, upcoming: boolean): any {
+  getProducts(searchValue: any, expired: boolean, live: boolean, upcoming: boolean, categories: any): any {
 
     let url = APP_URL.BACKEND_PRODUCT;
     if (searchValue) {
@@ -82,6 +82,12 @@ export class ProductService {
     } else {
       url = url + '?pageNum=1&pageSize=100&sortBy=startDateTime&sortOrder=desc';
     }
+
+    if (categories && categories.length > 0) {
+      url = url + '&categoryIds=' + categories;
+    }
+    console.log(url);
+
     return this.httpClient.get<ResponseModel>(url)
       .pipe(
         map(
