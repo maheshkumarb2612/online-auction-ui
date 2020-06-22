@@ -86,7 +86,8 @@ export class ProductService {
     if (categories && categories.length > 0) {
       url = url + '&categoryIds=' + categories;
     }
-    console.log(url);
+
+    url = url + '&isLive=' + live + '&isExpired=' + expired + '&isUpcoming=' + upcoming;
 
     return this.httpClient.get<ResponseModel>(url)
       .pipe(

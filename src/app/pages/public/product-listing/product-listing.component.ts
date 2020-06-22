@@ -60,6 +60,10 @@ export class ProductListingComponent implements OnInit {
   errorMessage: string;
   searchValue = '';
 
+  isLive = true;
+  isExpired = true;
+  isUpcoming = true;
+
   constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
@@ -94,7 +98,8 @@ export class ProductListingComponent implements OnInit {
   }
 
   getProducts() {
-    this.productService.getProducts(this.searchValue, true, true, true, this.selectedCategories).subscribe(data => {
+
+    this.productService.getProducts(this.searchValue, this.isExpired, this.isLive, this.isUpcoming, this.selectedCategories).subscribe(data => {
 
       if (data.products && data.products instanceof Array && data.products.length > 0) {
         this.products = data.products;
@@ -133,4 +138,18 @@ export class ProductListingComponent implements OnInit {
     this.getProducts();
   }
 
+  isLiveStatus(liveValue) {
+    this.isLive = !liveValue;
+    this.getProducts();
+  }
+
+  isExpiredStatus(exValue) {
+    this.isExpired = !exValue;
+    this.getProducts();
+  }
+
+  isUpcomingStatus(upValue) {
+    this.isUpcoming = !upValue;
+    this.getProducts();
+  }
 }
