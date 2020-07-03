@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
     });
     console.log(this.searchValue);
 
-    this.productService.getProducts(this.searchValue, true, true, true, null).subscribe(data => {
+    this.productService.getProducts(this.searchValue, true, true, true, null, 1,12).subscribe(data => {
 
       if (data.products && data.products instanceof Array && data.products.length > 0) {
         this.products = data.products;

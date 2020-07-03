@@ -89,17 +89,19 @@
       <div class="row" *ngIf="products">
         <div class="col-sm-6 pd-10px">
           <section class="example-section">
-            <mat-checkbox name="isLive" [(ngModel)]="isLive" class="example-margin" (click)="isLiveStatus(liveValue)">Live Auction</mat-checkbox>
-            <mat-checkbox name="isUpcoming" [(ngModel)]="isUpcoming" class="example-margin" (click)="isUpcomingStatus(upValue)">Upcoming Auction</mat-checkbox>
-            <mat-checkbox name="isExpired" [(ngModel)]="isExpired" class="example-margin" (click)="isExpiredStatus(exValue)">Past Auction</mat-checkbox>
+            <mat-checkbox name="isLive" [(ngModel)]="isLive" class="example-margin" (click)="getProducts()">Live Auction</mat-checkbox>
+            <mat-checkbox name="isUpcoming" [(ngModel)]="isUpcoming" class="example-margin" (click)="getProducts()">Upcoming Auction</mat-checkbox>
+            <mat-checkbox name="isExpired" [(ngModel)]="isExpired" class="example-margin" (change)="getProducts()">Past Auction</mat-checkbox>
           </section>
         </div>
         <div class="col-sm-6 pd-5px">
           <mat-paginator class="bg-light"
-                         [length]="products.length"
+                         [length]="pagination.totalElements"
+                         [pageIndex]="0"
                          [pageSize]="5"
-                         [pageSizeOptions]="[2, 3, 25, 100]"
-                         [showFirstLastButtons]="true">
+                         [pageSizeOptions]="[5, 10, 15, 20]"
+                         [showFirstLastButtons]="true"
+                         (page)="applyPagination($event)">
           </mat-paginator>
         </div>
       </div>

@@ -74,13 +74,17 @@ export class ProductService {
       );
   }
 
-  getProducts(searchValue: any, expired: boolean, live: boolean, upcoming: boolean, categories: any): any {
+  getProducts(searchValue: any, expired: boolean, live: boolean, upcoming: boolean, categories: any, pageNum: any, pageSize: any): any {
 
     let url = APP_URL.BACKEND_PRODUCT;
     if (searchValue) {
-      url = url + '?searchValue=' + searchValue + '&pageNum=1&pageSize=100&sortBy=startDateTime&sortOrder=desc';
+      url = url + '?searchValue=' + searchValue + '&sortBy=startDateTime&sortOrder=desc';
     } else {
-      url = url + '?pageNum=1&pageSize=100&sortBy=startDateTime&sortOrder=desc';
+      url = url + '?sortBy=startDateTime&sortOrder=desc';
+    }
+
+    if (pageNum && pageSize) {
+      url = url + '&pageNum=' + pageNum + '&pageSize=' + pageSize;
     }
 
     if (categories && categories.length > 0) {

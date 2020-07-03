@@ -4,6 +4,7 @@ import {Product} from '../../../common/model/product.model';
 import {ProductService} from '../../../common/product/product.service';
 import {Pagination} from '../../../common/model/pagination.model';
 import {ActivatedRoute, Router} from '@angular/router';
+import {PageEvent} from '@angular/material';
 
 export interface Tile {
   color: string;
@@ -64,6 +65,12 @@ export class ProductListingComponent implements OnInit {
   isExpired = true;
   isUpcoming = true;
 
+  pageEvent: PageEvent;
+  datasource: null;
+  pageIndex: number = 0;
+  pageSize: number = 5;
+  length: number;
+
   constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
@@ -74,6 +81,9 @@ export class ProductListingComponent implements OnInit {
   public paginationList: Product[] = [];
 
   ngOnInit() {
+
+    this.pageIndex = 0;
+    this.pageSize = 5;
 
     this.errorMessage = '';
     this.route.queryParams.subscribe(params => {
@@ -99,22 +109,23 @@ export class ProductListingComponent implements OnInit {
 
   getProducts() {
 
-    this.productService.getProducts(this.searchValue, this.isExpired, this.isLive, this.isUpcoming, this.selectedCategories).subscribe(data => {
+    this.productService.getProducts(this.searchValue, this.isExpired, this.isLive, this.isUpcoming, this.selectedCategories, this.pageIndex + 1, this.pageSize)
+      .subscribe(data => {
 
-      if (data.products && data.products instanceof Array && data.products.length > 0) {
-        this.products = data.products;
-        this.productList = data.productList;
-        this.pagination = data.pagination;
-        this.paginationList = data.paginationList;
-        this.errorMessage = '';
-      } else {
-        this.products = [];
-        this.productList = [];
-        this.pagination = null;
-        this.paginationList = [];
-        this.errorMessage = 'No products posted by any user';
-      }
-    });
+        if (data.products && data.products instanceof Array && data.products.length > 0) {
+          this.products = data.products;
+          this.productList = data.productList;
+          this.pagination = data.pagination;
+          this.paginationList = data.paginationList;
+          this.errorMessage = '';
+        } else {
+          this.products = [];
+          this.productList = [];
+          this.pagination = null;
+          this.paginationList = [];
+          this.errorMessage = 'No products posted by any user';
+        }
+      });
   }
 
   getCategories() {
@@ -150,6 +161,13 @@ export class ProductListingComponent implements OnInit {
 
   isUpcomingStatus(upValue) {
     this.isUpcoming = !upValue;
+    this.getProducts();
+  }
+
+
+  public applyPagination(event?: PageEvent) {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
     this.getProducts();
   }
 }
